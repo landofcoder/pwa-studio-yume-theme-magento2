@@ -1,1 +1,0 @@
-export const PREFETCH_IMAGES = 'PREFETCH_IMAGES';

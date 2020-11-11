@@ -1,8 +1,0 @@
-query getArticle($articleId: Number!) {
-    article(id: $articleId) {
-        id
-        title
-        author
-        body
-    }
-}
