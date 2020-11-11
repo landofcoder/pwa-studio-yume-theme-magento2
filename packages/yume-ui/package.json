@@ -4,7 +4,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "description": "Venia PWA UI modules for use by other projects",
+  "description": "Yume PWA UI modules for use by other projects",
   "main": "lib/index.js",
   "browser": {
     "@magento/venia-drivers": "./lib/drivers"

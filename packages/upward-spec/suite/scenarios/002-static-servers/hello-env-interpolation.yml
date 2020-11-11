@@ -1,5 +1,0 @@
-status: 200
-headers:
-  inline:
-    content-type: text/plain
-body: env.UPWARD_TEST_RESPONSE_BODY
