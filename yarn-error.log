@@ -36,7 +36,7 @@ npm manifest:
           "src/custom-module"
       ],
       "storefront": {
-          "company": "example-company",
+          "company": "custom-module",
           "project": "custom-module"
       },
       "scripts": {
@@ -52,10 +52,10 @@ npm manifest:
           "watch:custom-module": "yarn custom-module run watch",
           "venia": "yarn workspace @magento/venia-concept",
           "custom-module": "yarn workspace @fallback-studio/custom-module",
-          "lint": "eslint 'src/example-company/**/{*.js,package.json}' --ignore-pattern node_modules --ignore-pattern storybook-dist --ignore-pattern dist",
-          "prettier": "prettier --write 'src/example-company/**/*.@(js|scss)' '*.js'",
-          "prettier:validate": "prettier-check 'src/example-company/**/*.@(js|scss)' '*.js'",
-          "prettier:check": "prettier --list-different 'src/example-company/**/*.@(js|scss)' '*.js'",
+          "lint": "eslint 'src/custom-module/**/{*.js,package.json}' --ignore-pattern node_modules --ignore-pattern storybook-dist --ignore-pattern dist",
+          "prettier": "prettier --write 'src/custom-module/**/*.@(js|scss)' '*.js'",
+          "prettier:validate": "prettier-check 'src/custom-module/**/*.@(js|scss)' '*.js'",
+          "prettier:check": "prettier --list-different 'src/custom-module/**/*.@(js|scss)' '*.js'",
           "test": "jest",
           "test:ci": "jest --no-cache -i --json --outputFile=test-results.json",
           "test:dev": "jest --watch",

@@ -71,7 +71,7 @@ Right now you should see something like this in your terminal:
 ## How the fallback structure works
 
 So to give you a feeling on how it all works we first need to take a look at a crucial file in the fallback structure.
-If you open the following file `src/example-company/custom-module/webpack.config.js` you see it looks a lot like the default `webpack.config.json` from
+If you open the following file `src/custom-module/custom-module/webpack.config.js` you see it looks a lot like the default `webpack.config.json` from
 `venia-concept`. The big difference is that everywhere there is a path to a certain file or folder we removed the contents from our storefront and added a fallback path.
 
 **For example:**<br />
@@ -114,13 +114,13 @@ As you can see we once again included the `const parentTheme` in the modules arr
 **For example:**<br />
 `parentComponents` will resolve to `pwa-studio/packages/venia-concept/src/components`
 
-I've created a really basic example on how to fallback on `venia-concept` components. But first I'd like you to navigate to `src/example-company/custom-module/src/components` as you can tell we are missing quite a few components.<br />
+I've created a really basic example on how to fallback on `venia-concept` components. But first I'd like you to navigate to `src/custom-module/custom-module/src/components` as you can tell we are missing quite a few components.<br />
 
  Now pleas run the follow command from the root directory `yarn run watch:custom-module` as you can tell it's pretty much the same as `venia-concept` but we've added a custom `TopBar` component
  and overwritten the `Footer` component and added and extra block of content.
  
  **Lets take a look at the code:**<br />
- Look at the following folder `src/example-company/custom-module/src/components/Footer` as you can tell we've only copied `index.js` and `footer.js` but we are missing `footer.css` but the styling still works.
+ Look at the following folder `src/custom-module/custom-module/src/components/Footer` as you can tell we've only copied `index.js` and `footer.js` but we are missing `footer.css` but the styling still works.
  That's because inside `footer.js` we made a little change:
  
  **from this:**
@@ -159,7 +159,7 @@ I've created a really basic example on how to fallback on `venia-concept` compon
  ```
   
 ## Creating a custom storefront
-The easiest way to add a custom storefront is to duplicate the `example-company` folder and rename it to your likings.
+The easiest way to add a custom storefront is to duplicate the `custom-module` folder and rename it to your likings.
 Don't forget to change it inside the root package.json, lerna.json and the package.json from the storefront.
 
 **NOTE:**<br />
