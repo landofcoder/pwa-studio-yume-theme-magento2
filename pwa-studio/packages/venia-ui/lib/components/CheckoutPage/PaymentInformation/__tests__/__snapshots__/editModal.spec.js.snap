@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Should return correct shape 1`] = `
+<mock-Dialog
+  confirmText="Update"
+  confirmTranslationId="global.updateButton"
+  onCancel={[Function]}
+  onConfirm={[Function]}
+  shouldDisableAllButtons={false}
+  shouldDisableConfirmButton={false}
+  shouldUnmountOnHide={true}
+  title="Edit Payment Information"
+>
+  <div
+    className="body"
+  >
+    <mock-CreditCard
+      onDropinReady={[Function]}
+      onPaymentSuccess={[Function]}
+      shouldSubmit={false}
+    />
+  </div>
+</mock-Dialog>
+`;

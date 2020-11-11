@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`it renders correct with a element 1`] = `
+<div>
+  <h1>
+    Something went wrong. Please try again.
+  </h1>
+</div>
+`;
