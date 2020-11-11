@@ -1,192 +1,134 @@
-[![node][node]][node-url] [![pwa-studio][pwa-studio]][pwa-studio-url]
+# PWA Studio
 
-[node]: https://img.shields.io/badge/Node-%3E%3D10.14.1-brightgreen.svg
-[node-url]: https://nodejs.org
+Magento PWA Studio is a collection of tools that lets developers build complex Progressive Web Applications on top of Magento 2 stores.
 
-[pwa-studio]: https://img.shields.io/badge/pwa--studio-v4.0.0-brightgreen.svg
-[pwa-studio-url]: https://github.com/magento-research/pwa-studio
+## Useful links
 
-# DEPRECATED! You should check www.pwastudio.io on how to start a project
+[PWA Studio documentation site][documentation site] -
+The best place to start learning about the tools and the technologies that PWA Studio provides.
+Here, you can learn PWA Studio concepts, find API reference docs, and read tutorials on how to use PWA Studio to create your own PWA storefront.
 
-# Fallback Studio
+Here are some popular topics to help you get started:
 
+- [PWA Studio Overview][] - A high level overview of PWA Studio and what it provides to developers
+- [Tools and libraries][] - A list of tools and libraries developers need to be familiar with to use PWA Studio
+- [PWA Studio fundamentals][] - A series of tutorials covering common storefront development tasks
 
-Fallback Studio (<small>the name was too funny not to use</small>) creates a wrapper around [PWA Studio](https://github.com/magento-research/pwa-studio) and provides a
-basic fallback structure so you can create storefronts that depend on the venia-concept storefront. 
+[PWA learning resources from Magento U][magento u] -
+Just starting out with Progressive Web Application technologies in general?
+Check out Magento U's learning resource page for PWA.
+It contains links to online training, tutorials, and courses on the technologies you need to know to use PWA Studio.
 
-### Motivation
+### Venia
 
-The reason i created this repository is because the first time i cloned `pwa-studio` 
-and followed the docs i had no clue on how or where to start building my own storefront.
+[![Venia](https://raw.githubusercontent.com/wiki/magento/pwa-studio/images/venia.png)][venia]
 
-The idea behind this fallback structure is basically the same as we know it from default Magento. 
-Your custom storefront will be the same as `venia-concept` except the components that you've changed 
-to your needs or custom made. When you've been developing follow this approach for a while you will find that in-time hardly 
-anything will fallback to `venia-concept` thus making your storefront stand on it's own.
+[Venia][] is a Magento PWA storefront created and powered by PWA Studio tools and libraries.
+Developers can use Venia as a reference storefront for their own projects or as a starting point for customization.
 
-I assume that for a lot of frontend Magento developers PWA and all the techniques used to create one are somewhat uncharted waters.
-With this setup i hope to remove the "i have no clue where to start" feeling and make it simple for developers to start playing with `pwa-studio`
+## About this repository
 
-Based on the amount questions i've been asked and seen in the community around this topic i decided to make this public.
+To facilitate local development, testing, and versioning, PWA Studio is structured as a monorepo using [Yarn Workspaces][].
+Packages in this repository are independently published to [NPM][].
+Install individual packages as needed instead of installing the entire `pwa-studio` project as a dependency of your project.
 
-## Prerequisites
-Make sure you have the following:
+### Packages
 
-- NodeJS >= 10.14.1 LTS (NodeJS 11+ can cause problems)
+This repository includes the following packages:
 
-- Yarn >= 1.13.0
+- [**peregrine**](https://magento.github.io/pwa-studio/peregrine/) - A component library for adding logic to visual components
+- **venia-ui** - A library of visual components for PWA storefront projects
+- **venia-concept** - A concept storefront project built using PWA Studio tools
+- [**pwa-buildpack**](https://magento.github.io/pwa-studio/pwa-buildpack/) - A tooling library to help with PWA storefront development
+- [**upward-spec**](https://magento.github.io/pwa-studio/technologies/upward/) - UPWARD specification and test suite
+- [**upward-js**](https://magento.github.io/pwa-studio/technologies/upward/reference-implementation/) - A reference implementation of the UPWARD specification
+- **babel-preset-peregrine** - A [babel][] preset plugin that is required to use peregrine components
+- **graphql-cli-validate-magento-pwa-queries** - A script to validate your project's GraphQL queries against a schema
+- [**pwa-devdocs**](pwa-devdocs) - Project source for the [documentation site][]
 
-- Python 2.7 and build tools, [see the Installation instructions on node-gyp](https://github.com/nodejs/node-gyp#installation) for your platform.
+If you have an issue that cannot be resolved, please [create an issue][].
 
-- unix based OS for example MacOS or Linux
+## Contributions
 
-## Quick setup
+Are you interested in contributing to the PWA Studio project?
+Check out the [community wiki][] to learn how to contribute to PWA Studio.
 
-Note: only run commands from the root dir
+If you are looking for an issue to work on, visit our [backlog board][] and look at the **Good First Issue** column.
 
-**step: 1**
-```
-git clone https://github.com/Jordaneisenburger/fallback-studio.git
-```
+For more information about contributing to this repository, see the [Contribution guide][].
 
-**step: 2**
-```
-cd fallback-studio
-```
+### Join the conversation
 
-**step: 3** (this runs all necessary package.json commands back to back)
-```
-yarn run setup
-```
+If you have any project questions, concerns, or contribution ideas, join our [#pwa slack channel][]!
 
-**step: 4**
-```
-yarn run watch:custom-module
-```
+### Community Maintainers
 
-Right now you should see something like this in your terminal:
+A community maintainer is a point of contact from the community approved by the Core Team to help with community outreach and project administration.
 
-![Alt text](docs/quick-setup.png?raw=true "Quick setup")
+The following members are the community maintainers for this project:
 
-## How the fallback structure works
+[![larsroettig-image]][larsroettig]
+[![Jordaneisenburger-image]][Jordaneisenburger]
 
-So to give you a feeling on how it all works we first need to take a look at a crucial file in the fallback structure.
-If you open the following file `src/custom-module/custom-module/webpack.config.js` you see it looks a lot like the default `webpack.config.json` from
-`venia-concept`. The big difference is that everywhere there is a path to a certain file or folder we removed the contents from our storefront and added a fallback path.
+[Jordaneisenburger]: https://github.com/Jordaneisenburger
+[Jordaneisenburger-image]: https://avatars0.githubusercontent.com/u/19858728?v=4&s=60
 
-**For example:**<br />
-in our storefront we don't want to create a custom `validate-environment.js` because the default from `venia-concept` fits our needs so we've deleted it from the `custom-module` storefront.
+[larsroettig]: https://github.com/larsroettig
+[larsroettig-image]: https://avatars0.githubusercontent.com/u/5289370?v=4&s=60
 
-Now to fallback to `venia-concept` we've changed **this:**
-```
-const validEnv = require('./validate-environment')(process.env);
-```
-**to this:**
-```
-//declared at the top of our webpack.config.js
-const parentTheme = path.resolve(process.cwd() + '/../../pwa-studio/packages/venia-concept');
+### Top Community Contributors
 
-const validEnv = require(`${parentTheme}/validate-environment`)(process.env);
-```
-As you can tell this is pretty basic and straightforward. 
-<br/><br/>
+The PWA Studio project welcomes all codebase and documentation contributions.
+We would like to recognize the following community members for their efforts on improving the PWA Studio project in 2020.
 
-### So how about React components?
+| Author               | Commits | Added Lines | Removed Lines | Avg. Files |
+| -------------------- | ------- | ----------- | ------------- | ---------- |
+| Lars Roettig         | 17      | 1430        | 1101          | 5.824      |
+| Ross McHugh          | 12      | 1089        | 11            | 2          |
+| Lucas Calazans       | 5       | 378         | 194           | 3.2        |
+| Luke Denton          | 5       | 85          | 39            | 1.4        |
+| Jordan Eisenburger   | 4       | 334         | 39            | 3          |
+| Kristof, Fooman      | 4       | 103         | 74            | 3          |
+| Adam                 | 3       | 328         | 16            | 2.667      |
+| Harald Deiser        | 3       | 150         | 123           | 12.667     |
+| Brendan Falkowski    | 2       | 1168        | 416           | 12.5       |
+| Huy Kon              | 2       | 991         | 39            | 10         |
+| Miguel Balparda      | 2       | 8           | 6             | 1          |
+| Shikha Mishra        | 2       | 16          | 12            | 2          |
+| christopher daniel   | 2       | 163         | 106           | 6.5        |
+| sivakumarkoduru      | 2       | 7           | 4             | 1.5        |
+| Alexander Taranovsky | 1       | 4           | 1             | 2          |
+| Andrii Beziazychnyi  | 1       | 4           | 0             | 1          |
+| Cody Nguyễn          | 1       | 1           | 1             | 1          |
+| Davide               | 1       | 9           | 7             | 1          |
+| Dominic Fernando     | 1       | 0           | 1             | 1          |
+| Evan Burrell         | 1       | 92          | 29            | 11         |
 
-To do this we again need to take a look at our `webpack.config.js` file but this time we need to scroll down a bit till we get to the `resolve` part that looks like:
+<small>_Last Updated: September 3, 2020_</small>
 
-```
-resolve: {
-    modules: [__dirname, 'node_modules', parentTheme],
-    mainFiles: ['index'],
-    extensions: ['.mjs', '.js', '.json', '.graphql'],
-    alias: {
-        parentSrc: path.resolve(parentTheme, 'src'),
-        parentComponents: path.resolve(parentTheme, 'src/components'),
-        parentQueries: path.resolve(parentTheme, 'src/queries')
-    }
+**Source:** [statistic.magento.engineering][]
 
-}
-```
-As you can see we once again included the `const parentTheme` in the modules array. But the real 'magic' happens in the `alias` part.
-3 aliases are added for different folders inside the `venia-concept` folder. 
+[statistic.magento.engineering]: <https://statistic.magento.engineering/app/kibana#/dashboard/fe6a4960-8adf-11ea-b035-e1712195ddd1?_g=(refreshInterval:(pause:!t,value:0),time:(from:now%2Fy,mode:quick,to:now))&_a=(description:'Custom%20Overview%20Panel%20by%20Magento',filters:!(('$state':(store:appState),meta:(alias:'Empty%20Commits',disabled:!f,index:git,key:files,negate:!t,params:(query:'0',type:phrase),type:phrase,value:'0'),query:(match:(files:(query:'0',type:phrase)))),('$state':(store:appState),meta:(alias:Bots,disabled:!f,index:github_issues,key:author_bot,negate:!t,params:(query:!t,type:phrase),type:phrase,value:true),query:(match:(author_bot:(query:!t,type:phrase)))),('$state':(store:appState),meta:(alias:!n,disabled:!f,index:git,key:author_name,negate:!t,params:!('Revanth%20Kumar%20Annavarapu','Revanth%20Kumar',Devagouda,dependabot%5Bbot%5D),type:phrases,value:'Revanth%20Kumar%20Annavarapu,%20Revanth%20Kumar,%20Devagouda,%20dependabot%5Bbot%5D'),query:(bool:(minimum_should_match:1,should:!((match_phrase:(author_name:'Revanth%20Kumar%20Annavarapu')),(match_phrase:(author_name:'Revanth%20Kumar')),(match_phrase:(author_name:Devagouda)),(match_phrase:(author_name:dependabot%5Bbot%5D)))))),('$state':(store:appState),meta:(alias:!n,disabled:!f,index:git,key:author_org_name,negate:!t,params:(query:Employee,type:phrase),type:phrase,value:Employee),query:(match:(author_org_name:(query:Employee,type:phrase))))),fullScreenMode:!f,options:(darkTheme:!f,useMargins:!t),panels:!((embeddableConfig:(title:Commits,vis:(legendOpen:!f)),gridData:(h:8,i:'2',w:16,x:0,y:36),id:git_evolution_commits,panelIndex:'2',title:'Git%20Commits',type:visualization,version:'6.8.6'),(embeddableConfig:(title:'Github%20Issues'),gridData:(h:8,i:'31',w:24,x:0,y:28),id:github_issues_main_metrics,panelIndex:'31',title:'Github%20Issues',type:visualization,version:'6.8.6'),(embeddableConfig:(title:'GitHub%20Issues',vis:(legendOpen:!f)),gridData:(h:8,i:'32',w:24,x:0,y:20),id:github_issues_evolutionary,panelIndex:'32',title:'GitHub%20Issues',type:visualization,version:'6.8.6'),(embeddableConfig:(title:'GitHub%20Issues%20Submitters'),gridData:(h:8,i:'33',w:16,x:32,y:36),id:github_issues_evolutionary_submitters,panelIndex:'33',title:'GitHub%20Issues%20Submitters',type:visualization,version:'6.8.6'),(embeddableConfig:(title:'GitHub%20Pull%20Requests'),gridData:(h:8,i:'34',w:24,x:24,y:28),id:github_pullrequests_main_metrics,panelIndex:'34',title:'GitHub%20Pull%20Requests',type:visualization,version:'6.8.6'),(embeddableConfig:(title:'Pull%20Requests',vis:(legendOpen:!f)),gridData:(h:8,i:'35',w:24,x:24,y:20),id:github_pullrequests_pullrequests,panelIndex:'35',title:'GitHub%20Pull%20Requests',type:visualization,version:'6.8.6'),(embeddableConfig:(title:'Pull%20Request%20Submitters',vis:(legendOpen:!f)),gridData:(h:8,i:'36',w:16,x:16,y:36),id:github_pullrequests_submitters_evolutionary,panelIndex:'36',title:'GitHub%20Pull%20Request%20Submitters',type:visualization,version:'6.8.6'),(embeddableConfig:(title:'Git%20Top%20Authors',vis:(params:(config:(searchKeyword:''),sort:(columnIndex:!n,direction:!n)))),gridData:(h:20,i:'111',w:24,x:0,y:0),id:git_overview_top_authors,panelIndex:'111',title:'Top%20Code%20Contributors',type:visualization,version:'6.8.6'),(embeddableConfig:(title:'-',vis:(params:(config:(searchKeyword:''),sort:(columnIndex:1,direction:desc)))),gridData:(h:20,i:'114',w:24,x:24,y:0),id:f747c010-9041-11ea-b035-e1712195ddd1,panelIndex:'114',title:'Magento%20Projects',type:visualization,version:'6.8.6')),query:(language:lucene,query:'*pwa-studio'),timeRestore:!f,title:Overview,viewMode:view)>
 
-**For example:**<br />
-`parentComponents` will resolve to `pwa-studio/packages/venia-concept/src/components`
-
-I've created a really basic example on how to fallback on `venia-concept` components. But first I'd like you to navigate to `src/custom-module/custom-module/src/components` as you can tell we are missing quite a few components.<br />
-
- Now pleas run the follow command from the root directory `yarn run watch:custom-module` as you can tell it's pretty much the same as `venia-concept` but we've added a custom `TopBar` component
- and overwritten the `Footer` component and added and extra block of content.
- 
- **Lets take a look at the code:**<br />
- Look at the following folder `src/custom-module/custom-module/src/components/Footer` as you can tell we've only copied `index.js` and `footer.js` but we are missing `footer.css` but the styling still works.
- That's because inside `footer.js` we made a little change:
- 
- **from this:**
- ```
- import defaultClasses from './footer.css';
- ```
- 
- **to this:** (remember our alias inside webpack.config.js?)
- ```
- import defaultClasses from 'parentComponents/Footer/footer.css';
- ```
- So we've changed this component with a custom piece of content 'Custom Example shop' but kept the default styling.
- 
- **Another example:**<br/>
- I've created a custom component called `TopBar` this one is not overwritten from `venia-concept` storefront. I want to include this on every page so I've copied the `Main` component from `venia-concept` to our `components` folder.
- 
- As you can tell I've added aliases for all components that we are not changing and included my own custom component:
- ```
- //Uncomment to use venia-concept footer again
- //import Footer from 'parentComponents/Footer';
- 
- import Footer from 'src/components/Footer';
- 
- import Header from 'parentComponents/Header';
- import TopBar from 'src/components/TopBar';
- import defaultClasses from 'parentComponents/Main/main.css';
- 
- ...
- 
- <main className={classes.root}>
-     <TopBar />
-     <Header />
-     <article className={classes.page}>{children}</article>
-     <Footer />
- </main>
- ```
-  
-## Creating a custom storefront
-The easiest way to add a custom storefront is to duplicate the `custom-module` folder and rename it to your likings.
-Don't forget to change it inside the root package.json, lerna.json and the package.json from the storefront.
-
-**NOTE:**<br />
-For now you shouldn't change the names of the folder because there will be bugfixes etc. and if you've changed the folder names this will cause problems when you update this repo. I'm planning on adding a simple CLI like `create-react-app` to setup your own theme.
-
-
-## Updating PWA Studio
-To update to the latest `pwa-studio` version you want to run the following commands from the project root dir
-
-```
-yarn run upgrade:pwa-studio
-```
-
-**NOTE:**<br/>
-Always check the changes before you update because you might need to make changes to your custom storefront to prevent issues.
-
-
-## TODO
-
-- add simple CLI for creating storefronts
-- get the complete dev experience by working with the watch:all script
-
-
-## Credits
-
-* Magento for creating [PWA Studio](https://github.com/magento-research/pwa-studio)
-
-## Definitely not needed but appreciated
-
-<a href="https://www.buymeacoffee.com/Fc5IDf687" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
+[Contribution guide]: .github/CONTRIBUTING.md
+[Coverage Status]: https://coveralls.io/repos/github/magento/pwa-studio/badge.svg?branch=master
+[create an issue]: https://github.com/magento/pwa-studio/issues/new
+[documentation site]: https://pwastudio.io
+[Git hook]: https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks
+[NPM]: https://www.npmjs.com/org/magento
+[selective dependency resolutions]: https://yarnpkg.com/lang/en/docs/selective-version-resolutions/
+[Troubleshooting]: https://pwastudio.io/pwa-buildpack/troubleshooting/
+[Venia storefront setup]: https://pwastudio.io/venia-pwa-concept/setup/
+[PWA Studio fundamentals]: https://pwastudio.io/tutorials/pwa-studio-fundamentals/
+[workspace commands]: https://yarnpkg.com/en/docs/cli/workspace
+[Yarn Workspaces]: https://yarnpkg.com/en/docs/workspaces/
+[magento u]: https://u.magento.com/pwa-learning-resources
+[community wiki]: https://github.com/magento/pwa-studio/wiki
+[pwa studio overview]: https://magento.github.io/pwa-studio/technologies/overview/
+[tools and libraries]: https://magento.github.io/pwa-studio/technologies/tools-libraries/
+[venia storefront setup]: https://magento.github.io/pwa-studio/venia-pwa-concept/setup/
+[project coding standards and conventions]: https://github.com/magento/pwa-studio/wiki/Project-coding-standards-and-conventions
+[backlog board]: https://github.com/magento/pwa-studio/projects/1
+[#pwa slack channel]: https://magentocommeng.slack.com/messages/C71HNKYS2
+[babel]: https://babeljs.io/
+[venia]: https://venia.magento.com/
