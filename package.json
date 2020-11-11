@@ -30,7 +30,7 @@
         "setup": "yarn install && yarn run build",
         "stage:custom-module": "yarn custom-module run start",
         "watch:venia": "yarn venia run watch",
-        "watch:custom-module": "yarn custom-module run watch",
+        "watch:custom-module": "yarn workspace @magento/custom-module run watch",
         "venia": "yarn workspace @magento/venia-concept",
         "custom-module": "yarn workspace @fallback-studio/custom-module",
         "lint": "eslint 'src/example-company/**/{*.js,package.json}' --ignore-pattern node_modules --ignore-pattern storybook-dist --ignore-pattern dist",
