@@ -1,6 +1,6 @@
 import React from 'react';
 import { arrayOf, shape, string } from 'prop-types';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/lib/classify';
 import defaultClasses from './text.css';
 
 const toHTML = str => ({ __html: str });

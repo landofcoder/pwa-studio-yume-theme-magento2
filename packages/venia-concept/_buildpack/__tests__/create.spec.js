@@ -179,7 +179,7 @@ describe('when DEBUG_PROJECT_CREATION is set', () => {
         foo: { location: '/repo/packages/me' },
         '@magento/peregrine': { location: 'packages/peregrine' },
         '@magento/create-pwa': { location: 'packages/create-pwa' },
-        '@magento/venia-ui': { location: 'packages/venia-ui' }
+        '@landofcoder/yume-ui': { location: 'packages/yume-ui' }
     });
 
     let fs;
@@ -191,7 +191,7 @@ describe('when DEBUG_PROJECT_CREATION is set', () => {
             name: 'foo',
             author: 'bar',
             dependencies: {
-                '@magento/venia-ui': '1.0.0'
+                '@landofcoder/yume-ui': '1.0.0'
             },
             devDependencies: {
                 '@magento/peregrine': '1.0.0'
@@ -205,8 +205,8 @@ describe('when DEBUG_PROJECT_CREATION is set', () => {
             '/repo/packages/me/package.json': JSON.stringify(pkg),
             '/repo/packages/me/package-lock.json': '{ "for": "npm" }',
             '/repo/packages/me/yarn.lock': '{ "for": "yarn" }',
-            [resolve(packagesRoot, 'venia-ui/package.json')]: JSON.stringify({
-                name: '@magento/venia-ui'
+            [resolve(packagesRoot, 'yume-ui/package.json')]: JSON.stringify({
+                name: '@landofcoder/yume-ui'
             }),
             [resolve(packagesRoot, 'peregrine/package.json')]: JSON.stringify({
                 name: '@magento/peregrine'

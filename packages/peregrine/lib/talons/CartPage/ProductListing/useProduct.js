@@ -195,7 +195,7 @@ const flattenProduct = item => {
  * @property {GraphQLAST} removeItemMutation Mutation for removing an item in a cart
  * @property {GraphQLAST} updateItemQuantityMutation Mutation for updating the item quantity in a cart
  *
- * @see [product.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/CartPage/ProductListing/product.js}
+ * @see [product.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/CartPage/ProductListing/product.js}
  * to see the mutations used in Venia
  */
 

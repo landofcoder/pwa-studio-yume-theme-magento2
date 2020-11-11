@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react';
 import { arrayOf, oneOf, string, bool } from 'prop-types';
 import { useHistory } from '@magento/venia-drivers';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
-import Button from '@magento/venia-ui/lib/components/Button/button';
+import { mergeClasses } from '@landofcoder/yume-ui/lib/classify';
+import Button from '@landofcoder/yume-ui/lib/components/Button/button';
 
 import resolveLinkProps from '../../resolveLinkProps';
 import defaultClasses from './buttonItem.css';

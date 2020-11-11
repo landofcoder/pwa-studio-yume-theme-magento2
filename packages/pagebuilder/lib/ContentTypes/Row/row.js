@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import defaultClasses from './row.css';
 import { verticalAlignmentToFlex } from '../../utils';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/lib/classify';
 import { arrayOf, oneOf, shape, bool, string, number } from 'prop-types';
 import { resourceUrl } from '@magento/venia-drivers';
 

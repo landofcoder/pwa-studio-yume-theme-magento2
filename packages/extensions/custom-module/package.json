@@ -1,0 +1,29 @@
+{
+  "name": "@landofcoder/custom-module",
+  "version": "1.0.0",
+  "description": "custom module was created by landofcoder",
+  "main": "src/targets/wrapper.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "landofcoder",
+  "license": "ISC",
+  "repository": "",
+  "dependencies": {
+    "@apollo/react-hooks": "^4.0.0"
+  },
+  "peerDependencies": {
+    "@magento/peregrine": "~7.0.0",
+    "@magento/pwa-buildpack": "~6.0.0",
+    "@landofcoder/yume-ui": "~4.0.0",
+    "apollo-client": "2.6.4",
+    "graphql-tag": "~2.10.1",
+    "react": "~16.9.0",
+    "webpack": "~4.38.0"
+  },
+  "pwa-studio": {
+    "targets": {
+      "intercept": "src/targets/intercept"
+    }
+  }
+}

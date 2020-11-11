@@ -2,7 +2,7 @@ import React from 'react';
 import { createTestInstance } from '@magento/peregrine';
 import Heading from '../heading';
 
-jest.mock('@magento/venia-ui/lib/classify');
+jest.mock('@landofcoder/yume-ui/lib/classify');
 
 test('renders a Heading component', () => {
     const headingProps = {

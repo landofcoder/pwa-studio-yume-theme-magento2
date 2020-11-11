@@ -11,11 +11,11 @@
                         "apollo",
                         "literal"
                     ],
-                    "filesGlob": "../{peregrine,venia-ui,venia-concept}/{lib,src}/**/*.{js,graphql,gql}",
+                    "filesGlob": "../{peregrine,yume-ui,venia-concept}/{lib,src}/**/*.{js,graphql,gql}",
                     "ignore": [
-                        "../venia-ui/lib/**/giftOptions.js",
-                        "../venia-ui/lib/**/wishlistPage.gql.js",
-                        "../venia-ui/lib/**/wishlistItem.gql.js"
+                        "../yume-ui/lib/**/giftOptions.js",
+                        "../yume-ui/lib/**/wishlistPage.gql.js",
+                        "../yume-ui/lib/**/wishlistItem.gql.js"
                     ]
                 }
             }

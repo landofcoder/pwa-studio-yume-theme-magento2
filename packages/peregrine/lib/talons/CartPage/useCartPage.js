@@ -78,7 +78,7 @@ export const useCartPage = props => {
  *
  * @property {GraphQLAST} getCartDetails Query for getting the cart details.
  *
- * @see [cartPage.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/CartPage/cartPage.gql.js}
+ * @see [cartPage.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/CartPage/cartPage.gql.js}
  * for queries used in Venia
  */
 

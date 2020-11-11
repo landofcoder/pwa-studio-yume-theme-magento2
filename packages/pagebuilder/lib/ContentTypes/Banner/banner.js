@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import defaultClasses from './banner.css';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/lib/classify';
 import { arrayOf, bool, oneOf, shape, string, func } from 'prop-types';
-import Button from '@magento/venia-ui/lib/components/Button/button';
+import Button from '@landofcoder/yume-ui/lib/components/Button/button';
 import resolveLinkProps from '../../resolveLinkProps';
 import { Link, resourceUrl } from '@magento/venia-drivers';
 

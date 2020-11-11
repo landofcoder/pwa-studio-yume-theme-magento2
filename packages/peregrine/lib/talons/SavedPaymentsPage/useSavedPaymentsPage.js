@@ -90,7 +90,7 @@ export const useSavedPaymentsPage = props => {
  *
  * @property {GraphQLAST} getSavedPaymentsQuery Query for getting saved payments. See https://devdocs.magento.com/guides/v2.4/graphql/queries/customer-payment-tokens.html
  *
- * @see [savedPaymentsPage.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/SavedPaymentsPage/savedPaymentsPage.gql.js}
+ * @see [savedPaymentsPage.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/SavedPaymentsPage/savedPaymentsPage.gql.js}
  * for queries used in Venia
  */
 

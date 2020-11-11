@@ -14,7 +14,7 @@ module.exports = targets => {
     ]);
 
     targets
-        .of('@magento/venia-ui')
+        .of('@landofcoder/yume-ui')
         .richContentRenderers.tap(richContentRenderers => {
             richContentRenderers.add({
                 componentName: 'PageBuilder',

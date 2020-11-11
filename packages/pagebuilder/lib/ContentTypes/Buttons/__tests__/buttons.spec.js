@@ -2,7 +2,7 @@ import React from 'react';
 import { createTestInstance } from '@magento/peregrine';
 import Buttons from '../buttons';
 
-jest.mock('@magento/venia-ui/lib/classify');
+jest.mock('@landofcoder/yume-ui/lib/classify');
 
 test('renders a Buttons component with stacked appearance', () => {
     const buttonsProps = {

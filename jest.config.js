@@ -45,7 +45,7 @@ const testReactComponents = inPackage => ({
     moduleNameMapper: {
         // Mock binary files to avoid excess RAM usage.
         '\\.(jpg|jpeg|png)$':
-            '<rootDir>/packages/venia-ui/__mocks__/fileMock.js',
+            '<rootDir>/packages/yume-ui/__mocks__/fileMock.js',
         // CSS module classes are dynamically generated, but that makes
         // it hard to test React components using DOM classnames.
         // This mapping forces CSS Modules to return literal identies,
@@ -53,7 +53,7 @@ const testReactComponents = inPackage => ({
         '\\.css$': 'identity-obj-proxy',
         '\\.svg$': 'identity-obj-proxy',
         '@magento/venia-drivers':
-            '<rootDir>/packages/venia-ui/lib/drivers/index.js'
+            '<rootDir>/packages/yume-ui/lib/drivers/index.js'
     },
     moduleFileExtensions: ['ee.js', 'ce.js', 'js', 'json', 'jsx', 'node'],
     // Reproduce the Webpack resolution config that lets Venia import
@@ -248,7 +248,7 @@ const jestConfig = {
         configureProject('venia-concept', 'Venia Storefront', inPackage =>
             testReactComponents(inPackage)
         ),
-        configureProject('venia-ui', 'Venia UI', inPackage => ({
+        configureProject('yume-ui', 'Venia UI', inPackage => ({
             ...testReactComponents(inPackage),
             setupFiles: [
                 path.join('<rootDir>', 'scripts', 'jest-backend-setup.js')

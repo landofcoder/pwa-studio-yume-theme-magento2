@@ -1,7 +1,7 @@
 import React from 'react';
 import { verticalAlignmentToFlex } from '../../utils';
 import { resourceUrl } from '@magento/venia-drivers';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/lib/classify';
 import defaultClasses from './tabItem.css';
 import { arrayOf, bool, oneOf, shape, string } from 'prop-types';
 

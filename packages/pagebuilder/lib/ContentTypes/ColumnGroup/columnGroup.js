@@ -1,6 +1,6 @@
 import React from 'react';
 import defaultClasses from './columnGroup.css';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/lib/classify';
 import { shape, string } from 'prop-types';
 
 /**

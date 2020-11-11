@@ -2,7 +2,7 @@ import React from 'react';
 import { createTestInstance } from '@magento/peregrine';
 import Html from '../html';
 
-jest.mock('@magento/venia-ui/lib/classify');
+jest.mock('@landofcoder/yume-ui/lib/classify');
 
 test('renders a html component', () => {
     const component = createTestInstance(<Html />);

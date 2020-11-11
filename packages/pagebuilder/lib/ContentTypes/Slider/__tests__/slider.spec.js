@@ -5,7 +5,7 @@ import Slider from '../slider';
 jest.mock('@magento/venia-drivers', () => ({
     resourceUrl: jest.fn(src => src)
 }));
-jest.mock('@magento/venia-ui/lib/classify');
+jest.mock('@landofcoder/yume-ui/lib/classify');
 
 jest.mock('react-slick', () => {
     return jest.fn();

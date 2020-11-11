@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 import defaultClasses from './column.css';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/lib/classify';
 import { arrayOf, oneOf, shape, string, bool } from 'prop-types';
 import { resourceUrl } from '@magento/venia-drivers';
 

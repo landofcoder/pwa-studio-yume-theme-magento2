@@ -37,13 +37,13 @@ class TargetableSet {
         this._bind();
     }
     /**
-     * @param {string} modulePath - Path to the module file this Targetable represents. Can be either module-resolvable (e.g. `"@magento/venia-ui/lib/components/Button"`), or module-root-relative (e.g. `"lib/components/Button"`), in which case the module name `@magento/venia-ui` will be added automatically.
+     * @param {string} modulePath - Path to the module file this Targetable represents. Can be either module-resolvable (e.g. `"@landofcoder/yume-ui/lib/components/Button"`), or module-root-relative (e.g. `"lib/components/Button"`), in which case the module name `@landofcoder/yume-ui` will be added automatically.
      * @param {TargetablePublisher} [publisher] - Callback function to execute when this module is about to commit its requested transforms to a build. If this function is passed, the module will automatically bind to `builtins.transformModules`.
      * @returns {TargetableModule}
      */
     /**
      * @param {object} config - Setup config for new TargetableModule.
-     * @param {string} config.module - Path to the module file this Targetable represents. Can be either module-resolvable (e.g. `"@magento/venia-ui/lib/components/Button"`), or module-root-relative (e.g. `"lib/components/Button"`), in which case the module name `@magento/venia-ui` will be added automatically.
+     * @param {string} config.module - Path to the module file this Targetable represents. Can be either module-resolvable (e.g. `"@landofcoder/yume-ui/lib/components/Button"`), or module-root-relative (e.g. `"lib/components/Button"`), in which case the module name `@landofcoder/yume-ui` will be added automatically.
      * @param {TargetablePublisher} config.publish - Callback function to execute when this module is about to commit its requested transforms to a build. If this function is passed, the module will automatically bind to `builtins.transformModules`.
      * @returns {TargetableModule}
      */

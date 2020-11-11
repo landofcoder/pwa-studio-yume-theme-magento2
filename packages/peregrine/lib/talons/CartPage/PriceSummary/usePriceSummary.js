@@ -98,7 +98,7 @@ export const usePriceSummary = props => {
  *
  * @property {GraphQLAST} getPriceSummary Query to get the price summary for a cart
  *
- * @see [priceSummary.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/CartPage/PriceSummary/priceSummary.js}
+ * @see [priceSummary.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/CartPage/PriceSummary/priceSummary.js}
  * for the queries used in Venia.
  */
 

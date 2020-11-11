@@ -1,6 +1,6 @@
 import React from 'react';
 import defaultClasses from './divider.css';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/lib/classify';
 import { arrayOf, shape, string } from 'prop-types';
 
 /**

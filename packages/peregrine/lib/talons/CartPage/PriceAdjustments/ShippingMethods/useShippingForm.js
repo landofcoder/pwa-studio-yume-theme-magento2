@@ -175,7 +175,7 @@ export const useShippingForm = props => {
  *
  * @property {GraphQLAST} setShippingAddressMutation Mutation for setting the shipping address on a cart
  *
- * @see [shippingForm.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/CartPage/PriceAdjustments/ShippingMethods/shippingForm.js}
+ * @see [shippingForm.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/CartPage/PriceAdjustments/ShippingMethods/shippingForm.js}
  * for the query used in Venia
  */
 
@@ -187,7 +187,7 @@ export const useShippingForm = props => {
  *
  * @property {GraphQLAST} shippingMethodsQuery Query for getting data about available shipping methods
  *
- * @see [shippingMethods.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/CartPage/PriceAdjustments/ShippingMethods/shippingMethods.gql.js}
+ * @see [shippingMethods.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/CartPage/PriceAdjustments/ShippingMethods/shippingMethods.gql.js}
  * for the query used in Venia
  */
 

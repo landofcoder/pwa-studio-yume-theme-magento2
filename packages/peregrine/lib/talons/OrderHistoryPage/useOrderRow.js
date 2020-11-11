@@ -58,7 +58,7 @@ export const useOrderRow = props => {
  *
  * @property {GraphQLAST} getProductThumbnailsQuery The query used to get product thumbnails of items in the Order.
  *
- * @see [`orderRow.gql.js`]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/OrderHistoryPage/orderRow.gql.js}
+ * @see [`orderRow.gql.js`]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/OrderHistoryPage/orderRow.gql.js}
  * for queries used in Venia
  */
 

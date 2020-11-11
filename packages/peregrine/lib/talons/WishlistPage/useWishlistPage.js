@@ -59,7 +59,7 @@ export const useWishlistPage = props => {
  *
  * @property {GraphQLAST} getCustomerWishlistQuery Query to get customer wish lists
  *
- * @see [`wishlistPage.gql.js`]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/WishlistPage/wishlistPage.gql.js}
+ * @see [`wishlistPage.gql.js`]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/WishlistPage/wishlistPage.gql.js}
  * for queries used in Venia
  */
 
@@ -70,7 +70,7 @@ export const useWishlistPage = props => {
  *
  * @property {Function} Customer.fields.wishlists.read
  *
- * @see [`wishlistPage.gql.js`]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/WishlistPage/wishlistPage.gql.js}
+ * @see [`wishlistPage.gql.js`]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/WishlistPage/wishlistPage.gql.js}
  * for queries used in Venia
  */
 

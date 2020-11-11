@@ -148,7 +148,7 @@ export const useWishlistItem = props => {
  * @property {GraphQLAST} addWishlistItemToCartMutation Mutation to add item to the cart
  * @property {GraphQLAST} removeProductsFromWishlistMutation Mutation to remove a product from a wishlist
  *
- * @see [`wishlistItem.gql.js`]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/WishlistPage/wishlistItem.gql.js}
+ * @see [`wishlistItem.gql.js`]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/WishlistPage/wishlistItem.gql.js}
  * for queries used in Venia
  */
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import defaultClasses from './video.css';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/lib/classify';
 import { arrayOf, shape, string, bool } from 'prop-types';
 
 /**

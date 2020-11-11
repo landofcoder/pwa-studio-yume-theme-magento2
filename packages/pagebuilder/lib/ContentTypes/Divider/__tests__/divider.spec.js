@@ -2,7 +2,7 @@ import React from 'react';
 import { createTestInstance } from '@magento/peregrine';
 import Divider from '../divider';
 
-jest.mock('@magento/venia-ui/lib/classify');
+jest.mock('@landofcoder/yume-ui/lib/classify');
 
 test('renders a Divider component', () => {
     const component = createTestInstance(<Divider />);

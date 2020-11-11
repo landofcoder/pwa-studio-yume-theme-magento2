@@ -1,7 +1,7 @@
 import {
     VALID_SERVICE_WORKER_ENVIRONMENT,
     handleMessageFromSW
-} from '@magento/venia-ui/lib/util/swUtils';
+} from '@landofcoder/yume-ui/lib/util/swUtils';
 
 export const registerSW = () => {
     if (VALID_SERVICE_WORKER_ENVIRONMENT) {

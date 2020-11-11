@@ -1,11 +1,11 @@
 import React from 'react';
 import defaultClasses from './products.css';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/lib/classify';
 import { arrayOf, bool, number, oneOf, shape, string } from 'prop-types';
 import SlickSlider from 'react-slick';
-import Gallery from '@magento/venia-ui/lib/components/Gallery';
+import Gallery from '@landofcoder/yume-ui/lib/components/Gallery';
 import { gql, useQuery } from '@apollo/client';
-import GalleryItem from '@magento/venia-ui/lib/components/Gallery/item';
+import GalleryItem from '@landofcoder/yume-ui/lib/components/Gallery/item';
 
 /**
  * Sort products based on the original order of SKUs

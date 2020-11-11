@@ -4,7 +4,7 @@ import patches from '../util/intlPatches';
 import { useIntl } from 'react-intl';
 
 /**
- * @deprecated - replaced by to @magento/venia-ui/lib/components/Price
+ * @deprecated - replaced by to @landofcoder/yume-ui/lib/components/Price
  *
  * The **Price** component is used anywhere a price needs to be displayed.
  *

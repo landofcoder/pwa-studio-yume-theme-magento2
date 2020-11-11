@@ -136,7 +136,7 @@ export const useCouponCode = props => {
  * @property {GraphQLAST} applyCouponMutation Mutation for applying a coupon code to a cart.
  * @property {GraphQLAST} removeCouponMutation Mutation for removing a coupon code from a cart.
  *
- * @see [CouponCode.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/CartPage/PriceAdjustments/CouponCode/couponCode.js}
+ * @see [CouponCode.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/CartPage/PriceAdjustments/CouponCode/couponCode.js}
  * for the queries used Venia
  */
 
@@ -148,7 +148,7 @@ export const useCouponCode = props => {
  *
  * @property {GraphQLAST} getAppliedCouponsQuery Query to fetch the currently applied coupons for a cart.
  *
- * @see [CouponCode.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/CartPage/PriceAdjustments/CouponCode/couponCode.js}
+ * @see [CouponCode.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/CartPage/PriceAdjustments/CouponCode/couponCode.js}
  * for the queries used Venia
  */
 

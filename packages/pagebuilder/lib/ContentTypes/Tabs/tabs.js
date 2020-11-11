@@ -12,7 +12,7 @@ import {
     TabPanel
 } from 'react-tabs';
 import defaultClasses from './tabs.css';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/lib/classify';
 import { arrayOf, number, oneOf, shape, string } from 'prop-types';
 
 /**

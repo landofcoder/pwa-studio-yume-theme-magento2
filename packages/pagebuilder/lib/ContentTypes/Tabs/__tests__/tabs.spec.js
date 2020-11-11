@@ -18,7 +18,7 @@ jest.mock('@magento/venia-drivers', () => ({
     resourceUrl: jest.fn(src => src)
 }));
 
-jest.mock('@magento/venia-ui/lib/classify');
+jest.mock('@landofcoder/yume-ui/lib/classify');
 
 test('render tabs with no props', () => {
     const component = createTestInstance(<Tabs />);

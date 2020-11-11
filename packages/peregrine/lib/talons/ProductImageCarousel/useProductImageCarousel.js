@@ -5,9 +5,9 @@ import { useCarousel } from '@magento/peregrine';
 import {
     sendMessageToSW,
     VALID_SERVICE_WORKER_ENVIRONMENT
-} from '@magento/venia-ui/lib/util/swUtils';
-import { PREFETCH_IMAGES } from '@magento/venia-ui/lib/constants/swMessageTypes';
-import { generateUrlFromContainerWidth } from '@magento/venia-ui/lib/util/images';
+} from '@landofcoder/yume-ui/lib/util/swUtils';
+import { PREFETCH_IMAGES } from '@landofcoder/yume-ui/lib/constants/swMessageTypes';
+import { generateUrlFromContainerWidth } from '@landofcoder/yume-ui/lib/util/images';
 
 export const useProductImageCarousel = props => {
     const { images, type, imageWidth } = props;

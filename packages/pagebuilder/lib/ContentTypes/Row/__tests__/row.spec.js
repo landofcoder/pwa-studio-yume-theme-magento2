@@ -16,7 +16,7 @@ import { jarallax, jarallaxVideo } from 'jarallax';
 const mockJarallax = jarallax.mockImplementation(() => {});
 const mockJarallaxVideo = jarallaxVideo.mockImplementation(() => {});
 
-jest.mock('@magento/venia-ui/lib/classify');
+jest.mock('@landofcoder/yume-ui/lib/classify');
 
 test('render row with no props', () => {
     const component = createTestInstance(<Row />);

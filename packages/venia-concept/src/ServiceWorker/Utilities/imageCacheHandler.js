@@ -2,7 +2,7 @@ import { CacheableResponsePlugin } from 'workbox-cacheable-response';
 import { CacheFirst } from 'workbox-strategies';
 import { ExpirationPlugin } from 'workbox-expiration';
 
-import { PREFETCH_IMAGES } from '@magento/venia-ui/lib/constants/swMessageTypes';
+import { PREFETCH_IMAGES } from '@landofcoder/yume-ui/lib/constants/swMessageTypes';
 
 import { isFastNetwork } from './networkUtils';
 import { THIRTY_DAYS, IMAGES_CACHE_NAME } from '../defaults';

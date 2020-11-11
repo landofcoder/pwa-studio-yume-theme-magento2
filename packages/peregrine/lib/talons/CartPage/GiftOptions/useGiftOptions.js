@@ -157,7 +157,7 @@ export default useGiftOptions;
  *
  * @property {GraphQLAST} setGiftOptionsMutation Mutation to use for setting the gift options for the cart
  *
- * @see [giftOptions.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/CartPage/PriceAdjustments/GiftOptions/giftOptions.gql.js}
+ * @see [giftOptions.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/CartPage/PriceAdjustments/GiftOptions/giftOptions.gql.js}
  * for the query Venia uses.
  */
 
@@ -168,7 +168,7 @@ export default useGiftOptions;
  *
  * @property {GraphQLAST} getGiftOptionsQuery Query to get gift options data
  *
- * @see [giftOptions.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/CartPage/PriceAdjustments/GiftOptions/giftOptions.gql.js}
+ * @see [giftOptions.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/CartPage/PriceAdjustments/GiftOptions/giftOptions.gql.js}
  * for the query Venia uses.
  */
 

@@ -2,13 +2,13 @@ import React from 'react';
 import { configure, addDecorator } from '@storybook/react';
 import { Adapter } from '@magento/venia-drivers';
 import store from '../store';
-import '@magento/venia-ui/lib/index.css';
-import { AppContextProvider } from '@magento/venia-ui/lib/components/App';
+import '@landofcoder/yume-ui/lib/index.css';
+import { AppContextProvider } from '@landofcoder/yume-ui/lib/components/App';
 
 const loadStories = () => {
-    // Load all stories from venia-ui
+    // Load all stories from yume-ui
     const veniaContext = require.context(
-        '../../node_modules/@magento/venia-ui/lib',
+        '../../node_modules/@landofcoder/yume-ui/lib',
         true,
         /__stories__\/.+\.js$/
     );

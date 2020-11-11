@@ -10,7 +10,7 @@ jest.mock('@magento/venia-drivers', () => ({
     withRouter: jest.fn(arg => arg)
 }));
 
-jest.mock('@magento/venia-ui/lib/classify');
+jest.mock('@landofcoder/yume-ui/lib/classify');
 jest.mock('jarallax', () => {
     return {
         jarallax: jest.fn(),

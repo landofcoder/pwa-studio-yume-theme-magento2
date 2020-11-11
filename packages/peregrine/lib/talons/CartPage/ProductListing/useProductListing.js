@@ -71,7 +71,7 @@ export const useProductListing = props => {
  *
  * @property {GraphQLAST} getProductListing Query to get the product list for a cart
  *
- * @see [productListingFragments.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/CartPage/ProductListing/productListingFragments.js}
+ * @see [productListingFragments.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/CartPage/ProductListing/productListingFragments.js}
  * for the queries used in Venia
  */
 

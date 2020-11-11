@@ -2,7 +2,7 @@ import React, { Children } from 'react';
 import { arrayOf, bool, number, oneOf, shape, string } from 'prop-types';
 import SlickSlider from 'react-slick';
 import defaultClasses from './slider.css';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/lib/classify';
 import { jarallax } from 'jarallax';
 
 /**

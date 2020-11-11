@@ -62,7 +62,7 @@ export const useForgotPassword = props => {
  *
  * @property {GraphQLAST} requestPasswordResetEmailMutation mutation for requesting password reset email
  *
- * @see [forgotPassword.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/ForgotPassword/forgotPassword.gql.js}
+ * @see [forgotPassword.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/ForgotPassword/forgotPassword.gql.js}
  * for the query used in Venia
  */
 

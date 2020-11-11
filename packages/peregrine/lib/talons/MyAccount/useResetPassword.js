@@ -63,7 +63,7 @@ export const useResetPassword = props => {
  *
  * @property {GraphQLAST} resetPasswordMutation mutation for resetting password
  *
- * @see [resetPassword.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/venia-ui/lib/components/MyAccount/ResetPassword/resetPassword.gql.js}
+ * @see [resetPassword.gql.js]{@link https://github.com/magento/pwa-studio/blob/develop/packages/yume-ui/lib/components/MyAccount/ResetPassword/resetPassword.gql.js}
  * for the query used in Venia
  */
 

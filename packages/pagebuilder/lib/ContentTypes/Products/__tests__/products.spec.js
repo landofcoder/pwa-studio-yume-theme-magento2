@@ -17,10 +17,10 @@ const mockSlick = SlickSlider.mockImplementation(({ children }) => (
     <div>{children}</div>
 ));
 import { useQuery } from '@apollo/client';
-jest.mock('@magento/venia-ui/lib/components/Gallery', () => jest.fn());
-jest.mock('@magento/venia-ui/lib/components/Gallery/item', () => jest.fn());
-import Gallery from '@magento/venia-ui/lib/components/Gallery';
-import GalleryItem from '@magento/venia-ui/lib/components/Gallery/item';
+jest.mock('@landofcoder/yume-ui/lib/components/Gallery', () => jest.fn());
+jest.mock('@landofcoder/yume-ui/lib/components/Gallery/item', () => jest.fn());
+import Gallery from '@landofcoder/yume-ui/lib/components/Gallery';
+import GalleryItem from '@landofcoder/yume-ui/lib/components/Gallery/item';
 const mockGallery = Gallery.mockImplementation(() => 'Gallery');
 const mockGalleryItem = GalleryItem.mockImplementation(() => 'GalleryItem');
 

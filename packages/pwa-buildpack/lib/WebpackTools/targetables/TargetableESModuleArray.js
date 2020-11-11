@@ -11,10 +11,10 @@ const TargetableESModule = require('./TargetableESModule');
  * @example <caption>Export PlainHtmlRenderer and PageBuilder in a list.</caption>
  *
  * ```js
- * const renderers = targetable.esModuleArray('@magento/venia-ui/lib/components/RichContent/richContentRenderers.js');
+ * const renderers = targetable.esModuleArray('@landofcoder/yume-ui/lib/components/RichContent/richContentRenderers.js');
  *
  * renderers.push('import * as PageBuilder from "@magento/pagebuilder"');
- * renderers.push('import * as PlainHtmlRenderer from "@magento/venia-ui/lib/components/RichContent/plainHtmlRenderer"');
+ * renderers.push('import * as PlainHtmlRenderer from "@landofcoder/yume-ui/lib/components/RichContent/plainHtmlRenderer"');
  * ```
  *
  * The actual `richContentRenderers.js` file is a placeholder; it just exports an
@@ -24,7 +24,7 @@ const TargetableESModule = require('./TargetableESModule');
  *
  * ```js
  * import * as PageBuilder from '@magento/pagebuilder';
- * import * as PlainHtmlRenderer from '@magento/venia-ui/lib/components/RichContent/plainHtmlRenderer';
+ * import * as PlainHtmlRenderer from '@landofcoder/yume-ui/lib/components/RichContent/plainHtmlRenderer';
  *
  * export default [
  *   PageBuilder,

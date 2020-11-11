@@ -1,7 +1,7 @@
 # venia-sample-language-packs
 
 This package provides demo language packs beyond the `en_US.json` provided in
-venia-ui.
+yume-ui.
 
 ## Installation
 

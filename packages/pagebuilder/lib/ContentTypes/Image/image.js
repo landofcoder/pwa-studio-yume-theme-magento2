@@ -3,7 +3,7 @@ import defaultClasses from './image.css';
 import { arrayOf, bool, oneOf, shape, string } from 'prop-types';
 import { Link, resourceUrl } from '@magento/venia-drivers';
 import resolveLinkProps from '../../resolveLinkProps';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/lib/classify';
 
 /**
  * Page Builder Image component.

@@ -1,5 +1,5 @@
 import React from 'react';
-import CmsBlock from '@magento/venia-ui/lib/components/CmsBlock/block';
+import CmsBlock from '@landofcoder/yume-ui/lib/components/CmsBlock/block';
 import { arrayOf, string } from 'prop-types';
 
 /**

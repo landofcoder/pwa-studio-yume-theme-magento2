@@ -9,14 +9,14 @@ jest.mock('@magento/venia-drivers', () => ({
 }));
 
 jest.mock(
-    '@magento/venia-ui/lib/components/RichContent/richContentRenderers',
+    '@landofcoder/yume-ui/lib/components/RichContent/richContentRenderers',
     () => [
         require('@magento/pagebuilder/lib'),
-        require('@magento/venia-ui/lib/components/RichContent/plainHtmlRenderer')
+        require('@landofcoder/yume-ui/lib/components/RichContent/plainHtmlRenderer')
     ]
 );
 
-jest.mock('@magento/venia-ui/lib/classify');
+jest.mock('@landofcoder/yume-ui/lib/classify');
 
 test('renders a Block component', () => {
     const blockProps = {
