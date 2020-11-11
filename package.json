@@ -18,21 +18,21 @@
     ],
     "storefront": {
         "company": "example-company",
-        "project": "example-shop"
+        "project": "custom-module"
     },
     "scripts": {
         "clean:all": "yarn workspaces run -s clean && rimraf ./node_modules",
         "clean:dist": "yarn workspaces run clean",
         "clone:pwa-studio": "cd src && git clone https://github.com/magento-research/pwa-studio.git",
         "upgrade:pwa-studio": "rimraf src/pwa-studio && yarn run clone:pwa-studio && rimraf src/pwa-studio/.git && yarn install && yarn run build",
-        "build": "yarn venia run build && yarn example-shop run build",
+        "build": "yarn venia run build && yarn custom-module run build",
         "build:dev": "yarn workspaces run build:dev",
         "setup": "yarn install && yarn run build",
-        "stage:example-shop": "yarn example-shop run start",
+        "stage:custom-module": "yarn custom-module run start",
         "watch:venia": "yarn venia run watch",
-        "watch:example-shop": "yarn example-shop run watch",
+        "watch:custom-module": "yarn custom-module run watch",
         "venia": "yarn workspace @magento/venia-concept",
-        "example-shop": "yarn workspace @fallback-studio/example-shop",
+        "custom-module": "yarn workspace @fallback-studio/custom-module",
         "lint": "eslint 'src/example-company/**/{*.js,package.json}' --ignore-pattern node_modules --ignore-pattern storybook-dist --ignore-pattern dist",
         "prettier": "prettier --write 'src/example-company/**/*.@(js|scss)' '*.js'",
         "prettier:validate": "prettier-check 'src/example-company/**/*.@(js|scss)' '*.js'",
@@ -40,9 +40,9 @@
         "test": "jest",
         "test:ci": "jest --no-cache -i --json --outputFile=test-results.json",
         "test:dev": "jest --watch",
-        "test:example-shop": "jest --config=example-shop.jest.config.js --no-cache",
-        "test:ci:example-shop": "jest --config=example-shop.jest.config.js --no-cache -i --json --outputFile=test-results.json",
-        "test:dev:example-shop": "jest --config=example-shop.jest.config.js --watch"
+        "test:custom-module": "jest --config=custom-module.jest.config.js --no-cache",
+        "test:ci:custom-module": "jest --config=custom-module.jest.config.js --no-cache -i --json --outputFile=test-results.json",
+        "test:dev:custom-module": "jest --config=custom-module.jest.config.js --watch"
     },
     "devDependencies": {
         "@magento/eslint-config": "^1.4.1",

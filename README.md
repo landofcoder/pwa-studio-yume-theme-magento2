@@ -61,7 +61,7 @@ yarn run setup
 
 **step: 4**
 ```
-yarn run watch:example-shop
+yarn run watch:custom-module
 ```
 
 Right now you should see something like this in your terminal:
@@ -71,11 +71,11 @@ Right now you should see something like this in your terminal:
 ## How the fallback structure works
 
 So to give you a feeling on how it all works we first need to take a look at a crucial file in the fallback structure.
-If you open the following file `src/example-company/example-shop/webpack.config.js` you see it looks a lot like the default `webpack.config.json` from
+If you open the following file `src/example-company/custom-module/webpack.config.js` you see it looks a lot like the default `webpack.config.json` from
 `venia-concept`. The big difference is that everywhere there is a path to a certain file or folder we removed the contents from our storefront and added a fallback path.
 
 **For example:**<br />
-in our storefront we don't want to create a custom `validate-environment.js` because the default from `venia-concept` fits our needs so we've deleted it from the `example-shop` storefront.
+in our storefront we don't want to create a custom `validate-environment.js` because the default from `venia-concept` fits our needs so we've deleted it from the `custom-module` storefront.
 
 Now to fallback to `venia-concept` we've changed **this:**
 ```
@@ -114,13 +114,13 @@ As you can see we once again included the `const parentTheme` in the modules arr
 **For example:**<br />
 `parentComponents` will resolve to `pwa-studio/packages/venia-concept/src/components`
 
-I've created a really basic example on how to fallback on `venia-concept` components. But first I'd like you to navigate to `src/example-company/example-shop/src/components` as you can tell we are missing quite a few components.<br />
+I've created a really basic example on how to fallback on `venia-concept` components. But first I'd like you to navigate to `src/example-company/custom-module/src/components` as you can tell we are missing quite a few components.<br />
 
- Now pleas run the follow command from the root directory `yarn run watch:example-shop` as you can tell it's pretty much the same as `venia-concept` but we've added a custom `TopBar` component
+ Now pleas run the follow command from the root directory `yarn run watch:custom-module` as you can tell it's pretty much the same as `venia-concept` but we've added a custom `TopBar` component
  and overwritten the `Footer` component and added and extra block of content.
  
  **Lets take a look at the code:**<br />
- Look at the following folder `src/example-company/example-shop/src/components/Footer` as you can tell we've only copied `index.js` and `footer.js` but we are missing `footer.css` but the styling still works.
+ Look at the following folder `src/example-company/custom-module/src/components/Footer` as you can tell we've only copied `index.js` and `footer.js` but we are missing `footer.css` but the styling still works.
  That's because inside `footer.js` we made a little change:
  
  **from this:**

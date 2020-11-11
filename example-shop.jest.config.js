@@ -41,7 +41,7 @@ const testGlob = '/**/{src,lib}/**/__tests__/*.(test|spec).js';
 const parentRootDir = `${__dirname}/src/pwa-studio`;
 
 const companyName = 'example-company';
-const projectName = 'example-shop';
+const projectName = 'custom-module';
 const displayName = 'Example Shop';
 
 const configureProject = (dir, displayName, cb) =>
