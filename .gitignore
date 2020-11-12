@@ -1,5 +1,7 @@
 *
 !*/
-!*/extensions/*
-!*/extensions/**
+!packages/extensions/*
+!packages/extensions/*/**
+packages/extensions/upward-security-headers/*
+packages/extensions/venia-sample-language-packs/*
 **/.DS_Store
