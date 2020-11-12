@@ -1,4 +1,5 @@
-**/node_modules
-.DS_Store
+*
+!*/
+!*/extensions/*
+!*/extensions/**
 **/.DS_Store
-**/yarn.lock
