@@ -5,3 +5,4 @@
 packages/extensions/upward-security-headers/*
 packages/extensions/venia-sample-language-packs/*
 **/.DS_Store
+**/node_modules
