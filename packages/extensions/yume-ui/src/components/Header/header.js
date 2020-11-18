@@ -1,7 +1,7 @@
 import React, { Suspense } from 'react';
 import { shape, string } from 'prop-types';
 
-import Logo from '@magento/venia-ui/lib/components/Logo';
+import Logo from '../Logo';
 import { Link, resourceUrl, Route } from '@magento/venia-drivers';
 
 import AccountTrigger from './accountTrigger';
