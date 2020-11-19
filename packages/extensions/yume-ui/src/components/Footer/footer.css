@@ -15,7 +15,9 @@
     row-gap: 4rem;
     width: 100%;
 }
-
+.wrapperColor {
+    background-color: #f2f2f2;
+}
 @media (max-width: 960px) {
     .root {
         grid-template-areas: 'links' 'brand';
