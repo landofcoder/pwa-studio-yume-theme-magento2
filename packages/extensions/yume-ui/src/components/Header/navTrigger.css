@@ -1,5 +1,6 @@
 .root {
+    background-color: #f2f2f2;
     composes: root from '../clickable.css';
-    height: 3rem;
-    width: 3rem;
+    height: 4rem;
+    width: 4rem;
 }

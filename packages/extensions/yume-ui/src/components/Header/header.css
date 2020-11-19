@@ -60,9 +60,10 @@
     }
 
     .toolbar {
+        max-width: 1295px;
         grid-template-areas: 'primary title secondary';
         grid-template-columns: 1fr auto 1fr;
-        min-height: 5rem;
+        min-height: 4rem;
         padding: 0 1rem;
     }
 }
