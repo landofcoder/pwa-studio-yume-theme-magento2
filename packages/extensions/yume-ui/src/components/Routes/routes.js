@@ -18,7 +18,10 @@ const Routes = () => {
                  * Venia's are defined in packages/venia-ui/lib/targets/venia-ui-intercept.js
                  */}
                 <Route>
+                    {/* in yume ui, defined component plug in is the way to compatible */}
+
                     <MagentoRoute />
+
                     {/*
                      * The Route below is purposefully nested with the MagentoRoute above.
                      * MagentoRoute renders the CMS page, and HomePage adds a stylesheet.
