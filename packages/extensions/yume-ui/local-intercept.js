@@ -17,6 +17,8 @@
  * or modify functionality from its dependencies.
  */
 
-function localIntercept(targets) {}
+function localIntercept(targets) {
+    
+}
 
 module.exports = localIntercept;

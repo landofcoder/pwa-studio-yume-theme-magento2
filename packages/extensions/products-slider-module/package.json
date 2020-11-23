@@ -1,0 +1,21 @@
+{
+    "name": "@landofcoder/products-slider-module",
+    "version": "1.0.0",
+    "description": "",
+    "main": "src/components/GreetingPage/index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "peerDependencies": {
+        "@magento/pwa-buildpack": "^7.0.0",
+        "@magento/venia-ui": "^5.0.0",
+        "react": "^16.14.0"
+    },
+    "pwa-studio": {
+        "targets": {
+            "intercept": "src/targets/local-intercept"
+        }
+    }
+}

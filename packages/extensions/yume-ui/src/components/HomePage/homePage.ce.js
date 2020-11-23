@@ -1,11 +1,3 @@
-import React,{ Fragment } from 'react';
-
-const HomePage = () => {
-    return (
-        <Fragment>
-            <span>Hello</span>
-        </Fragment>
-    );
-};
+const HomePage = () => null;
 
 export default HomePage;
