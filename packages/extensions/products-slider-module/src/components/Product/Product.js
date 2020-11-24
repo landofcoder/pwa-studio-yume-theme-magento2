@@ -12,7 +12,7 @@ const wave = {
     fontSize: '5rem'
 };
 
-const GreetingPage = () => {
+const Product = () => {
     const { who = 'nobody' } = useParams();
     return (
         <div>
@@ -22,4 +22,4 @@ const GreetingPage = () => {
     );
 };
 
-export default GreetingPage;
+export default Product;

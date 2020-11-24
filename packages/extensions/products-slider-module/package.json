@@ -2,7 +2,7 @@
     "name": "@landofcoder/products-slider-module",
     "version": "1.0.0",
     "description": "",
-    "main": "src/components/GreetingPage/index.js",
+    "main": "src/page/index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
@@ -17,5 +17,8 @@
         "targets": {
             "intercept": "src/targets/local-intercept"
         }
+    },
+    "dependencies": {
+        "react-id-swiper": "^4.0.0"
     }
 }
