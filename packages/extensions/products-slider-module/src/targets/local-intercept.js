@@ -1,5 +1,6 @@
 module.exports = targets => {
     console.log('========================go local intercrept module');
+    
     const buildpackTargets = targets.of('@magento/pwa-buildpack');
 
     buildpackTargets.specialFeatures.tap(featuresByModule => {
@@ -10,7 +11,7 @@ module.exports = targets => {
     targets.of('@magento/venia-ui').routes.tap(routes => {
         routes.push({
             name: 'Placeholder Image demo page',
-            pattern: '/homepage',
+            pattern: '/',
             exact: true,
             path: require.resolve('@landofcoder/products-slider-module')
         });

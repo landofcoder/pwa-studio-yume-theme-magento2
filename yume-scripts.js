@@ -32,6 +32,7 @@ const restartDevServerOnChange = [
     'packages/venia-*/templates/**/*',
     'packages/venia-*/static/**/*',
     'packages/extensions/yume-ui',
+    'packages/extensions/**',
     'yarn.lock'
 ];
 

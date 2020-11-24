@@ -5,7 +5,7 @@ import { array, func, shape, string } from 'prop-types';
 import { useToasts } from '@magento/peregrine';
 import { useApp } from '@magento/peregrine/lib/talons/App/useApp';
 
-import globalCSS from '@magento/venia-ui/lib/index.css';
+import globalCSS from '@landofcoder/yume-ui/src/index.css';
 import { HeadProvider, Title } from '@magento/venia-ui/lib/components/Head';
 import Main from '@landofcoder/yume-ui/src/components/Main';
 import Mask from '@magento/venia-ui/lib/components/Mask';
