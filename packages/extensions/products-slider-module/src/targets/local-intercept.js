@@ -1,11 +1,12 @@
 module.exports = targets => {
     console.log('========================go local intercrept module');
-    
+
     const buildpackTargets = targets.of('@magento/pwa-buildpack');
 
     buildpackTargets.specialFeatures.tap(featuresByModule => {
         featuresByModule['@landofcoder/products-slider-module'] = {
-            esModules: true
+            esModules: true,
+            cssModules: true
         };
     });
     targets.of('@magento/venia-ui').routes.tap(routes => {
