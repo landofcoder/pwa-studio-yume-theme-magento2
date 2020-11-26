@@ -1,3 +1,18 @@
-.productSliderContainer {
-  background-color: yellow;
+/* .productSliderContainer {
+  background-color: yellow; */
+/* } */
+
+:global(.swiper-container) {
+    overflow: hidden;
+    margin: 0 1rem;
+    max-width: var(--venia-global-maxWidth);
+}
+:global(.swiper-wrapper) {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
 }
