@@ -1,7 +1,7 @@
 import { gql } from '@apollo/client';
 
 const GET_PRODUCT_QUERY = gql`
-    query getProductDetailForProductPage($urlKey: String!) {
+    query getProductDetailForProductPage($urlKey: String) {
         products(filter: { url_key: { eq: $urlKey } }) {
             items {
                 # Once graphql-ce/1027 is resolved, use a ProductDetails fragment
@@ -39,6 +39,7 @@ const GET_PRODUCT_QUERY = gql`
                     url
                 }
                 url_key
+                url_suffix
                 ... on ConfigurableProduct {
                     configurable_options {
                         attribute_code
@@ -95,7 +96,6 @@ const GET_PRODUCT_QUERY = gql`
 
 export default {
     queries: {
-        getCountryQuery: GET_COUNTRY_QUERY,
         getTopProductQuery: GET_PRODUCT_QUERY,
         getFeaturedProductQuery: GET_PRODUCT_QUERY,
     },

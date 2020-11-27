@@ -7,6 +7,10 @@
     margin: 0 1rem;
     max-width: var(--venia-global-maxWidth);
 }
+:global(.swiper-slide) {
+    flex-shrink: 0;
+    transition-property: transform;
+}
 :global(.swiper-wrapper) {
     position: relative;
     width: 100%;
