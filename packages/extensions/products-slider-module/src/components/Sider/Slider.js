@@ -1,7 +1,14 @@
 import React from 'react';
 import Swiper from 'react-id-swiper';
 import './slider-style.css';
+// import { useQuery } from '@apollo/client';
+
+import sliderQuery from './slider.gql';
 const Slider = () => {
+    const { queries } = sliderQuery;
+    const { getCountryQuery, getTopProductQuery } = queries;
+    // const { data, error, loading } = useQuery(getTopProductQuery);
+
     const params = {
         slidesPerView: 3,
         spaceBetween: 30,

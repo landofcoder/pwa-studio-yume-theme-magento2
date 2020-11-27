@@ -45,6 +45,7 @@ module.exports = async env => {
      * https://webpack.js.org/configuration/module/#modulenoparse
      */
     config.module.noParse = [/braintree\-web\-drop\-in/];
+    // config.module.rules.push({ modules: false });  we want to able to disable css module it same doesn't work
     config.plugins = [
         ...config.plugins,
         new DefinePlugin({

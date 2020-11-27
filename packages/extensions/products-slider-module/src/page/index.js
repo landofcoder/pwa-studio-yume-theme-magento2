@@ -1,6 +1,8 @@
 import React from 'react';
 import Slider from '../components/Sider/Slider';
 import styles from './index.css';
+
+
 const App = () => {
     return (
         <div>
