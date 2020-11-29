@@ -4,8 +4,8 @@
 
 :global(.swiper-container) {
     overflow: hidden;
-    margin: 0 1rem;
-    max-width: var(--venia-global-maxWidth);
+    margin: 1rem 0;
+    width: 100%;
 }
 :global(.swiper-slide) {
     flex-shrink: 0;

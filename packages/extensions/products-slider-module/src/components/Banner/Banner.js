@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import Swiper from 'react-id-swiper';
-import styles from './slider-style.css';
+import styles from './style.css';
 import { useQuery } from '@apollo/client';
 
-import sliderQuery from './slider.gql';
+import sliderQuery from './Banner.gql';
 // import Product from "@magento/venia-ui/lib/components/Gallery";
 import GalleryItem from '@landofcoder/yume-ui/src/components/Gallery/item';
 
@@ -22,7 +22,7 @@ const Slider = () => {
     const { data, error, loading } = useQuery(getTopProductQuery);
     console.log(data);
     const params = {
-        slidesPerView: 5,
+        slidesPerView: 1,
         spaceBetween: 30
     };
     if (loading) return null;
@@ -34,10 +34,8 @@ const Slider = () => {
         );
     });
     return (
-        <div className="product-slider-container">
-            <Swiper {...params}>
-                {galleryItems}
-            </Swiper>
+        <div className={styles.bannerStyle}>
+            <Swiper {...params}>{galleryItems}</Swiper>
         </div>
     );
 };

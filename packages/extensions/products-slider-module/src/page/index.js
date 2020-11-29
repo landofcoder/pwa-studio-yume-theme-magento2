@@ -1,10 +1,14 @@
 import React from 'react';
-import Slider from '../components/Sider/Slider';
+import Slider from '../components/ProductSlider/ProductSlider';
+import Banner from "../components/Banner/Banner";
 import styles from './index.css';
 
 const App = () => {
     return (
         <div className={styles.productSliderModule}>
+            <div>
+                <Banner />
+            </div>
             <div>
                 <div className={styles.title}>
                     <h2>Top products</h2>

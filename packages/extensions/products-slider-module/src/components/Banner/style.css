@@ -1,0 +1,6 @@
+
+.bannerStyle {
+    position: relative;
+    left: calc((var(--venia-global-maxWidth) - 100vw) / 2);
+    width: 100vw;
+}
