@@ -1,9 +1,9 @@
 import React, { Suspense } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 
-import { fullPageLoadingIndicator } from '@magento/venia-ui/lib/components/LoadingIndicator';
-import HomePage from '@magento/venia-ui/lib/components/HomePage';
-import MagentoRoute from '@magento/venia-ui/lib/components/MagentoRoute';
+import { fullPageLoadingIndicator } from '../LoadingIndicator';
+import HomePage from '../HomePage';
+import MagentoRoute from '../MagentoRoute';
 import { useScrollTopOnChange } from '@magento/peregrine/lib/hooks/useScrollTopOnChange';
 
 const Routes = () => {

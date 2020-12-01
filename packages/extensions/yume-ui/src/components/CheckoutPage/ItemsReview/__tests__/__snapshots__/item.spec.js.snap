@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Snapshot test 1`] = `
+<div>
+  <mock-Image
+    alt=""
+    classes={
+      Object {
+        "root": undefined,
+      }
+    }
+    resource=""
+    width={100}
+  />
+  <span>
+    
+  </span>
+  <mock-ProductOptions
+    classes={
+      Object {
+        "options": undefined,
+      }
+    }
+  />
+  <span>
+    <mock-FormattedMessage
+      defaultMessage="Qty :"
+      id="checkoutPage.quantity"
+      values={
+        Object {
+          "quantity": 5,
+        }
+      }
+    />
+  </span>
+</div>
+`;

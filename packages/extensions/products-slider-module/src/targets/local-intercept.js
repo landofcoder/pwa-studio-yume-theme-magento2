@@ -9,7 +9,7 @@ module.exports = targets => {
             cssModules: true
         };
     });
-    targets.of('@magento/venia-ui').routes.tap(routes => {
+    targets.of('@landofcoder/yume-ui').routes.tap(routes => {
         routes.push({
             name: 'Placeholder Image demo page',
             pattern: '/',

@@ -127,7 +127,8 @@
   },
   "pwa-studio": {
     "targets": {
-      "intercept": "./local-intercept.js"
+      "declare": "./src/targets/venia-ui-declare",
+      "intercept": "./src/targets/venia-ui-intercept"
     }
   }
 }

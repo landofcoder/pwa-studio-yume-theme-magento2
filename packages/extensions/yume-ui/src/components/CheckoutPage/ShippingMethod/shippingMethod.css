@@ -1,0 +1,30 @@
+.root {
+    border: none;
+    border-radius: 0px;
+    border-bottom: 2px solid rgb(var(--venia-global-color-gray-400));
+    padding: 2rem 0rem;
+    display: grid;
+    row-gap: 1rem;
+}
+
+.done {
+    composes: root;
+    border: 2px solid rgb(var(--venia-global-color-gray-400));
+    border-radius: 0.375rem;
+    padding: 2rem;
+}
+
+.editingHeading {
+    text-transform: uppercase;
+}
+
+.form {
+    display: grid;
+    grid-template-rows: 1fr auto;
+    row-gap: 1.5rem;
+}
+
+.formButtons {
+    display: flex;
+    justify-content: center;
+}
