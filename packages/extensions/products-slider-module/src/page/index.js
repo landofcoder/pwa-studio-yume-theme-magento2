@@ -9,7 +9,7 @@ const App = () => {
             <div>
                 <Banner />
             </div>
-            <div>
+            <div className={styles.wrapperSlider}>
                 <div className={styles.title}>
                     <h2>Top products</h2>
                 </div>

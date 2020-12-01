@@ -23,7 +23,24 @@ const Slider = () => {
     console.log(data);
     const params = {
         slidesPerView: 5,
-        spaceBetween: 30
+        spaceBetween: 30,
+        breakpoints: {
+            1281: {
+                slidesPerView: 7
+            },
+            1024: {
+                slidesPerView: 5
+            },
+            768: {
+                slidesPerView: 4
+            },
+            640: {
+                slidesPerView: 3
+            },
+            320: {
+                slidesPerView: 2
+            }
+        }
     };
     if (loading) return null;
     const galleryItems = data.products.items.map((item, index) => {
@@ -35,9 +52,7 @@ const Slider = () => {
     });
     return (
         <div className="product-slider-container">
-            <Swiper {...params}>
-                {galleryItems}
-            </Swiper>
+            <Swiper {...params}>{galleryItems}</Swiper>
         </div>
     );
 };

@@ -30,3 +30,6 @@
     font-family: 'Source Serif Pro';
     font-size: 30px !important;
 }
+.wrapperSlider > div {
+    margin-bottom: 4rem;
+}

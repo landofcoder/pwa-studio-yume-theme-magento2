@@ -1,6 +1,11 @@
 .root {
     background-color: #f2f2f2;
     composes: root from '../clickable.css';
-    height: 4rem;
+    height: 3rem;
     width: 4rem;
+}
+@media (min-width: 641px) {
+    .root {
+        height: 4rem;
+    }
 }

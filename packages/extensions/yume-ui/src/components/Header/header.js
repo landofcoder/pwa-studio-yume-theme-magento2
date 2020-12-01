@@ -52,12 +52,12 @@ const Header = props => {
 
     return (
         <React.Fragment>
-            <div className={classes.switchersContainer}>
+            {/* <div className={classes.switchersContainer}>
                 <div className={classes.switchers}>
                     <StoreSwitcher />
                     <CurrencySwitcher />
                 </div>
-            </div>
+            </div> */}
             <header className={rootClass}>
                 <div className={classes.toolbar}>
                     <div className={classes.primaryActions}>
