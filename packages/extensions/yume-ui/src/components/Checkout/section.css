@@ -28,7 +28,7 @@
 }
 
 .label {
-    color: rgb(var(--venia-global-color-teal));
+    color: rgb(var(--yume-global-color-teal));
     font-size: 14px;
     font-weight: 600;
 }

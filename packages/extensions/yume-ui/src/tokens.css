@@ -41,12 +41,18 @@
     --venia-global-color-teal-dark: var(--venia-global-color-blue-600);
     --venia-global-color-teal-light: var(--venia-global-color-gray-100);
 
+    /* color yume override */
+
+    --yume-global-color-teal: var(--yume-global-color-green-400);
+    --yume-global-color-teal-dark: var(--yume-global-color-green-600);
+    --yume-global-color-teal-light: var(--venia-global-color-gray-100);
+
     /* yume ui color define */
 
     --yume-global-color-green-100: 25 235 162;
-    --yume-global-color-green-400: 59 523 184;
+    --yume-global-color-green-400: 25 209 162;
     --yume-global-color-green-500: 24 212 139;
-    --yume-global-color-green-600: 17 172 114;
+    --yume-global-color-green-600: 28 172 114;
     --yume-global-color-green-700: 33 170 56;
     --yume-global-color-green-800: 11 137 1;
 
