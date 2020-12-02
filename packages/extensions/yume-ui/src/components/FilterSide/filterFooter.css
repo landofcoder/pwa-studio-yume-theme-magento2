@@ -1,0 +1,10 @@
+.root {
+    align-items: center;
+    background-color: white;
+    display: grid;
+    height: 7rem;
+    row-gap: 0.25rem;
+    justify-items: center;
+    align-content: center;
+    position: relative;
+}

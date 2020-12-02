@@ -47,3 +47,14 @@
     composes: root_lowPriority from '../../components/Button/button.css';
     min-width: 6.25rem;
 }
+
+.wrapperFlex {
+    display: flex;
+}
+
+.wrapperFlex > section:last-child {
+    flex: 4;
+}
+.wrapperFlex > section:first-child {
+    flex: 1;
+}

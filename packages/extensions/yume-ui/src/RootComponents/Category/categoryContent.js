@@ -1,4 +1,4 @@
-import React, { Fragment, Suspense } from 'react';
+import React, { Fragment, Suspense, useEffect } from 'react';
 import { array, number, shape, string } from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { useCategoryContent } from '@magento/peregrine/lib/talons/RootComponents/Category';
@@ -14,6 +14,7 @@ import RichContent from '../../components/RichContent';
 import defaultClasses from './category.css';
 import NoProductsFound from './NoProductsFound';
 
+const FilterSide = React.lazy(() => import('../../components/FilterSide'));
 const FilterModal = React.lazy(() => import('../../components/FilterModal'));
 
 const CategoryContent = props => {
@@ -36,7 +37,7 @@ const CategoryContent = props => {
         pageTitle,
         totalPagesFromData
     } = talonProps;
-
+    
     const classes = mergeClasses(defaultClasses, props.classes);
 
     const maybeFilterButtons = filters ? (
@@ -79,6 +80,7 @@ const CategoryContent = props => {
     // If you want to defer the loading of the FilterModal until user interaction
     // (hover, focus, click), simply add the talon's `loadFilters` prop as
     // part of the conditional here.
+    const side = filters ? <FilterSide filters={filters} /> : null;
     const modal = filters ? <FilterModal filters={filters} /> : null;
 
     const categoryDescriptionElement = categoryDescription ? (
@@ -87,9 +89,14 @@ const CategoryContent = props => {
 
     const content = totalPagesFromData ? (
         <Fragment>
-            <section className={classes.gallery}>
-                <Gallery items={items} />
-            </section>
+            <div className={classes.wrapperFlex}>
+                <section>
+                    <Suspense fallback={null}>{side}</Suspense>
+                </section>
+                <section className={classes.gallery}>
+                    <Gallery items={items} />
+                </section>
+            </div>
             <div className={classes.pagination}>
                 <Pagination pageControl={pageControl} />
             </div>

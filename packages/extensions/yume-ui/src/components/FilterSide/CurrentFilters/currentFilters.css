@@ -1,0 +1,13 @@
+.root {
+    overflow: auto;
+    padding: 0 1.125rem;
+}
+
+.root:empty {
+    display: none;
+}
+
+.root li {
+    float: left;
+    padding: 1rem 1rem 0 0;
+}
