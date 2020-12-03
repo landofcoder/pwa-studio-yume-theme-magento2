@@ -9,17 +9,6 @@ const HookInterceptorSet = require('./HookInterceptorSet')
 const path = require('path');
 const packageDir = '@landofcoder/yume-ui';
 module.exports = targets => {
-
-    const builtins = targets.of('@magento/pwa-buildpack');
-
-    builtins.specialFeatures.tap(featuresByModule => {
-        featuresByModule['@landofcoder/yume-ui'] = {
-            cssModules: true,
-            esModules: true,
-            graphqlQueries: true
-        };
-    });
-
     
     // inject ui
     const yume = Targetables.using(targets);
@@ -51,6 +40,15 @@ module.exports = targets => {
 
     // inject peregrine used for talons target
 
+    const builtins = targets.of('@magento/pwa-buildpack');
+
+    builtins.specialFeatures.tap(featuresByModule => {
+        featuresByModule['@landofcoder/yume-ui'] = {
+            cssModules: true,
+            esModules: true,
+            graphqlQueries: true
+        };
+    });
     /**
      * Tap the low-level Buildpack target for wrapping _any_ frontend module.
      * Wrap the config object in a HookInterceptorSet, which presents

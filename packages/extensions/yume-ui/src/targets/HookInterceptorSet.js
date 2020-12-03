@@ -72,7 +72,7 @@ class HookInterceptorSet extends Trackable {
             const hookName = path.basename(hookPath, path.extname(hookPath));
             const targetedHook = new TargetableHook(
                 path.join(
-                    '@magento/peregrine',
+                    '@landofcoder/yume-ui',
                     path.relative(
                         packageRoot,
                         path.resolve(this._hookDir, hookPath)
