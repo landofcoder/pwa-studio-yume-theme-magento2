@@ -1,8 +1,9 @@
 
 .bannerStyle {
     position: relative;
-    left: calc((var(--venia-global-maxWidth) - 100vw) / 2);
+    left: calc((var(--venia-global-maxWidth) - 100vw) / 2 - 8px);
     width: 100vw;
+    overflow: hidden;
 }
 .imageStyle {
     width: 100%;
