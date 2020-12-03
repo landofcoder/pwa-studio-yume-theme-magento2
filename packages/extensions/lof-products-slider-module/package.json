@@ -1,5 +1,5 @@
 {
-    "name": "@landofcoder/products-slider-module",
+    "name": "@landofcoder/lof-products-slider-module",
     "version": "1.0.0",
     "description": "",
     "main": "src/page/index.js",
