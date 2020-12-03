@@ -9,7 +9,6 @@ import { useScrollTopOnChange } from '@magento/peregrine/lib/hooks/useScrollTopO
 const Routes = () => {
     const { pathname } = useLocation();
     useScrollTopOnChange(pathname);
-
     return (
         <Suspense fallback={fullPageLoadingIndicator}>
             <Switch>
@@ -18,7 +17,7 @@ const Routes = () => {
                  * Venia's are defined in packages/venia-ui/lib/targets/venia-ui-intercept.js
                  */}
                 <Route>
-                    <MagentoRoute />
+                    {pathname !== '/' && <MagentoRoute />}
                     {/*
                      * The Route below is purposefully nested with the MagentoRoute above.
                      * MagentoRoute renders the CMS page, and HomePage adds a stylesheet.
