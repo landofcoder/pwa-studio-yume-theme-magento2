@@ -127,8 +127,8 @@
   },
   "pwa-studio": {
     "targets": {
-      "declare": "./src/targets/venia-ui-declare",
-      "intercept": "./src/targets/venia-ui-intercept"
+      "declare": "./src/targets/yume-ui-declare",
+      "intercept": "./src/targets/yume-ui-intercept"
     }
   }
 }

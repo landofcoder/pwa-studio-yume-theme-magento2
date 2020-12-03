@@ -10,9 +10,9 @@
  */
 class RichContentRendererList {
     /** @hideconstructor */
-    constructor(venia) {
+    constructor(yume) {
         const registry = this;
-        this._renderers = venia.esModuleArray({
+        this._renderers = yume.esModuleArray({
             module:
                 '@landofcoder/yume-ui/src/components/RichContent/richContentRenderers.js',
             publish(targets) {

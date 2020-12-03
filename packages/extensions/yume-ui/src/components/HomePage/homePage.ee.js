@@ -1,8 +1,15 @@
 import globalCSS from './homePage.css';
 
+// Research for custom one of the custom talons function
+
+const HomePage = () => {
+
+    // const 
+    return <span>Hello this is Truong kyle</span>
+};
+
 // `MagentoRoute` renders the CMS page, so this component renders nothing.
 // This file would be obsolete if the CMS could deliver a stylesheet.
-const HomePage = () => null;
 
 export default HomePage;
 

@@ -1,5 +1,5 @@
-function makeRoutesTarget(venia) {
-    const routeList = venia.reactComponent(
+function makeRoutesTarget(yume) {
+    const routeList = yume.reactComponent(
         '@landofcoder/yume-ui/src/components/Routes/routes.js',
         async ({ routes }, self) => addRoutes(self, await routes.promise([]))
     );

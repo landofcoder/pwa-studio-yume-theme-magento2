@@ -10,9 +10,9 @@
  */
 class PaymentMethodList {
     /** @hideconstructor */
-    constructor(venia) {
+    constructor(yume) {
         const registry = this;
-        this._methods = venia.esModuleObject({
+        this._methods = yume.esModuleObject({
             module:
                 '@landofcoder/yume-ui/src/components/CheckoutPage/PaymentInformation/paymentMethodCollection.js',
             publish(targets) {
