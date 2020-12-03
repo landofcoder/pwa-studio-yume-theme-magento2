@@ -16,9 +16,11 @@ const FilterBlock = props => {
     const { handleClick, isExpanded } = talonProps;
     const iconSrc = isExpanded ? ArrowUp : ArrowDown;
     const classes = mergeClasses(defaultClasses, props.classes);
-    const listClass = isExpanded
-        ? classes.list_expanded
-        : classes.list_collapsed;
+    // const listClass = isExpanded
+    //     ? classes.list_expanded
+    //     : classes.list_collapsed;
+
+    const listClass = classes.list_expanded;
 
     return (
         <li className={classes.root}>

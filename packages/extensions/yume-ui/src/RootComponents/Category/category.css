@@ -19,8 +19,27 @@
 
 .headerButtons {
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     padding-bottom: 1.5rem;
+}
+@media (max-width: 640px) {
+    .wrapperFlex > section:first-child {
+        display: none;
+    }
+
+    .headerButtons > button:first-child {
+        display: inline-flex;
+    }
+    
+}
+@media (min-width: 640px) {
+    .wrapperFlex > section:first-child {
+        display: initial;
+    }
+
+    .headerButtons > button:first-child {
+        display: none;
+    }
 }
 
 .categoryTitle {

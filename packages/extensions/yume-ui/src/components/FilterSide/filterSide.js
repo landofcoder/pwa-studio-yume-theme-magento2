@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
 import { FormattedMessage } from 'react-intl';
 import { array, arrayOf, shape, string } from 'prop-types';
-import { X as CloseIcon } from 'react-feather';
+// import { X as CloseIcon } from 'react-feather';
 import { useFilterModal } from '@magento/peregrine/lib/talons/FilterModal';
 
 import { mergeClasses } from '../../classify';
-import Icon from '../Icon';
+// import Icon from '../Icon';
 import LinkButton from '../LinkButton';
 import CurrentFilters from './CurrentFilters';
 import FilterBlock from './filterBlock';
@@ -26,7 +26,7 @@ const FilterModal = props => {
         filterNames,
         filterState,
         handleApply,
-        handleClose,
+        // handleClose,
         handleReset
     } = talonProps;
 
@@ -63,7 +63,6 @@ const FilterModal = props => {
         </div>
     ) : null;
 
-    console.log(filterState);
     return (
         <aside>
             <div className={classes.body}>
@@ -74,9 +73,9 @@ const FilterModal = props => {
                             defaultMessage={'Filters'}
                         />
                     </h2>
-                    <button onClick={handleClose}>
+                    {/* <button onClick={handleClose}>
                         <Icon src={CloseIcon} />
-                    </button>
+                    </button> */}
                 </div>
                 <CurrentFilters
                     filterApi={filterApi}
