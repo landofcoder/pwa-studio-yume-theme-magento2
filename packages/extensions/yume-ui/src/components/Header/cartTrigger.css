@@ -28,7 +28,7 @@
     align-items: center;
     display: grid;
     /* The full height of the site header minus (box shadow height * 2). */
-    height: calc(5rem - 8px);
+    height: calc(4rem - 8px);
 }
 
 .triggerContainer_open {
