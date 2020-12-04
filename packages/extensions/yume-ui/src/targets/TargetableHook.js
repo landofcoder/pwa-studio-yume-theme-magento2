@@ -8,7 +8,7 @@ const { Targetables } = require('@magento/pwa-buildpack');
 class TargetableHook {
     /**
      * Creates a TargetableHook for one hook or talon module.
-     * @param {string} talonPath - Resolvable path to the hook file, e.g. `@magento/peregrine/lib/hooks/useCarousel'.
+     * @param {string} talonPath - Resolvable path to the hook file, e.g. `@landofcoder/yume-ui/lib/hooks/useCarousel'.
      * @param {Object} talonConfig - Configuration for the wrap operation.
      * @param {string} talonConfig.exportName - Name of the export to wrap, e.g. `useCarousel`. Hooks and Talons export functions by name, not as defaults.
      * @param {Trackable} trackingOwner - Parent object for complex debugging.

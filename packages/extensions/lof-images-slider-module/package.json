@@ -13,9 +13,13 @@
     "@magento/venia-ui": "^5.0.0",
     "react": "^16.14.0"
   },
+  "dependencies": {
+    "react-id-swiper": "^4.0.0",
+    "swiper": "^6.3.5"
+  },
   "pwa-studio": {
     "targets": {
-      "intercept": "src/targets/my-intercept"
+      "intercept": "src/targets/intercept"
     }
   }
 }

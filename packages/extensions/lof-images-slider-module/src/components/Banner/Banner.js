@@ -2,17 +2,7 @@ import React  from 'react';
 import Swiper from 'react-id-swiper';
 import styles from './style.css';
 
-
-const mapGalleryItem = item => {
-    const { small_image } = item;
-    return {
-        ...item,
-        small_image:
-            typeof small_image === 'object' ? small_image.url : small_image
-    };
-};
-
-const Slider = () => {
+const Banner = () => {
     const params = {
         slidesPerView: 1,
         spaceBetween: 30,
@@ -44,4 +34,4 @@ const Slider = () => {
         </div>
     );
 };
-export default Slider;
+export default Banner;

@@ -1,2 +1,0 @@
-<!-- init hooks -->
-<!-- author : Truongkyle -->

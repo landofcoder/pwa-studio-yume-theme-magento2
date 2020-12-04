@@ -105,7 +105,7 @@ module.exports = targets => {
          * @see [Intercept function signature]{@link hookInterceptFunction}
          *
          * @example <caption>Access the tapable object</caption>
-         * const peregrineTargets = targets.of('@magento/peregrine');
+         * const peregrineTargets = targets.of('@landofcoder/yume-ui');
          * const hooksTarget = peregrineTargets.hooks;
          *
          * @example <caption>Wrap the `useAwaitQuery()` hook  with a logging extension</caption>
@@ -134,7 +134,7 @@ module.exports = targets => {
          * @see [Intercept function signature]{@link hookInterceptFunction}
          *
          * @example <caption>Access the tapable object</caption>
-         * const peregrineTargets = targets.of('@magento/peregrine');
+         * const peregrineTargets = targets.of('@landofcoder/yume-ui');
          * const talonsTarget = peregrineTargets.talons;
          *
          * @example <caption>Wrap the `useApp()` hook  with a logging extension</caption>

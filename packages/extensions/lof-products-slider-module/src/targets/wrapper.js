@@ -1,7 +1,7 @@
 import React from 'react';
 import App from '../components/App/index';
-const wrapUseImageSlider = original => {
-    return function useImageSlider(props) {
+const wrapUseProductRelated = original => {
+    return function useProductRelated(props) {
         const dataWrapper = original(props);
         return {
             ...dataWrapper,
@@ -11,4 +11,4 @@ const wrapUseImageSlider = original => {
     };
 };
 
-export default wrapUseImageSlider;
+export default wrapUseProductRelated;

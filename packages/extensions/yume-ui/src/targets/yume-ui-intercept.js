@@ -7,7 +7,8 @@ const makeRoutesTarget = require('./makeRoutesTarget');
 const PaymentMethodList = require('./PaymentMethodList');
 const HookInterceptorSet = require('./HookInterceptorSet')
 const path = require('path');
-const packageDir = '@landofcoder/yume-ui';
+
+const packageDir = path.resolve(__dirname, '../../');
 module.exports = targets => {
     
     // inject ui
@@ -49,7 +50,7 @@ module.exports = targets => {
             graphqlQueries: true
         };
     });
-    /**
+        /**
      * Tap the low-level Buildpack target for wrapping _any_ frontend module.
      * Wrap the config object in a HookInterceptorSet, which presents
      * higher-level targets for named and namespaced hooks, instead of the file

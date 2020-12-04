@@ -1,5 +1,5 @@
 const path = require('path');
-const packageRoot = '@landofcoder/yume-ui';
+const packageRoot = path.resolve(__dirname, '../..');
 const glob = require('fast-glob');
 const Trackable = require('@magento/pwa-buildpack/lib/BuildBus/Trackable');
 const TargetableHook = require('./TargetableHook');

@@ -12,7 +12,7 @@
 .title h2::before {
     position: absolute;
     content: '';
-    background: url(../../assets/images/icon-bg-title.png) no-repeat center
+    background: url(../../../assets/images/icon-bg-title.png) no-repeat center
         bottom;
     width: 108px;
     height: 16px;

@@ -1,6 +1,6 @@
 module.exports = targets => {
     // Wrap the useProductFullDetail talon with this extension
-    const peregrineTargets = targets.of('@magento/peregrine');
+    const peregrineTargets = targets.of('@landofcoder/yume-ui');
     const talonsTarget = peregrineTargets.talons;
 
 
@@ -9,14 +9,13 @@ module.exports = targets => {
     builtins.specialFeatures.tap(featuresByModule => {
         featuresByModule['@landofcoder/lof-images-slider-module'] = {
             cssModules: true,
-            // Wrapper modules must be ES Modules
             esModules: true
         };
     });
 
     talonsTarget.tap(talonWrapperConfig => {
         console.log(talonWrapperConfig);
-        talonWrapperConfig.App.useApp.wrapWith('@landofcoder/lof-images-slider-module');
+        talonWrapperConfig.Homepage.useImageSlider.wrapWith('@landofcoder/lof-images-slider-module');
     });
 
 };
