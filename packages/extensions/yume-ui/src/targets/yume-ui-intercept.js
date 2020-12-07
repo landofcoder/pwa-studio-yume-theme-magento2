@@ -1,47 +1,134 @@
 /**
  * @module YumeUI/Targets
  */
-const { Targetables } = require('@magento/pwa-buildpack');
 const RichContentRendererList = require('./RichContentRendererList');
-const makeRoutesTarget = require('./makeRoutesTarget');
-const PaymentMethodList = require('./PaymentMethodList');
-const HookInterceptorSet = require('./HookInterceptorSet')
+const TalonWrapperConfig = require('./TalonWrapperConfig');
 const path = require('path');
 
 const packageDir = path.resolve(__dirname, '../../');
 module.exports = targets => {
-    
-    // inject ui
-    const yume = Targetables.using(targets);
+    //move builtins for reuse.
+    const builtins = targets.of('@magento/pwa-buildpack');
 
-    yume.setSpecialFeatures(
-        'cssModules',
-        'esModules',
-        'graphqlQueries',
-        'rootComponents',
-        'upward',
-        'i18n'
+    // inject ui
+
+    builtins.specialFeatures.tap(featuresByModule => {
+        featuresByModule['@landofcoder/yume-ui'] = {
+            cssModules: true,
+            esModules: true,
+            graphqlQueries: true,
+            rootComponents: true,
+            upward: true
+        };
+    });
+
+    builtins.webpackCompiler.tap(compiler =>
+        compiler.hooks.compilation.tap(name, compilation => {
+            const renderers = new RichContentRendererList();
+            compilation.hooks.normalModuleLoader.tap(
+                `${name}:RichContentRendererInjector`,
+                (loaderContext, mod) => {
+                    if (renderers.shouldInject(mod)) {
+                        targets.own.richContentRenderers.call(renderers);
+                        renderers.inject(mod);
+                    }
+                }
+            );
+        })
     );
 
-    makeRoutesTarget(yume);
+    // Dogfood our own richContentRenderer hook to insert the fallback renderer.
+    targets.own.richContentRenderers.tap(rendererInjector =>
+        rendererInjector.add({
+            componentName: 'PlainHtmlRenderer',
+            importPath: './plainHtmlRenderer'
+        })
+    );
 
-    const renderers = new RichContentRendererList(yume);
-
-    renderers.add({
-        componentName: 'PlainHtmlRenderer',
-        importPath: './plainHtmlRenderer'
+    /**
+     * Implementation of our `routes` target. When Buildpack runs
+     * `transformModules`, this interceptor will provide a nice API to
+     * consumers of `routes`: instead of specifying the transform file
+     * and the path to the routes component, you can just push route
+     * requests into a neat little array.
+     */
+    builtins.transformModules.tap(addTransform => {
+        addTransform({
+            type: 'babel',
+            fileToTransform:
+                '@landofcoder/yume-ui/src/components/Routes/routes.js',
+            transformModule:
+                '@landofcoder/yume-ui/src/targets/BabelRouteInjectionPlugin',
+            options: {
+                routes: targets.own.routes.call([])
+            }
+        });
     });
 
-    const paymentMethodList = new PaymentMethodList(yume);
-    paymentMethodList.add({
-        paymentCode: 'braintree',
-        importPath:
-            '@landofcoder/yume-ui/src/components/CheckoutPage/PaymentInformation/creditCard'
-    });
+    // The paths below are relative to packages/venia-ui/lib/components/Routes/routes.js.
+    targets.own.routes.tap(routes => [
+        ...routes,
+        // {
+        //     name: 'AddressBook',
+        //     pattern: '/address-book',
+        //     exact: true,
+        //     path: '../AddressBookPage'
+        // },
+        {
+            name: 'Cart',
+            pattern: '/cart',
+            exact: true,
+            path: '../CartPage'
+        },
+        {
+            name: 'CheckoutPage',
+            pattern: '/checkout',
+            exact: true,
+            path: '../CheckoutPage'
+        },
+        {
+            name: 'CommunicationsPage',
+            pattern: '/communications',
+            exact: true,
+            path: '../CommunicationsPage'
+        },
+        {
+            name: 'CreateAccountPage',
+            pattern: '/create-account',
+            exact: true,
+            path: '../CreateAccountPage'
+        },
+        // {
+        //     name: 'OrderHistory',
+        //     pattern: '/order-history',
+        //     exact: true,
+        //     path: '../OrderHistoryPage'
+        // },
+        {
+            /**
+             * This path is configured in the forgot password
+             * email template in the admin panel.
+             */
+            name: 'Reset Password',
+            pattern: '/customer/account/createPassword',
+            exact: true,
+            path: '../MyAccount/ResetPassword'
+        },
+        {
+            name: 'Search',
+            pattern: '/search.html',
+            exact: true,
+            path: '../../RootComponents/Search'
+        }
+        // {
+        //     name: 'WishlistPage',
+        //     pattern: '/wishlist',
+        //     exact: true,
+        //     path: '../WishlistPage'
+        // }
+    ]);
 
     // inject peregrine used for talons target
-
-    const builtins = targets.of('@magento/pwa-buildpack');
 
     builtins.specialFeatures.tap(featuresByModule => {
         featuresByModule['@landofcoder/yume-ui'] = {
@@ -50,31 +137,18 @@ module.exports = targets => {
             graphqlQueries: true
         };
     });
-        /**
+    /**
      * Tap the low-level Buildpack target for wrapping _any_ frontend module.
-     * Wrap the config object in a HookInterceptorSet, which presents
-     * higher-level targets for named and namespaced hooks, instead of the file
-     * paths directly. Pass that higher-level config through `talons` and
-     * `hooks` interceptors, so they can add wrappers for the hook modules
-     * without tapping the `transformModules` config themselves.
+     * Wrap the config object in a TalonWrapperConfig, which presents
+     * higher-level targets for named and namespaced talons, instead of the
+     * file paths directly.
+     * Pass that higher-level config through `talons` interceptors, so they can
+     * add wrappers for the talon modules without tapping the `transformModules`
+     * config themselves.
      */
-    const publicHookSets = ['hooks', 'talons'];
-    // Waits to build API until `transformModules` target runs.
-    builtins.transformModules.tapPromise(async addTransform => {
-        await Promise.all(
-            // Run the same setup routine for "hooks" and "talons"
-            publicHookSets.map(async name => {
-                const hookInterceptors = new HookInterceptorSet(
-                    path.resolve(packageDir, 'lib', name),
-                    targets.own[name]
-                );
-                // Run any bound interceptors!
-                await hookInterceptors.runAll();
-                // Get out the generated transformModules and add each one.
-                hookInterceptors.allModules.forEach(targetable =>
-                    targetable.flush().forEach(addTransform)
-                );
-            })
-        );
+    builtins.transformModules.tap(addTransform => {
+        const talonWrapperConfig = new TalonWrapperConfig(addTransform);
+
+        targets.own.talons.call(talonWrapperConfig);
     });
 };

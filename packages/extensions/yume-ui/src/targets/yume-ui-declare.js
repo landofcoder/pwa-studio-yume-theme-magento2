@@ -45,7 +45,7 @@ module.exports = targets => {
          * NOTE: This target does not include routes controlled by the Magento
          * admin, such as CMS or catalog URLs.
          *
-         * @member {tapable.AsyncSeriesWaterfall}
+         * @member {tapable.SyncHook}
          *
          * @see [Intercept function signature]{@link routesInterceptFunction}
          * @see [Route definition object]{@link RouteDefinition}
@@ -63,58 +63,9 @@ module.exports = targets => {
          *      return routesArray;
          *   })
          */
-        routes: new targets.types.AsyncSeriesWaterfall(['routes']),
+        routes: new targets.types.SyncWaterfall(['routes']),
 
-        /**
-         * Provides access to Venia's payment methods
-         *
-         * This target lets you add new payment to your storefronts.
-         *
-         * @member {tapable.SyncHook}
-         *
-         * @see [Intercept function signature]{@link paymentInterceptFunction}
-         * @see [PaymentMethodList]{@link #PaymentMethodList}
-         * @see [Payment definition object]{@link PaymentDefinition}
-         *
-         * @example <caption>Add a payment</caption>
-         * targets.of('@magento/venia-ui').payments.tap(
-         *   payments => payments.add({
-         *     paymentCode: 'braintree',
-         *     importPath: '@magento/braintree_payment'
-         *   })
-         * );
-         */
-        payments: new targets.types.Sync(['payments']),
 
-        /**
-         * Provides access to Peregrine React hooks.
-         *
-         * This target collects requests to intercept and "wrap" individual Peregrine
-         * hooks in decorator functions.
-         *
-         * Use this target to run custom code whenever the application calls a
-         * Peregrine hook.
-         * You can also use this target to modify the behavior or output returned by
-         * a hook.
-         *
-         *
-         * @member {tapable.AsyncSeriesHook}
-         *
-         * @see [list of wrappable hooks][]
-         *
-         * @see [Intercept function signature]{@link hookInterceptFunction}
-         *
-         * @example <caption>Access the tapable object</caption>
-         * const peregrineTargets = targets.of('@landofcoder/yume-ui');
-         * const hooksTarget = peregrineTargets.hooks;
-         *
-         * @example <caption>Wrap the `useAwaitQuery()` hook  with a logging extension</caption>
-         *
-         * hooksTargets.tap( => {
-         *   hook.useAwaitQuery.wrapWith('@my-extensions/log-wrapper');
-         * })
-         */
-        hooks: new targets.types.AsyncSeries(['hooks']),
         /**
          * Provides access to Peregrine talon wrappers.
          *
@@ -127,23 +78,23 @@ module.exports = targets => {
          * a talon.
          *
          *
-         * @member {tapable.AsyncSeriesHook}
+         * @member {tapable.SyncHook}
          *
          * @see [list of wrappable talons][]
          *
-         * @see [Intercept function signature]{@link hookInterceptFunction}
+         * @see [Intercept function signature]{@link talonInterceptFunction}
          *
          * @example <caption>Access the tapable object</caption>
-         * const peregrineTargets = targets.of('@landofcoder/yume-ui');
+         * const peregrineTargets = targets.of('@magento/peregrine');
          * const talonsTarget = peregrineTargets.talons;
          *
          * @example <caption>Wrap the `useApp()` hook  with a logging extension</caption>
          *
-         * talonsTarget.tap(talons => {
-         *   talons.App.useApp.wrapWith('@my-extensions/log-wrapper');
+         * talonsTarget.tap(talonWrapperConfig => {
+         *   talonWrapperConfig.App.useApp.wrapWith('@my-extensions/log-wrapper');
          * })
          */
-        talons: new targets.types.AsyncSeries(['talons'])
+        talons: new targets.types.Sync(['talons'])
     });
 };
 
