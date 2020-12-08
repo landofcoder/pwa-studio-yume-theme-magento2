@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  yume-theme:
+    container_name: yume-theme
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      - ENV=production
+      - APPLICATION_URL=http://demo-pwa.landofcoder.com
