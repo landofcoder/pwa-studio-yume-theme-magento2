@@ -63,7 +63,7 @@ Step 1:
 - Download source PWA Studio Project
 
 
-[PWA studio 8.0 release link](https://github.com/magento/pwa-studio/releases/tag/v8.0.0) (scroll down to see assets link)
+[PWA studio 8.0 release link](https://github.com/magento/pwa-studio) (scroll down to see assets link)
 
 Step 2: 
 
