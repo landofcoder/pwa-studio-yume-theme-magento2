@@ -14,7 +14,6 @@ module.exports = targets => {
     });
 
     talonsTarget.tap(talonWrapperConfig => {
-        console.log(talonWrapperConfig);
         talonWrapperConfig.Homepage.useProductRelated.wrapWith('@landofcoder/lof-products-slider-module');
     });
 

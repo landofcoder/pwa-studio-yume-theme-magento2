@@ -14,7 +14,6 @@ module.exports = targets => {
     });
 
     talonsTarget.tap(talonWrapperConfig => {
-        console.log(talonWrapperConfig);
         talonWrapperConfig.Homepage.useImageSlider.wrapWith('@landofcoder/lof-images-slider-module');
     });
 
