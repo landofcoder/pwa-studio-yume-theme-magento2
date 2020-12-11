@@ -29,7 +29,8 @@
     "watch": "webpack-dev-server --progress --color --env.mode development --disable-host-check"
   },
   "dependencies": {
-    "@magento/pwa-buildpack": "~7.0.0"
+    "@magento/pwa-buildpack": "~7.0.0",
+    "pm2": "^4.5.0"
   },
   "devDependencies": {
     "@adobe/apollo-link-mutation-queue": "~1.0.2",
@@ -43,6 +44,8 @@
     "@babel/plugin-transform-runtime": "~7.4.4",
     "@babel/preset-env": "~7.3.4",
     "@babel/runtime": "~7.4.2",
+    "@landofcoder/lof-images-slider-module": "1.0.0",
+    "@landofcoder/lof-products-slider-module": "1.0.0",
     "@magento/babel-preset-peregrine": "~1.1.0",
     "@magento/eslint-config": "~1.5.0",
     "@magento/pagebuilder": "~3.0.0",
@@ -51,8 +54,6 @@
     "@magento/venia-sample-backends": "~0.0.1",
     "@magento/venia-ui": "~5.0.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.1",
-    "@landofcoder/lof-products-slider-module": "1.0.0",
-    "@landofcoder/lof-images-slider-module": "1.0.0",
     "@storybook/react": "~5.2.6",
     "apollo-cache-persist": "~0.1.1",
     "babel-core": "~7.0.0-bridge.0",
