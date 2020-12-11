@@ -71,6 +71,22 @@ Step 2:
 
 #### be careful with copy and replace (yume-scripts.js, extensions folder)
 
+##### in the root of both 
+/pwa-studio
+
+
+/pwa-studio-yume-theme-magento2
+
+run copy command
+
+```bash
+cp -r pwa-studio-yume-theme-magento2/ pwa-studio/
+```
+and
+
+```bash
+cp -r pwa-studio-yume-theme-magento2/packages/extensions/* pwa-studio/packages/extensions/
+```
 
 
 Step 3:
@@ -99,7 +115,11 @@ Run with success go to
 ```bash
 yarn workspace @landofcoder/yume-ui run build
 ```
+afther that run 
 
+```bash
+yarn workspace @landofcoder/yume-ui run server
+```
 ### Add custom plugin to yume theme
 - go to yume-ui folder (packages/extensions/yume-ui) in PWA-sudio directory
 ```bash

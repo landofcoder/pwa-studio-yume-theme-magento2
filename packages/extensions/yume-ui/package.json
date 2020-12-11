@@ -26,7 +26,8 @@
     "start:debug": "node --inspect-brk ./node_modules/.bin/webpack-dev-server --progress --color --env.mode development",
     "test": "yarn run -s prettier:check && yarn run -s lint && jest",
     "validate-queries": "yarn run download-schema && graphql validate-magento-pwa-queries --project yume-ui",
-    "watch": "webpack-dev-server --progress --color --env.mode development --disable-host-check"
+    "watch": "webpack-dev-server --progress --color --env.mode development --disable-host-check",
+    "server": "pm2 start process.json"
   },
   "dependencies": {
     "@magento/pwa-buildpack": "~7.0.0",
