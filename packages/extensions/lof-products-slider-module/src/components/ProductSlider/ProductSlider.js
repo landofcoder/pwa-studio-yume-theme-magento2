@@ -45,7 +45,7 @@ const Slider = () => {
     if (loading) return null;
     const galleryItems = data.products.items.map((item, index) => {
         return (
-            <div>
+            <div key={index}>
                 <GalleryItem key={index} item={mapGalleryItem(item)} />
             </div>
         );
