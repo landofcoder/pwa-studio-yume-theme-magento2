@@ -1,22 +1,22 @@
 const accountLinks = new Map()
-    .set('Account', null)
-    .set('Sign In', null)
-    .set('Register', null)
-    .set('Order Status', null)
-    .set('Returns', null);
+    .set('Account Information', '/account-information')
+    .set('Sign In', '/sign-in')
+    .set('Register', '/register')
+    .set('Order Status', '/order-history');
 
 const aboutLinks = new Map()
-    .set('About Us', null)
-    .set('Our Story', null)
-    .set('Email Signup', null)
-    .set('Give Back', null);
+    .set('About Us', '/about-us')
+    .set('Our Story', '/our-story')
+    .set('Give Back', '/give-back')
+    .set('Blog', '/blog')
+    .set('Returns', '/');
 
 const helpLinks = new Map()
-    .set('Help', null)
-    .set('Live Chat', null)
-    .set('Contact Us', null)
-    .set('Order Status', null)
-    .set('Returns', null);
+    .set('FAQ', '/faq')
+    .set('Contact Us', '/contact-us')
+    .set('How To Order', '/how-to-order')
+    .set('Refund-policy', '/refund-policy')
+    .set('Delivery-information', '/delivery-information');
 
 export const DEFAULT_LINKS = new Map()
     .set('account', accountLinks)

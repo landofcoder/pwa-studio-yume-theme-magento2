@@ -1,0 +1,9 @@
+.wrapper {
+    padding: 0 1rem;
+}
+.wrapper p {
+    line-height: 35px;
+}
+.wrapper h4 {
+    font-size: 18px;
+}

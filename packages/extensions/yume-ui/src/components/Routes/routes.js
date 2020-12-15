@@ -2,7 +2,6 @@ import React, { Suspense } from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 
 import { fullPageLoadingIndicator } from '../LoadingIndicator';
-import HomePage from '../HomePage';
 import MagentoRoute from '../MagentoRoute';
 import { useScrollTopOnChange } from '@magento/peregrine/lib/hooks/useScrollTopOnChange';
 
@@ -23,9 +22,6 @@ const Routes = () => {
                      * MagentoRoute renders the CMS page, and HomePage adds a stylesheet.
                      * HomePage would be obsolete if the CMS could deliver a stylesheet.
                      */}
-                    <Route exact path="/">
-                        <HomePage />
-                    </Route>
                 </Route>
             </Switch>
         </Suspense>

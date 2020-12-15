@@ -48,9 +48,13 @@
     gap: 1em;
 }
 
-.linkItem:first-child {
-    color: rgb(var(--venia-global-color-gray-900));
+.linkItem {
     font-weight: 600;
+    transition: all 0.3s;
+}
+.linkItem:hover > a{
+    text-decoration: solid ;
+    color: rgb(var(--venia-global-color-gray-900));
 }
 
 .callout {
