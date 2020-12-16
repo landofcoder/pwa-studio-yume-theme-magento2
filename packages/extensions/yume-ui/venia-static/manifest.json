@@ -1,6 +1,6 @@
 {
-    "name": "Venia",
-    "short_name": "Venia",
+    "name": "Yume",
+    "short_name": "Yume",
     "start_url": "/",
     "theme_color": "#1F39FF",
     "display": "standalone",
@@ -23,7 +23,7 @@
             "type": "image/png"
         },
         {
-            "src": "/venia-static/icons/venia_maskable_512.png",
+            "src": "/venia-static/icons/venia_square_512.png",
             "sizes": "512x512",
             "type": "image/png",
             "purpose": "maskable"
