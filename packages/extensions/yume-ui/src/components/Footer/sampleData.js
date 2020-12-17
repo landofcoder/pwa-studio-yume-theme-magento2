@@ -8,7 +8,7 @@ const aboutLinks = new Map()
     .set('About Us', '/about-us')
     .set('Our Story', '/our-story')
     .set('Give Back', '/give-back')
-    .set('Blog', '/blog')
+    .set('Blog', '/blog.html')
     .set('Returns', '/');
 
 const helpLinks = new Map()

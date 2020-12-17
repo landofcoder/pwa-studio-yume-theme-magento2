@@ -1,5 +1,5 @@
-const componentOverrideMapping = require('./componentOverrideMapping');
-const moduleOverridePlugin = require('./moduleOverrideWebpackPlugin');
+// const componentOverrideMapping = require('./componentOverrideMapping');
+// const moduleOverridePlugin = require('./moduleOverrideWebpackPlugin');
 
 /**
  * Custom intercept file for the extension
@@ -12,52 +12,67 @@ const moduleOverridePlugin = require('./moduleOverrideWebpackPlugin');
  * moduleOverrideWebpackPlugin and componentOverrideMapping
  */
 module.exports = targets => {
-    targets.of('@magento/pwa-buildpack').specialFeatures.tap(flags => {
-        /**
-         *  Wee need to activated esModules and cssModules to allow build pack to load our extension
-         * {@link https://magento.github.io/pwa-studio/pwa-buildpack/reference/configure-webpack/#special-flags}.
-         */
-        flags[targets.name] = { esModules: true, cssModules: true, graphqlQueries: true };
+  // Wrap the talon with this extension
+
+//   const peregrineTargets = targets.of('@landofcoder/yume-ui');
+//   const talonsTarget = peregrineTargets.talons;
+
+  // Set the buildpack features required by this extension
+  const builtins = targets.of('@magento/pwa-buildpack');
+  builtins.specialFeatures.tap(featuresByModule => {
+    featuresByModule['@landofcoder/ves-blog-module'] = {
+      cssModules: true,
+      esModules: true
+    };
+  });
+
+
+  targets.of('@landofcoder/yume-ui').routes.tap(routes => {
+    routes.push({
+      name: 'BlogHome',
+      pattern: '/blog.html',
+      path: require.resolve('./components/home/index.js')
     });
-    targets.of("@magento/venia-ui").routes.tap(routes => {
-        routes.push({
-            name: "BlogHome",
-            pattern: "/blog.html",
-            path: require.resolve("./components/home/index.js")
-        });
-        routes.push({
-            name: "BlogCategory",
-            pattern: "/blog/category/:categoryUrl?",
-            path: require.resolve("./components/category/index.js")
-        });
-        routes.push({
-            name: "BlogTag",
-            pattern: "/blog/tag/:tagUrl?",
-            path: require.resolve("./components/tag/index.js")
-        });
-        routes.push({
-            name: "BlogTopic",
-            pattern: "/blog/topic/:topicUrl?",
-            path: require.resolve("./components/topic/index.js")
-        });
-        routes.push({
-            name: "BlogArchive",
-            pattern: "/blog/month/:monthUrl?",
-            path: require.resolve("./components/month/index.js")
-        });
-        routes.push({
-            name: "BlogAuthor",
-            pattern: "/blog/author/:authorUrl?",
-            path: require.resolve("./components/author/index.js")
-        });
-        routes.push({
-            name: "BlogPost",
-            pattern: "/blog/post/:postUrl?",
-            path: require.resolve("./components/post/index.js")
-        });
-        return routes;
+    routes.push({
+      name: 'BlogCategory',
+      pattern: '/blog/category/:categoryUrl?',
+      path: require.resolve('./components/category/index.js')
     });
-    targets.of('@magento/pwa-buildpack').webpackCompiler.tap(compiler => {
-        new moduleOverridePlugin(componentOverrideMapping).apply(compiler);
-    })
+    routes.push({
+      name: 'BlogTag',
+      pattern: '/blog/tag/:tagUrl?',
+      path: require.resolve('./components/tag/index.js')
+    });
+    routes.push({
+      name: 'BlogTopic',
+      pattern: '/blog/topic/:topicUrl?',
+      path: require.resolve('./components/topic/index.js')
+    });
+    routes.push({
+      name: 'BlogArchive',
+      pattern: '/blog/month/:monthUrl?',
+      path: require.resolve('./components/month/index.js')
+    });
+    routes.push({
+      name: 'BlogAuthor',
+      pattern: '/blog/author/:authorUrl?',
+      path: require.resolve('./components/author/index.js')
+    });
+    routes.push({
+      name: 'BlogPost',
+      pattern: '/blog/post/:postUrl?',
+      path: require.resolve('./components/post/index.js')
+    });
+    return routes;
+  });
+
+//   talonsTarget.tap(talonWrapperConfig => {
+//     talonWrapperConfig.Homepage.useImageSlider.wrapWith(
+//       '@landofcoder/ves-blog-module'
+//     );
+//   });
+
+//   targets.of('@magento/pwa-buildpack').webpackCompiler.tap(compiler => {
+//     new moduleOverridePlugin(componentOverrideMapping).apply(compiler);
+//   });
 };

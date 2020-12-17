@@ -3,11 +3,6 @@
   "author": "landofcoder",
   "version": "1.0.0",
   "main": "src/index.js",
-  "pwa-studio": {
-    "targets": {
-      "intercept": "src/intercept.js"
-    }
-  },
   "scripts": {
     "format": "prettier --ignore-path .gitignore \"src/**/*.+(ts|js|tsx)\" --write",
     "lint": "eslint --ignore-path .gitignore 'src/**/{*.js,package.json}'",
@@ -69,5 +64,10 @@
   "dependencies": {
     "@magento/pwa-buildpack": ">=6.0.0",
     "@magento/venia-ui": ">=5.0.0"
+  },
+  "pwa-studio": {
+    "targets": {
+      "intercept": "src/intercept.js"
+    }
   }
 }

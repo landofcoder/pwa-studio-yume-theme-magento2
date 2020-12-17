@@ -1,3 +1,7 @@
+Blog repo
+https://github.com/Simicart/blog-module-pwa-studio
+BE repo
+https://github.com/mageplaza/magento-2-blog
 # Blog module for Magento PWA Studio
 
 This module acts as an add-on for [Mageplaza's Better Blog extension](https://www.mageplaza.com/magento-2-better-blog/) to make it work with Magento PWA Studio.
