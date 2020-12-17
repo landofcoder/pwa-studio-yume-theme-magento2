@@ -68,7 +68,7 @@
         "name": "Home Page",
         "pattern": "/",
         "exact": true,
-        "path": "../Homepage"
+        "path": "../HomePage"
     }, {
         "name": "Sign In",
         "pattern": "/sign-in",
