@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { GET_SEARCH_BLOG_POST } from './Blog.gql'
+import { GET_SEARCH_BLOG_POST, GET_SEARCH_BLOGS } from './Blog.gql'
 import { useQuery } from '@apollo/client';
 
 export const useSearchBox = props => {
@@ -7,10 +7,10 @@ export const useSearchBox = props => {
     const {
         data: blogData,
         loading: blogLoading
-    } = useQuery(GET_SEARCH_BLOG_POST,
+    } = useQuery(GET_SEARCH_BLOGS,
         {
             variables: {
-                query: `%${query}%`
+                search: `%${query}%`
             },
             skip: !query
         }

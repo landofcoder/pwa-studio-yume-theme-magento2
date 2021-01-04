@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from '@magento/venia-drivers';
-import Icon from '@magento/venia-ui/lib/components/Icon';
+import Icon from '@landofcoder/yume-ui/src/components/Icon';
 import { Calendar as CalendarIc, User as AuthorIc, Eye as EyeIc } from 'react-feather';
 
 import { Util } from '@magento/peregrine';
@@ -23,6 +23,7 @@ const BlogPostInfo = props => {
     } = item;
 
     const simiBlogConfiguration = storage.getItem('simiBlogConfiguration');
+    console.log("Storage", simiBlogConfiguration)
     let displayAuthor = false;
     if (simiBlogConfiguration && simiBlogConfiguration.general && simiBlogConfiguration.general.display_author) {
         displayAuthor = true;

@@ -1,1 +1,1 @@
-export { default } from "./accountTrigger"
+export { default } from "./signInPage"

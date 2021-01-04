@@ -69,7 +69,6 @@ const TopicFragment = gql`
         import_source
     }
 `
-
 const ProductFragment = gql`
     fragment ProductFragment on Product {
         entity_id
@@ -109,7 +108,28 @@ const PostFragment = gql`
         view_traffic
     }
 `
-
+const BlogFragment = gql`
+    fragment BlogFragment on Blog {
+        title
+      identifier
+      short_content
+      image
+      page_title
+      creation_time
+      author {
+        author_id
+        page_title
+        nick_name
+        meta_keywords
+        meta_description
+        user_id
+        email
+        is_view
+        social_networks
+        user_name
+      }
+    }
+`
 export const GET_BLOG_POSTS = gql`
     query mpBlogPosts (
         $action : String!,
@@ -211,14 +231,15 @@ export const GET_BLOG_TAGS = gql`
 `
 
 export const GET_BLOG_TOPICS = gql`
-    query mpBlogTopics{
-        mpBlogTopics {
+    query lofBlogList{
+        lofBlogList {
             items {
-                ...TopicFragment
+                ...BlogFragment
             }
+            total_count
         }
     }
-    ${TopicFragment}
+    ${BlogFragment}
 `
 
 export const GET_SIDEBAR_BLOG_POSTS = gql`
@@ -422,3 +443,49 @@ export const GET_PRODUCTS_BY_SKUS = gql`
         }
     }
 `
+
+export const GET_SEARCH_BLOGS = gql`
+    query lofBlogList(
+        $search: String, $filter: BlogFilterInput,
+        $pageSize: Int, $currentPage: Int
+        ) {
+            lofBlogList(
+                search: $search, filter: $filter,
+                pageSize: $pageSize, currentPage: $currentPage
+            ) {
+                items {
+                    title,
+                    identifier,
+                    short_content,
+                    creation_time,
+                    image
+                }
+                total_count
+            }
+        }
+`;
+export const GET_SIDEBAR_BLOGS = gql`
+    query getSidebarBlogs (
+        $search: String,
+        $filter: BlogFilterInput,
+        $pageSize: Int,
+        $currentPage: Int
+    ) {
+        lofBlogList(
+            search: $search,
+            filter: $filter,
+            pageSize: $pageSize,
+            currentPage: $currentPage
+        ) {
+            items {
+                post_id,
+                title,
+                identifier,
+                short_content,
+                image,
+                creation_time
+            }
+            total_count
+        }
+    }
+`;

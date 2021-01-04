@@ -26,10 +26,11 @@ const Banner = () => {
                     <img
                         className={styles.imageStyle}
                         src={
-                            'https://venia.magento.com/media/venia-hero1.jpg?auto=webp&format=pjpg&quality=85'
+                            'https://i.pinimg.com/originals/02/cf/cf/02cfcffac595c832c514d58704cd82ce.jpg'
                         }
                     />
                 </div>
+                
             </Swiper>
         </div>
     );

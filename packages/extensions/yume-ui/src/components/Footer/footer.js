@@ -43,7 +43,8 @@ const Footer = props => {
             </ul>
         );
     });
-
+    console.log("links", links)
+    console.log("links group ", linkGroups)
     return (
         <div className={classes.wrapperColor}>
             <footer className={classes.root}>

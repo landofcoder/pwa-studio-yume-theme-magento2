@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { shape, string } from 'prop-types';
 
 import Logo from '../Logo';
@@ -49,16 +49,26 @@ const Header = props => {
     const pageLoadingIndicator = isPageLoading ? (
         <PageLoadingIndicator />
     ) : null;
-
+    useEffect(() => {
+        let lastScrollTop = 0;
+        let header = document.getElementById("headerContainer")
+        window.addEventListener("scroll", () => {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (lastScrollTop > scrollTop) {
+                header.style.top = "0"
+            }
+            else {
+                header.style.top = "-65px"
+            }
+            lastScrollTop = scrollTop
+        })
+        return () => {
+            window.removeEventListener('scroll', () => {})
+        }
+    }, [])
     return (
         <React.Fragment>
-            {/* <div className={classes.switchersContainer}>
-                <div className={classes.switchers}>
-                    <StoreSwitcher />
-                    <CurrencySwitcher />
-                </div>
-            </div> */}
-            <header className={rootClass}>
+            <header className={rootClass} id="headerContainer">
                 <div className={classes.toolbar}>
                     <div className={classes.primaryActions}>
                         <NavTrigger />

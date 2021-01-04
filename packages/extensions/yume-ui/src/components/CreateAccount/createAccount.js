@@ -82,7 +82,7 @@ const CreateAccount = props => {
             <Field
                 label={formatMessage({
                     id: 'createAccount.firstNameText',
-                    defaultMessage: 'First Name'
+                    defaultMessage: 'First Name *'
                 })}
             >
                 <TextInput
@@ -97,7 +97,7 @@ const CreateAccount = props => {
             <Field
                 label={formatMessage({
                     id: 'createAccount.lastNameText',
-                    defaultMessage: 'Last Name'
+                    defaultMessage: 'Last Name *'
                 })}
             >
                 <TextInput
@@ -112,7 +112,7 @@ const CreateAccount = props => {
             <Field
                 label={formatMessage({
                     id: 'createAccount.emailText',
-                    defaultMessage: 'Email'
+                    defaultMessage: 'Email *'
                 })}
             >
                 <TextInput
@@ -130,7 +130,7 @@ const CreateAccount = props => {
                 isToggleButtonHidden={false}
                 label={formatMessage({
                     id: 'createAccount.passwordText',
-                    defaultMessage: 'Password'
+                    defaultMessage: 'Password *'
                 })}
                 validate={combine([
                     isRequired,
