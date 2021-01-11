@@ -1,4 +1,3 @@
-
 .bannerStyle {
     position: relative;
     width: calc(100vw);
@@ -10,4 +9,68 @@
     min-height: 300px;
     max-height: 70vh;
     object-fit: cover;
+}
+.intro-title {
+    font-weight: 600;
+    font-size: 9rem;
+    line-height: 1.1;
+    letter-spacing: 0.2em;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+}
+.text-white {
+    color: #fff!important;
+}
+.bannerImage {
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    height: 500px;
+    background-position: center center;
+
+}
+.bannerText {
+    position: static;
+    width: 100%;
+}
+.mainIntroTitle {
+    color: white;
+    text-align: center;
+    font-size: 60px;
+    font-weight: bold;
+    letter-spacing: 1rem;
+    text-transform: uppercase;
+}
+.subIntrolTitle {
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color: white;
+    padding-top: 220px;
+    letter-spacing: 0.5rem;
+}
+@media screen and (min-width: 1200px) {
+    .intro-title {
+        font-size: 9rem;
+        margin-bottom: 2.2rem;
+    }
+}
+@media screen and (min-width: 992px) {
+    .intro-title {
+        font-size: 7.6rem;
+        margin-bottom: 1.8rem;
+    }
+}
+@media screen and (min-width: 768px) {
+    .intro-title {
+        font-size: 6rem;
+        margin-bottom: 1.4rem;
+    }
+}
+@media screen and (min-width: 576px) {
+    .intro-title {
+        font-size: 3.6rem;
+        margin-bottom: 1.3rem;
+    }
 }
