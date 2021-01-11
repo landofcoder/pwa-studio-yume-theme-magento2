@@ -51,25 +51,25 @@
     letter-spacing: 0.5rem;
 }
 @media screen and (min-width: 1200px) {
-    .intro-title {
+    .mainIntroTitle {
         font-size: 9rem;
         margin-bottom: 2.2rem;
     }
 }
 @media screen and (min-width: 992px) {
-    .intro-title {
+    .mainIntroTitle {
         font-size: 7.6rem;
         margin-bottom: 1.8rem;
     }
 }
 @media screen and (min-width: 768px) {
-    .intro-title {
+    .mainIntroTitle {
         font-size: 6rem;
         margin-bottom: 1.4rem;
     }
 }
 @media screen and (min-width: 576px) {
-    .intro-title {
+    .mainIntroTitle {
         font-size: 3.6rem;
         margin-bottom: 1.3rem;
     }

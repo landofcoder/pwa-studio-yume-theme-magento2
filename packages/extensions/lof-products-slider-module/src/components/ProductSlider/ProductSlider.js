@@ -20,7 +20,7 @@ const mapGalleryItem = item => {
 const Slider = () => {
     const { queries } = sliderQuery;
     const { getTopProductQuery } = queries;
-    const { data, error, loading } = useQuery(getTopProductQuery);
+    const { loading, error, data } = useQuery(getTopProductQuery);
     // console.log("ABC",data);
     const params = {
         slidesPerView: 5,
