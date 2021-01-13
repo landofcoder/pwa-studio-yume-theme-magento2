@@ -1,5 +1,6 @@
 import React from 'react';
 // import Swiper from 'react-id-swiper';
+import ReactDOM from 'react-dom';
 import styles from './style.css';
 import { useQuery } from '@apollo/client';
 import { GET_BANNERS_SLIDER } from './BannerSlider.gql';
@@ -11,29 +12,30 @@ import 'swiper/components/scrollbar/scrollbar.min.css';
 import 'swiper/components/a11y/a11y.min.css';
 import 'swiper/components/controller/controller.min.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y,Autoplay, Controller } from 'swiper';
+import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay, Controller } from 'swiper';
+import RichContent from '@landofcoder/yume-ui/src/components/RichContent';
 
-SwiperCore.use([Navigation, Pagination, Scrollbar,, A11y, Autoplay, Controller])
+SwiperCore.use([Navigation, Pagination, Scrollbar, , A11y, Autoplay, Controller])
 const Banner = () => {
     const params = {
         pagination: {
-          el: '.swiper-pagination',
-          type: 'bullets',
-          clickable: true
+            el: '.swiper-pagination',
+            type: 'bullets',
+            clickable: true
         },
         autoplay: {
             delay: 2500,
             disableOnInteraction: false
-          },
+        },
         centeredSlides: true,
         navigation: {
-          nextEl: '.swiper-button-next',
-          prevEl: '.swiper-button-prev'
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
         },
         spaceBetween: 30,
         slidesPerView: 1
-        
-      }
+
+    }
     const { loading, error, data } = useQuery(GET_BANNERS_SLIDER, {
         variables: {
             sliderId: 1
@@ -104,7 +106,21 @@ const Banner = () => {
                 </SwiperSlide>
             )
         }
+        else if (banner.resource_type == "custom_html") {
+            
+            return (
+                <SwiperSlide key={index}>
+                    {/* <div className={styles.bannerImage}>
+                        {ReactDOM.render(banner.)}
+                        {banner.resource_path}
+                    </div> */}
+                    <RichContent html={banner.resource_path}></RichContent>
+                    {/* {banner.resource_path} */}
+                </SwiperSlide>
+            )
+        }
     })
+    console.log("ITEMS", items)
     return (
         <div className={styles.bannerStyle}>
             <Swiper
