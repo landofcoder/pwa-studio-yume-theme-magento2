@@ -44,7 +44,7 @@ const Home = props => {
                     <SearchBlog/>
                     {/* <SearchBlog />
                     <SidebarPosts /> */}
-                    {/* <CateTree /> */}
+                    <CateTree />
                     {/* <SimibarMonthlyListing />
                     <TopicList />
                     <TagList /> */}

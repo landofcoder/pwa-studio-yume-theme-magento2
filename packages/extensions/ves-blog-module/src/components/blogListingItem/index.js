@@ -17,7 +17,7 @@ const BlogListingItem = props => {
         short_content,
         image
     } = item;
-    console.log("ITEM", item)
+    // console.log("ITEM", item)
     let linkColor = '#1ABC9C';
     if (simiBlogConfiguration && simiBlogConfiguration.general && simiBlogConfiguration.general.font_color) {
         linkColor = simiBlogConfiguration.general.font_color;

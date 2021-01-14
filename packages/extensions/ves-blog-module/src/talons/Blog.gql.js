@@ -489,3 +489,29 @@ export const GET_SIDEBAR_BLOGS = gql`
         }
     }
 `;
+export const BLOG_CATEGORY_FRAGMENT = gql`
+    fragment BlogCategoryFragment on Category {
+        category_id
+        name
+        identifier
+        description
+        stores
+        is_active
+        meta_keywords
+        meta_description
+        parent_id
+        creation_time
+        update_time
+        image
+    }
+`;
+export const GET_BLOG_CATEGORIES_LIST = gql`
+    query lofBlogCategoryList($search: String, $pageSize: Int, $currentPage: Int) {
+        lofBlogCategoryList(search: $search, pageSize: $pageSize, currentPage: $currentPage) {
+            items {
+                ...BlogCategoryFragment
+            }
+        }
+    }
+    ${BLOG_CATEGORY_FRAGMENT}
+`;
