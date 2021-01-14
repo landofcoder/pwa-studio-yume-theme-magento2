@@ -1,41 +1,13 @@
 import React from 'react';
-// import Swiper from 'react-id-swiper';
-import ReactDOM from 'react-dom';
-import styles from './style.css';
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { Carousel } from 'react-responsive-carousel';
 import { useQuery } from '@apollo/client';
 import { GET_BANNERS_SLIDER } from './BannerSlider.gql';
 import LoadingIndicator from '@landofcoder/yume-ui/src/components/LoadingIndicator';
-import 'swiper/swiper.min.css';
-import 'swiper/components/navigation/navigation.min.css';
-import 'swiper/components/pagination/pagination.min.css';
-import 'swiper/components/scrollbar/scrollbar.min.css';
-import 'swiper/components/a11y/a11y.min.css';
-import 'swiper/components/controller/controller.min.css'
-import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Scrollbar, A11y, Autoplay, Controller } from 'swiper';
 import RichContent from '@landofcoder/yume-ui/src/components/RichContent';
+import styles from './style.css';
 
-SwiperCore.use([Navigation, Pagination, Scrollbar, , A11y, Autoplay, Controller])
 const Banner = () => {
-    const params = {
-        pagination: {
-            el: '.swiper-pagination',
-            type: 'bullets',
-            clickable: true
-        },
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false
-        },
-        centeredSlides: true,
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-        },
-        spaceBetween: 30,
-        slidesPerView: 1
-
-    }
     const { loading, error, data } = useQuery(GET_BANNERS_SLIDER, {
         variables: {
             sliderId: 1
@@ -52,83 +24,85 @@ const Banner = () => {
         console.log("DATA", data)
     }
     const items = data.lofBannerSlider.banners.map((banner, index) => {
-        //check type banner
         if (banner.resource_type == "youtube_video") {
             return (
-                <SwiperSlide key={index}>
-                    <div
-                        className={styles.bannerImage}
-                    >
-                        <iframe
-                            style={{
-                                margin: "0 50px 0 50px"
-                            }}
-                            width="1920"
-                            height="500" src={`${banner.resource_path}`}
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        ></iframe>
-                    </div>
-                </SwiperSlide>
+                <div key={index}>
+                    <iframe
+                        src={banner.resource_path}
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        style={{maxWidth: banner.resource_map.max_width, minWidth: banner.resource_map.min_width}}
+                    ></iframe>
+                </div>
             )
         }
         else if (banner.resource_type == "external_image") {
-            return (
-                <SwiperSlide key={index}>
-                    <div
-                        style={{
-                            backgroundImage: `url("${banner.resource_path}")`,
-                        }}
-                        className={styles.bannerImage}
-                    >
-                        <div className={styles.bannerText}>
-                            <h3 className={styles.subIntrolTitle}>You're looking good</h3>
-                            <h1 className={styles.mainIntroTitle}>{banner.title}</h1>
-                        </div>
+            if (banner.link) {
+                return (
+                    <div key={index}>
+                        <a href={`${banner.link}`}>
+                            <img
+                                className={styles.bannerImage}
+                                src={banner.resource_path}
+                                style={{maxWidth: banner.resource_map.max_width, minWidth: banner.resource_map.min_width}}
+                            />
+                            <p className={styles.bannerTitle}>{banner.title}</p>
+                        </a>
                     </div>
-                </SwiperSlide>
-            )
+                )
+            }
+            else {
+                return (
+                    <div key={index}>
+                        <img
+                            className={styles.bannerImage}
+                            src={banner.resource_path}
+                            style={{maxWidth: banner.resource_map.max_width, minWidth: banner.resource_map.min_width}}
+                        />
+                        <p className={styles.bannerTitle}>{banner.title}</p>
+                    </div>
+                )
+            }
         }
         else if (banner.resource_type == "local_image") {
-            return (
-                <SwiperSlide key={index}>
-                    <div
-                        style={{
-                            backgroundImage: `url("http://magento2.landofcoder.com/media/${banner.resource_path}")`,
-                        }}
-                        className={styles.bannerImage}
-                    >
-                        <div className={styles.bannerText}>
-                            <h3 className={styles.subIntrolTitle}>You're looking good</h3>
-                            <h1 className={styles.mainIntroTitle}>{banner.title}</h1>
-                        </div>
+            if (banner.link) {
+                return (
+                    <div key={index}>
+                        <a href={`${banner.link}`}>
+                            <img
+                                className={styles.bannerImage}
+                                src={`http://magento2.landofcoder.com/media/${banner.resource_path}`}
+                                style={{maxWidth: banner.resource_map.max_width, minWidth: banner.resource_map.min_width}}
+                            />
+                            <p className={styles.bannerTitle}>{banner.title}</p>
+                        </a>
                     </div>
-                </SwiperSlide>
-            )
+                )
+            }
+            else {
+                return (
+                    <div key={index}>
+                        <img
+                            className={styles.bannerImage}
+                            src={`http://magento2.landofcoder.com/media/${banner.resource_path}`}
+                            style={{maxWidth: banner.resource_map.max_width, minWidth: banner.resource_map.min_width}}
+                        />
+                        <p className={styles.bannerTitle}>{banner.title}</p>
+                    </div>
+                )
+            }
         }
-        else if (banner.resource_type == "custom_html") {
-            
+        else {
             return (
-                <SwiperSlide key={index}>
-                    {/* <div className={styles.bannerImage}>
-                        {ReactDOM.render(banner.)}
-                        {banner.resource_path}
-                    </div> */}
+                <div key={index} className={styles.bannerImage} style={{maxWidth: banner.resource_map.max_width, minWidth: banner.resource_map.min_width}}>
                     <RichContent html={banner.resource_path}></RichContent>
-                    {/* {banner.resource_path} */}
-                </SwiperSlide>
+                </div>
             )
         }
     })
-    console.log("ITEMS", items)
     return (
-        <div className={styles.bannerStyle}>
-            <Swiper
-                {...params}
-            >
-                {items}
-            </Swiper>
-        </div>
-    );
-};
+        <Carousel showIndicators={true} swipeable={true} showArrows showThumbs={false} autoPlay={false} infiniteLoop stopOnHover>
+            {items}
+        </Carousel >
+    )
+}
 export default Banner;

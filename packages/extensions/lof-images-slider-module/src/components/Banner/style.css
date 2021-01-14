@@ -1,76 +1,35 @@
-.bannerStyle {
-    position: relative;
-    width: calc(100vw);
-    left: calc((100% - 100vw) / 2 - 8px);
-    overflow: hidden;
-}
-.imageStyle {
-    width: 100%;
-    min-height: 300px;
-    max-height: 70vh;
-    object-fit: cover;
-}
-.intro-title {
-    font-weight: 600;
-    font-size: 9rem;
-    line-height: 1.1;
-    letter-spacing: 0.2em;
-    margin-bottom: 1.2rem;
-    text-transform: uppercase;
-}
-.text-white {
-    color: #fff!important;
-}
-.bannerImage {
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    height: 500px;
-    background-position: center center;
-
-}
-.bannerText {
-    position: static;
-    width: 100%;
-}
-.mainIntroTitle {
-    color: white;
-    text-align: center;
+.bannerTitle {
     font-size: 60px;
-    font-weight: bold;
-    letter-spacing: 1rem;
     text-transform: uppercase;
-}
-.subIntrolTitle {
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     font-weight: 600;
-    text-align: center;
-    margin-bottom: 2rem;
-    text-transform: uppercase;
-    color: white;
-    padding-top: 220px;
     letter-spacing: 0.5rem;
 }
-@media screen and (min-width: 1200px) {
-    .mainIntroTitle {
-        font-size: 9rem;
-        margin-bottom: 2.2rem;
+.bannerImage {
+    min-height: 192px;
+}
+
+@media screen and (max-width: 1200px) {
+    .bannerTitle {
+        font-size: 55px;
     }
 }
-@media screen and (min-width: 992px) {
-    .mainIntroTitle {
-        font-size: 7.6rem;
-        margin-bottom: 1.8rem;
+@media screen and (max-width: 992px) {
+    .bannerTitle {
+        font-size: 45px;
     }
 }
-@media screen and (min-width: 768px) {
-    .mainIntroTitle {
-        font-size: 6rem;
-        margin-bottom: 1.4rem;
+@media screen and (max-width: 768px) {
+    .bannerTitle {
+        font-size: 30px;
     }
 }
-@media screen and (min-width: 576px) {
-    .mainIntroTitle {
-        font-size: 3.6rem;
-        margin-bottom: 1.3rem;
+@media screen and (max-width: 576px) {
+    .bannerTitle {
+        font-size: 16px;
     }
 }
