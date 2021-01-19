@@ -55,18 +55,24 @@ const unflatten = (arr) => {
     return tree;
 }
 const dataCleaning = ((categoryArray, classes) => {
-    const groupCategory = categoryArray.map((category, index) => {
+    let groupCategory = [];
+    groupCategory.push({
+        value: 0,
+        label: "All"
+    })
+    categoryArray.map((category, index) => {
         console.log(category.image)
         const item = {
-            value: category.identifier,
+            value: category.category_id,
             label: <React.Fragment key={index}>
                 <img src={category.image ? `http://magento2.landofcoder.com/media/${category.image}` : ''} width={32} height={32} />
                 <p style={{ padding: "9px 0 0 15px" }}>{category.name}</p>
             </React.Fragment>
         }
         item['className'] = classes.customOptionCategory
-        return item
+        groupCategory.push(item)
     })
+    
     return groupCategory
 })
 const conditionFunc = (category) => {

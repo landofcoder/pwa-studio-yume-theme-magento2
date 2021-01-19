@@ -35,7 +35,7 @@ module.exports = targets => {
     });
     routes.push({
       name: 'BlogCategory',
-      pattern: '/blog/category/:categoryUrl?',
+      pattern: '/blog/category/:categoryId?',
       path: require.resolve('./components/category/index.js')
     });
     routes.push({

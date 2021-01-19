@@ -515,3 +515,48 @@ export const GET_BLOG_CATEGORIES_LIST = gql`
     }
     ${BLOG_CATEGORY_FRAGMENT}
 `;
+export const GET_POST_BY_CATEGORY_ID = gql`
+    query lofBlogCategoryById($categoryId: Int!) {
+        lofBlogCategoryById(category_id: $categoryId) {
+            ...BlogCategoryFragment
+            posts {
+                ...BlogFragment
+            }
+        }
+    }
+    ${BLOG_CATEGORY_FRAGMENT}
+    ${BlogFragment}
+`;
+export const GET_CATEGORY_META_DATA = gql`
+    query lofBlogCategoryById($categoryId: Int!) {
+        lofBlogCategoryById(category_id: $categoryId) {
+            name
+            identifier
+            page_title
+            meta_keywords
+            meta_description
+        }
+    }
+`;
+export const GET_POPULAR_BLOGS = gql`
+    query lofBlogList($pageSize: Int) {
+        lofBlogList(pageSize: $pageSize) {
+            items {
+                ...BlogFragment
+            }
+            total_count
+        }
+    }
+    ${BlogFragment}
+`;
+export const GET_LATEST_BLOGS = gql`
+    query lofBlogList($pageSize: Int, $currentPage: Int) {
+        lofBlogList(pageSize: $pageSize, currentPage: $currentPage) {
+            items {
+                ...BlogFragment
+            }
+            total_count
+        }
+    }
+    ${BlogFragment}
+`;

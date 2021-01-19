@@ -14,6 +14,7 @@ const storage = new BrowserPersistence();
 const BlogListing = props => {
     const { filterType, filterValue } = props;
     const classes = mergeClasses(defaultClasses, props.classes);
+    console.log("Props 1", props)
     const talonProps = useBlogListing({ filterType, filterValue })
     let {
         blogData,
@@ -44,21 +45,41 @@ const BlogListing = props => {
 
     if (blogLoading)
         return <LoadingIndicator />
-    if (blogError || !blogData || !blogData.lofBlogList)
+    if (blogError || !blogData)
         return ''
-    let { lofBlogList } = blogData;
-    if (!lofBlogList.items || !lofBlogList.total_count)
-        return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>
+    let lofBlogList = null;
+    // if (filterType == "get_post_by_categoryId") {
+    //     lofBlogList = blogData.posts
+    // }
+    // if ((!lofBlogList.items || !lofBlogList.total_count) && !lofBlogList.posts)
+    //     return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>
+    let blogsWrapper = null;
+    if (filterType == "get_post_by_categoryId") {
+        lofBlogList = blogData.lofBlogCategoryById
+        if (!lofBlogList.posts) {
+            return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>
+        }
+        blogsWrapper = lofBlogList.posts.map((item, index) => 
+            <React.Fragment key={index}>
+                <BlogListingItem classes={classes} item={item} key={item.post_id} simiBlogConfiguration={simiBlogConfiguration} />
+            </React.Fragment>
+        )
+    }
+    else {
+        lofBlogList = blogData.lofBlogList
+        if (!lofBlogList.items || !lofBlogList.total_count) {
+            return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>
+        }
+        blogsWrapper = lofBlogList.items.map((item, index) =>
+            <React.Fragment key={index}>
+                <BlogListingItem classes={classes} item={item} key={item.post_id} simiBlogConfiguration={simiBlogConfiguration} />
+            </React.Fragment>
+        )
+    }
     // const mpBlogPosts = data;
     return (
         <div className={classes.blogListingCtn} >
-            {
-                lofBlogList.items.map((item, index) =>
-                <React.Fragment key={index}>
-                    <BlogListingItem classes={classes} item={item} key={item.post_id} simiBlogConfiguration={simiBlogConfiguration} />
-                </React.Fragment>
-                )
-            }
+            {blogsWrapper}
             <style dangerouslySetInnerHTML={{
                 __html: `
                 .${classes.blogpostItem} h2 { color: ${linkColor} }

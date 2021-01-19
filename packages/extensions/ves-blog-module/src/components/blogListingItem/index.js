@@ -30,7 +30,7 @@ const BlogListingItem = props => {
         <div className={`${classes.blogpostItem} ${displayStyle === 1 ? classes.blogpostItemList : classes.blogpostItemGrid}`}>
             {image ? <div className={classes.blogpostItemCol1} >
                 <img src={image} alt={title} />
-            </div> : ''}
+            </div> : console.log("SRC", image)}
             <div className={classes.blogpostItemCol2} >
                 <h2>
                     <Link to={`/blog/post/${identifier}.html`} style={{ color: linkColor }}>

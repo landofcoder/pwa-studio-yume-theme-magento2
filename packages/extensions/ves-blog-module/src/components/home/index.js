@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useCallback, useMemo, useState} from 'react'
 import BreadCrumb from '../breadcrumb/index';
 import classes from './home.css';
 import BlogListing from '../blogListing/index';
@@ -14,6 +14,11 @@ const { BrowserPersistence } = Util;
 const storage = new BrowserPersistence();
 
 const Home = props => {
+    const [categoryId, setCategoryId] = useState(0);
+    const selectCategory = useCallback((event) => {
+        setCategoryId(event.value)
+        window.location.href = `/blog/category/${event.value}`
+    }, [])
     const simiBlogConfiguration = storage.getItem('simiBlogConfiguration');
     let title = 'Blog'
     let description = ''
@@ -26,6 +31,7 @@ const Home = props => {
         if (simiBlogConfiguration.general.name)
             titleName = simiBlogConfiguration.general.name
     }
+    const cateTree = useMemo(() => <CateTree categoryId={categoryId} selectCategory={selectCategory}/>, [])
     return (
         <div className={classes.mainCtn}>
             <Title>{title}</Title>
@@ -42,16 +48,18 @@ const Home = props => {
             <div className={classes.blogRoot}>
                 <div className={classes.blogSidebar}>
                     <SearchBlog/>
+                    <SidebarPosts />
                     {/* <SearchBlog />
-                    <SidebarPosts /> */}
-                    <CateTree />
+                    // <SidebarPosts /> */}
+                    {/* <CateTree categoryId={categoryId} selectCategory={selectCategory}/> */}
+                    {cateTree}
                     {/* <SimibarMonthlyListing />
                     <TopicList />
                     <TagList /> */}
                     <TopicList />
                 </div>
                 <div className={classes.blogListing}>
-                    <BlogListing classes={classes} />
+                    <BlogListing classes={classes} categoryId={categoryId}/>
                 </div>
             </div>
         </div>

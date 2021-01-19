@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
-import { GET_BLOG_POSTS, GET_BLOG_TOPICS } from './Blog.gql'
+import {
+    GET_BLOG_POSTS, GET_BLOG_TOPICS,
+    GET_POST_BY_CATEGORY_ID
+} from './Blog.gql'
 import { useQuery } from '@apollo/client';
 import { useToasts } from '@magento/peregrine';
 import Icon from '@landofcoder/yume-ui/src/components/Icon';
 import { AlertCircle as AlertCircleIcon } from 'react-feather';
 import { usePagination } from '@magento/peregrine';
+import { useHistory } from '@magento/venia-drivers';
 
 const errorIcon = <Icon src={AlertCircleIcon} attrs={{ width: 18 }} />;
 
 export const useBlogListing = props => {
+    const history = useHistory()
     const { filterType, filterValue } = props;
     const [pageSize, setPageSize] = useState(10);
     const [paginationValues, paginationApi] = usePagination();
@@ -20,15 +25,16 @@ export const useBlogListing = props => {
         setPage: setCurrentPage,
         totalPages
     };
-
-    const variables = {
-        action: filterType ? filterType : 'get_post_list',
-        currentPage: parseInt(currentPage),
-        pageSize: parseInt(pageSize)
-    }
+    console.log("Props 2", props)
+    const variables = {};
+    let queryNode = GET_BLOG_TOPICS;
     switch (filterType) {
         case 'get_post_by_categoryId':
             variables.categoryId = parseInt(filterValue);
+            if (parseInt(filterValue) == 0) {
+                history.replace('blog.html')
+            }
+            queryNode = GET_POST_BY_CATEGORY_ID
             break;
         case 'get_post_by_topic':
             variables.topicId = parseInt(filterValue);
@@ -50,12 +56,48 @@ export const useBlogListing = props => {
         default:
             break;
     }
-    console.log("variables", variables)
     const {
         data: blogData,
         loading: blogLoading,
         error: blogError
-    } = useQuery(GET_BLOG_TOPICS,)
+    } = useQuery(queryNode,{variables})
+    // const variables = {
+    //     action: filterType ? filterType : 'get_post_list',
+    //     currentPage: parseInt(currentPage),
+    //     pageSize: parseInt(pageSize)
+    // }
+    // switch (filterType) {
+    //     case 'get_post_by_categoryId':
+    //         variables.categoryId = parseInt(filterValue);
+    //         break;
+    //     case 'get_post_by_topic':
+    //         variables.topicId = parseInt(filterValue);
+    //         break;
+    //     case 'get_post_by_authorName':
+    //         variables.authorName = filterValue;
+    //         break;
+    //     case 'get_post_by_tagName':
+    //         variables.tagName = filterValue;
+    //         break;
+    //     case 'get_post_by_date_time':
+    //         variables.filter = {
+    //             created_at: {
+    //                 like: `%${filterValue}%`
+    //             }
+    //         };
+    //         variables.action = 'get_post_list';
+    //         break;
+    //     default:
+    //         break;
+    // }
+    // console.log("variables", variables)
+    // const {
+    //     data: blogData,
+    //     loading: blogLoading,
+    //     error: blogError
+    // } = useQuery(GET_BLOG_TOPICS,{})
+    // let {data, error, loading} = null;
+    // {data, error, loading} = useQuery(GET_BLOG_TOPICS)
 
     const [, { addToast }] = useToasts();
 
@@ -96,7 +138,7 @@ export const useBlogListing = props => {
     }
     if (blogData) {
         console.log("Running")
-        console.log(blogData)
+        console.log("DTA", blogData)
     }
 
     return {
