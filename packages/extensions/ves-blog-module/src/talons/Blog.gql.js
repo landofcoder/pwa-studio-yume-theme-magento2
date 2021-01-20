@@ -560,3 +560,40 @@ export const GET_LATEST_BLOGS = gql`
     }
     ${BlogFragment}
 `;
+// export const GET_POST_DETAIL = gql`
+//     lofBlogById($post_id: Int!) {
+//         lofBlogById(post_id: $post_id) {
+
+//         }
+//     }
+// `;
+export const GET_POST_BY_IDENTIFIER = gql`
+    query lofBlogList($identifier: String!) {
+        lofBlogList(filter: {
+            identifier: {
+                eq: $identifier
+            }
+        }) {
+            items {
+                ...BlogFragment
+                content
+                meta_description
+                meta_keywords
+                category_id
+                creation_time
+                hits
+                author {
+                    nick_name
+                    user_id
+                    avatar
+                    author_id
+                    
+                }
+                related_posts {
+                    post_id
+                }
+            }
+        }
+    }
+    ${BlogFragment}
+`;

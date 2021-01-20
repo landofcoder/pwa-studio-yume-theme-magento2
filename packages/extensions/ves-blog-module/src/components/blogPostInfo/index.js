@@ -22,6 +22,13 @@ const BlogPostInfo = props => {
         view_traffic
     } = item;
 
+    const {
+        creation_time,
+        category_id,
+        hits,
+        author
+    } = item
+
     const simiBlogConfiguration = storage.getItem('simiBlogConfiguration');
     console.log("Storage", simiBlogConfiguration)
     let displayAuthor = false;
@@ -35,20 +42,20 @@ const BlogPostInfo = props => {
                 {calenderIcon}
             </span>
             <span className={classes.calendarData}>
-                {publish_date}
+                {creation_time}
             </span>
             {
-                (categories && categories.items && categories.items.length) ?
+                (category_id && category_id && category_id.length) ?
                     <React.Fragment>
                         | <span className={classes.categoryData}>
                             {`Post In`} {
-                                categories.items.map(
+                                category_id.map(
                                     (categoryItem, index) =>
                                         <React.Fragment key={index}>
-                                            <Link to={`/blog/category/${categoryItem.url_key}.html`}>
-                                                {categoryItem.name}
+                                            <Link to={`/blog/category/${categoryItem}`}>
+                                                {categoryItem}
                                             </Link>
-                                            {(index < (categories.items.length - 1)) ? ',' : ''}
+                                            {(index < (category_id.length - 1)) ? ',' : ''}
                                         </React.Fragment>
                                 )
                             }
@@ -58,14 +65,14 @@ const BlogPostInfo = props => {
                     ''
             }
             {
-                displayAuthor &&
+                
                 <React.Fragment> |
                     <span className={classes.authorIcon}>
                         {authorIcon}
                     </span>
                     <span className={classes.authorName}>
-                        <Link to={`/blog/author/${author_url_key}.html?author_name=${author_name}&author_id=${author_id}`}>
-                            {author_name}
+                        <Link to={`/blog/author/${author.user_name}.html?author_name=${author_name}&author_id=${author.author_id}`}>
+                            {author.nick_name}
                         </Link>
                     </span>
                 </React.Fragment>
@@ -73,7 +80,7 @@ const BlogPostInfo = props => {
             <span className={classes.eyeIcon}>
                 {eyeIcon}
             </span>
-            <span className={classes.viewCount}>{view_traffic}</span>
+            <span className={classes.viewCount}>{hits}</span>
         </div>
     )
 }

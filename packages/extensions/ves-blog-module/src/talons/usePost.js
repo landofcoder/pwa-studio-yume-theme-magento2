@@ -1,20 +1,39 @@
 import { useState } from 'react';
-import { GET_BLOG_POST_BY_URL_KEY } from './Blog.gql'
+import { GET_POST_BY_IDENTIFIER } from './Blog.gql'
 import { useQuery } from '@apollo/client';
 
+// export const usePost = props => {
+//     const { postUrl } = props;
+//     const {
+//         data: resultData,
+//         loading: resultLoading
+//     } = useQuery(GET_BLOG_POST_BY_URL_KEY,
+//         {
+//             variables: {
+//                 url_key: postUrl.replace('.html', '')
+//             },
+//             skip: !postUrl
+//         }
+//     )
+//     return {
+//         resultData,
+//         resultLoading
+//     }
+// }
 export const usePost = props => {
     const { postUrl } = props;
+    console.log("URL", postUrl)
     const {
         data: resultData,
         loading: resultLoading
-    } = useQuery(GET_BLOG_POST_BY_URL_KEY,
+    } = useQuery(GET_POST_BY_IDENTIFIER,
         {
             variables: {
-                url_key: postUrl.replace('.html', '')
-            },
-            skip: !postUrl
+                identifier: postUrl.replace('.html', '')
+            }
         }
     )
+    console.log("resultData", resultData)
     return {
         resultData,
         resultLoading
