@@ -30,6 +30,7 @@ const Post = props => {
     const { postUrl = "" } = useParams();
     console.log("PARAM", postUrl)
     const standardizedUrl = postUrl.replace(".html", "")
+    console.log("PARAM", standardizedUrl)
     const {
         data,
         loading,
@@ -46,7 +47,10 @@ const Post = props => {
     //     return <h1>Error</h1>
     // }
     if (data) {
-        console.log(data)
+        console.log("DATA", data)
+    }
+    if (error) {
+        console.log("ERROR", error)
     }
     const talonProps = usePost({ postUrl });
     const {
@@ -144,13 +148,13 @@ const Post = props => {
                         <BlogPostInfo item={postData} classes={classes} />
                     </div>
                     <SharingBlock classes={classes} />
-                    {!!(postData && postData.related_posts && postData.related_posts.length) &&
+                    {!!(postData && postData.related_posts && postData.related_posts.items) &&
                         <div className={`${classes.relatedPosts} ${classes.detailsSection}`}>
                             <div className={classes.sectionHeader}>
                                 {`Related Posts`}
                             </div>
                             <div className={classes.sectionContent}>
-                                {/* <RelatedPosts classes={classes} items={postData.posts.items} /> */}
+                                <RelatedPosts classes={classes} items={postData.related_posts.items} />
                             </div>
                         </div>
                     }

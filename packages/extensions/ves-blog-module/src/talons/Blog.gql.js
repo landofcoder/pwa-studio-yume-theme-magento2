@@ -590,7 +590,26 @@ export const GET_POST_BY_IDENTIFIER = gql`
                     
                 }
                 related_posts {
-                    post_id
+                    items {
+                        title
+                        identifier
+                        short_content
+                        image
+                        page_title
+                        creation_time
+                        author {
+                            author_id
+                            page_title
+                            nick_name
+                            meta_keywords
+                            meta_description
+                            user_id
+                            email
+                            is_view
+                            social_networks
+                            user_name
+                        }
+                    }
                 }
             }
         }

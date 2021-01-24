@@ -33,6 +33,9 @@ export const usePost = props => {
             }
         }
     )
+    if (resultData) {
+        console.log("asbdsbdbshfjsdfj", resultData)
+    }
     console.log("resultData", resultData)
     return {
         resultData,
