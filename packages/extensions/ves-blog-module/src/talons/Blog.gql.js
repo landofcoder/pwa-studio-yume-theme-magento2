@@ -611,6 +611,25 @@ export const GET_POST_BY_IDENTIFIER = gql`
                         }
                     }
                 }
+                related_products {
+                    items {
+                        ...on ProductInterface {
+                            color
+                            id
+                            sku
+                            name
+                            price {
+                                regularPrice {
+                                    amount {
+                                        value
+                                        currency
+                                    }
+                                }
+                            }
+                            url_key
+                        }
+                    }
+                }
             }
         }
     }
@@ -647,4 +666,36 @@ export const GET_TAG_BY_ID = gql`
         }
     }
     ${BlogFragment}
+`;
+
+export const GET_RELATED_PRODUCT = gql`
+    query lofBlogList($identifier: String!) {
+        lofBlogList(filter: {
+            identifier: {
+                eq: $identifier
+            }
+        }) {
+            items {
+                related_products {
+                    items {
+                        ...on ProductInterface {
+                            color
+                            id
+                            sku
+                            name
+                            price {
+                                regularPrice {
+                                    amount {
+                                        value
+                                        currency
+                                    }
+                                }
+                            }
+                            url_key
+                        }
+                    }
+                }
+            }
+        }
+    }
 `;

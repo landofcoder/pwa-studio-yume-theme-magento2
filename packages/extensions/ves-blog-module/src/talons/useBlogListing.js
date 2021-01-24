@@ -9,6 +9,7 @@ import Icon from '@landofcoder/yume-ui/src/components/Icon';
 import { AlertCircle as AlertCircleIcon } from 'react-feather';
 import { usePagination } from '@magento/peregrine';
 import { useHistory } from '@magento/venia-drivers';
+import LoadingIndicator from '@landofcoder/yume-ui/src/components/LoadingIndicator';
 
 const errorIcon = <Icon src={AlertCircleIcon} attrs={{ width: 18 }} />;
 
@@ -135,6 +136,9 @@ export const useBlogListing = props => {
                 });
             }
         }
+    }
+    if (blogLoading) {
+        return <LoadingIndicator/>
     }
     if (blogData) {
         console.log("Running")

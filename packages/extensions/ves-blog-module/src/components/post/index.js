@@ -127,7 +127,7 @@ const Post = props => {
                         path: '/blog.html'
                     },
                     {
-                        label: postData.name,
+                        label: postData.title,
                     }
                 ]
             }
@@ -158,9 +158,9 @@ const Post = props => {
                             </div>
                         </div>
                     }
-                    {/* {!!(postData && postData.products && postData.products.items && postData.products.items.length) &&
-                        <RelatedProducts items={postData.products.items} classes={classes} />
-                    } */}
+                    {!!(postData && postData.related_products && postData.related_products.items && postData.related_products.items.length) &&
+                        <RelatedProducts items={postData.related_products.items} classes={classes} />
+                    }
                     <div ref={fbRef}>
                         <div
                             className="fb-comments"
@@ -177,7 +177,7 @@ const Post = props => {
                     <CateTree />
                     {/* <SimibarMonthlyListing /> */}
                     <TopicList />
-                    {/* <TagList /> */}
+                    <TagList />
                 </div>
             </div>
         </div >

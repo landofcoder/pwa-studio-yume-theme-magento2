@@ -59,6 +59,9 @@ const BlogListing = props => {
         if (!lofBlogList.posts) {
             return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>
         }
+        if (blogLoading) {
+            return <LoadingIndicator/>
+        }
         blogsWrapper = lofBlogList.posts.map((item, index) => 
             <React.Fragment key={index}>
                 <BlogListingItem classes={classes} item={item} key={item.post_id} simiBlogConfiguration={simiBlogConfiguration} />
