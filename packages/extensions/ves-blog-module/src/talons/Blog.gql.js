@@ -597,3 +597,35 @@ export const GET_POST_BY_IDENTIFIER = gql`
     }
     ${BlogFragment}
 `;
+
+export const GET_TAGS_LIST = gql`
+    query lofBlogTagList {
+        lofBlogTagList {
+            items {
+                alias
+                meta_robots
+                name
+                post {
+                    ...BlogFragment
+                }
+                tag_id
+            }
+        }
+    }
+    ${BlogFragment}
+`;
+
+export const GET_TAG_BY_ID = gql`
+    query lofBlogTagById($tag_id: Int!) {
+        lofBlogTagById(tag_id: $tag_id) {
+            alias
+            meta_robots
+            name
+            post {
+                ...BlogFragment
+            }
+            tag_id
+        }
+    }
+    ${BlogFragment}
+`;

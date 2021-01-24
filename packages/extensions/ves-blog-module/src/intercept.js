@@ -40,7 +40,7 @@ module.exports = targets => {
     });
     routes.push({
       name: 'BlogTag',
-      pattern: '/blog/tag/:tagUrl?',
+      pattern: '/blog/tag/:tagId?',
       path: require.resolve('./components/tag/index.js')
     });
     routes.push({
