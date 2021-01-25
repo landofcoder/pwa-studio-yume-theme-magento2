@@ -56,8 +56,8 @@ const Home = props => {
                     {/* <SimibarMonthlyListing />
                     <TopicList />
                     <TagList /> */}
-                    <TagList />
                     <TopicList />
+                    <TagList />
                 </div>
                 <div className={classes.blogListing}>
                     <BlogListing classes={classes} categoryId={categoryId}/>
