@@ -83,7 +83,7 @@ const BlogPostInfo = props => {
                 // </React.Fragment>
             }
              | <span className={classes.authorName}>
-                {author && author.user_name && author.nick_name?
+                {author && author.author_id && author.user_name && author.nick_name?
                     <Link to={`/blog/author/${author.user_name}.html?author_name=${author.user_name}&author_id=${author.author_id}`}>
                             {author.nick_name}
                     </Link>:

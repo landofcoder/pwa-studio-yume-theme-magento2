@@ -55,6 +55,7 @@ const BlogListing = props => {
     //     return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>
     let blogsWrapper = null;
     if (filterType == "get_post_by_categoryId") {
+        console.log("Category's blogs ", blogData)
         lofBlogList = blogData.lofBlogCategoryById
         if (!lofBlogList.posts) {
             return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>
@@ -67,6 +68,18 @@ const BlogListing = props => {
                 <BlogListingItem classes={classes} item={item} key={item.post_id} simiBlogConfiguration={simiBlogConfiguration} />
             </React.Fragment>
         )
+    }
+    else if (filterType == "get_post_by_authorId") {
+        console.log("Author's blogs ", blogData)
+        lofBlogList = blogData.lofBlogAuthorById
+        if (!blogData.lofBlogAuthorById.posts || !blogData.lofBlogAuthorById.posts.items) {
+            return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>
+        }
+        blogsWrapper = lofBlogList.posts.items.map((item, index) => (
+            <React.Fragment key={index}>
+                <BlogListingItem classes={classes} item={item} key={item.post_id} simiBlogConfiguration={simiBlogConfiguration} />
+            </React.Fragment>
+        ))
     }
     else {
         lofBlogList = blogData.lofBlogList

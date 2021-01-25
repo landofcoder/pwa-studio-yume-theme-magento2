@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import {
     GET_BLOG_POSTS, GET_BLOG_TOPICS,
-    GET_POST_BY_CATEGORY_ID
+    GET_POST_BY_CATEGORY_ID,
+    GET_LIST_BLOGS_BY_AUTHOR,
 } from './Blog.gql'
 import { useQuery } from '@apollo/client';
 import { useToasts } from '@magento/peregrine';
@@ -40,8 +41,9 @@ export const useBlogListing = props => {
         case 'get_post_by_topic':
             variables.topicId = parseInt(filterValue);
             break;
-        case 'get_post_by_authorName':
-            variables.authorName = filterValue;
+        case 'get_post_by_authorId':
+            variables.authorId = parseInt(filterValue);
+            queryNode = GET_LIST_BLOGS_BY_AUTHOR
             break;
         case 'get_post_by_tagName':
             variables.tagName = filterValue;

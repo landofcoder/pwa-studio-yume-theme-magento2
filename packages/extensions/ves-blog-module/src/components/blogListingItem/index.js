@@ -18,6 +18,11 @@ const BlogListingItem = props => {
         image
     } = item;
     // console.log("ITEM", item)
+    const errorImgSrcHandle = (event) => {
+        const defaultSrc = event.target.src
+        console.log("DEFAULT SRC", defaultSrc)
+        event.target.src = "https://magento2.landofcoder.com/media/ves/blog/6127_MagentoMastersBlogHeader_r1v1.png"
+    }
     let linkColor = '#1ABC9C';
     if (simiBlogConfiguration && simiBlogConfiguration.general && simiBlogConfiguration.general.font_color) {
         linkColor = simiBlogConfiguration.general.font_color;
@@ -29,7 +34,7 @@ const BlogListingItem = props => {
     return (
         <div className={`${classes.blogpostItem} ${displayStyle === 1 ? classes.blogpostItemList : classes.blogpostItemGrid}`}>
             {image ? <div className={classes.blogpostItemCol1} >
-                <img src={image} alt={title} />
+                <img onError={errorImgSrcHandle} src={image} alt={title} />
             </div> : console.log("SRC", image)}
             <div className={classes.blogpostItemCol2} >
                 <h2>

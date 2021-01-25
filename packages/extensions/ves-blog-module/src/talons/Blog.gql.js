@@ -699,3 +699,15 @@ export const GET_RELATED_PRODUCT = gql`
         }
     }
 `;
+export const GET_LIST_BLOGS_BY_AUTHOR = gql`
+    query lofBlogAuthorById($authorId: Int!) {
+        lofBlogAuthorById(author_id: $authorId) {
+            posts {
+                items {
+                    ...BlogFragment
+                }
+            }
+        }
+    }
+    ${BlogFragment}
+`

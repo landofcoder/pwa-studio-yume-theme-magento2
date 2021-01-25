@@ -55,7 +55,7 @@ module.exports = targets => {
     });
     routes.push({
       name: 'BlogAuthor',
-      pattern: '/blog/author/:authorUrl?',
+      pattern: '/blog/author/:authorId?',
       path: require.resolve('./components/author/index.js')
     });
     routes.push({

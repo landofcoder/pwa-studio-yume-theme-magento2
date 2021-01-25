@@ -9,13 +9,17 @@ import TopicList from '../topicList';
 import SidebarPosts from '../sidebarPosts';
 import SimibarMonthlyListing from '../simibarMonthlyListing';
 import { Title, Meta } from '@landofcoder/yume-ui/src/components/Head';
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 
 const Topic = props => {
     const location = useLocation();
-    const authorName = new URLSearchParams(location.search).get("author_name");
-
-    if (authorName) {
+    const urlSearch = new URLSearchParams(location.search)
+    const authorName = urlSearch.get("author_name");
+    const authorId = urlSearch.get("author_id")
+    // const { authorId = "" } = useParams()
+    console.log("Author id", authorId)
+    
+    if (authorName && authorId) {
         return (
             <div className={classes.mainCtn}>
                 <Title>{authorName}</Title>
@@ -34,7 +38,7 @@ const Topic = props => {
                 <h1>{authorName}</h1>
                 <div className={classes.blogRoot}>
                     <div className={classes.blogListing}>
-                        <BlogListing classes={classes} filterType="get_post_by_authorName" filterValue={authorName} />
+                        <BlogListing classes={classes} filterType="get_post_by_authorId" filterValue={authorId} />
                     </div>
                     <div className={classes.blogSidebar}>
                         <SearchBlog />
