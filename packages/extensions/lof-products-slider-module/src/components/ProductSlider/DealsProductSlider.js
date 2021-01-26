@@ -16,10 +16,10 @@ const mapGalleryItem = item => {
     };
 };
 
-const Slider = () => {
+const DealsProductSlider = () => {
     const { queries } = sliderQuery;
-    const { getTopProductQuery } = queries;
-    const { data, error, loading } = useQuery(getTopProductQuery);
+    const { getDealProductQuery } = queries;
+    const { data, error, loading } = useQuery(getDealProductQuery);
     console.log(data);
     const params = {
         slidesPerView: 5,
@@ -43,7 +43,7 @@ const Slider = () => {
         }
     };
     if (loading) return null;
-    const galleryItems = data.products.items.map((item, index) => {
+    const galleryItems = data.lofProductListDeals.items.map((item, index) => {
         return (
             <div key={index}>
                 <GalleryItem key={index} item={mapGalleryItem(item)} />
@@ -56,4 +56,4 @@ const Slider = () => {
         </div>
     );
 };
-export default Slider;
+export default DealsProductSlider;

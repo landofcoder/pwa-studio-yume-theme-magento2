@@ -21,6 +21,7 @@ import {
     ADD_CONFIGURABLE_MUTATION,
     ADD_SIMPLE_MUTATION
 } from './productFullDetail.gql';
+import {useProductRelated} from "@landofcoder/yume-ui/lib/talons/ProductDetail/useProductRelated";
 
 const Options = React.lazy(() => import('../ProductOptions'));
 
@@ -40,6 +41,7 @@ const ERROR_FIELD_TO_MESSAGE_MAPPING = {
 
 const ProductFullDetail = props => {
     const { product } = props;
+    const urlKey = product.url_key;
 
     const talonProps = useProductFullDetail({
         addConfigurableProductToCartMutation: ADD_CONFIGURABLE_MUTATION,
@@ -130,6 +132,8 @@ const ProductFullDetail = props => {
         }
     }
 
+    const productRelated = useProductRelated(urlKey);
+
     return (
         <Fragment>
             {breadcrumbs}
@@ -199,6 +203,7 @@ const ProductFullDetail = props => {
                     <strong>{productDetails.sku}</strong>
                 </section>
             </Form>
+            {productRelated.components}
         </Fragment>
     );
 };
