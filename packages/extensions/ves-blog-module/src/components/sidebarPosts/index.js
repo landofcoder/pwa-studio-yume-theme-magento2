@@ -49,11 +49,12 @@ const SidebarPosts = props => {
     }
 
     const popPosts = useMemo(() => {
+        console.log("Pop data", popData)
         if (popData && popData.lofBlogList && popData.lofBlogList.items) {
             return popData.lofBlogList.items.map((item, index) => <PostItem item={item} key={index} />)
         }
         return []
-    }, [latestData])
+    }, [popData])
 
     const latestPosts = useMemo(() => {
         if (latestData && latestData.lofBlogList && latestData.lofBlogList.items) {

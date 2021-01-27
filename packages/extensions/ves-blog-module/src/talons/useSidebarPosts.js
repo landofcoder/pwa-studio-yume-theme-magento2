@@ -26,7 +26,8 @@ export const useSidebarPosts = props => {
     } = useQuery(GET_POPULAR_BLOGS, {
         variables: {
             pageSize: 5
-        }
+        },
+        fetchPolicy: "cache-first"
     });
 
     const {
@@ -36,7 +37,8 @@ export const useSidebarPosts = props => {
         variables: {
             pageSize: 5,
             currentPage: 2
-        }
+        },
+        fetchPolicy: "cache-first"
     })
 
     return {
