@@ -690,3 +690,20 @@ export const GET_LIST_BLOGS_BY_AUTHOR = gql`
     }
     ${BlogFragment}
 `;
+
+export const GET_BLOG_BY_TAG_NAME = gql`
+    query lofBlogTagByAlias($alias: String!) {
+        lofBlogTagByAlias(alias: $alias) {
+            alias
+            meta_robots
+            name
+            posts {
+                items {
+                    ...BlogFragment
+                }
+                total_count
+            }
+        }
+    }
+    ${BlogFragment}
+`

@@ -81,6 +81,18 @@ const BlogListing = props => {
             </React.Fragment>
         ))
     }
+    else if (filterType == "get_post_by_tagName") {
+        console.log("Tag's blogs ", blogData)
+        lofBlogList = blogData.lofBlogTagByAlias
+        if (!blogData.lofBlogTagByAlias.posts || !blogData.lofBlogTagByAlias.posts.items) {
+            return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>
+        }
+        blogsWrapper = blogData.lofBlogTagByAlias.posts.items.map((item, index) => (
+            <React.Fragment key={index}>
+                <BlogListingItem classes={classes} item={item} key={item.post_id} simiBlogConfiguration={simiBlogConfiguration} />
+            </React.Fragment>
+        ))
+    }
     else {
         lofBlogList = blogData.lofBlogList
         if (!lofBlogList.items || !lofBlogList.total_count) {

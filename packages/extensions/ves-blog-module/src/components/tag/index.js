@@ -11,28 +11,28 @@ import SimibarMonthlyListing from '../simibarMonthlyListing';
 import { useParams } from "react-router-dom";
 import LoadingIndicator from '@landofcoder/yume-ui/src/components/LoadingIndicator';
 import { useQuery } from '@apollo/client';
-import { GET_TAG_BY_URL_KEY, GET_TAG_BY_ID } from '../../talons/Blog.gql';
+import { GET_TAG_BY_URL_KEY, GET_BLOG_BY_TAG_NAME } from '../../talons/Blog.gql';
 import { Title, Meta } from '@landofcoder/yume-ui/src/components/Head';
 
 const Tag = props => {
-    const { tagId = "" } = useParams();
+    const { alias = "" } = useParams();
 
     const {
         data: resultData,
         loading: resultLoading
-    } = useQuery(GET_TAG_BY_ID,
+    } = useQuery(GET_BLOG_BY_TAG_NAME,
         {
             variables: {
-                tag_id: parseInt(tagId)
+                alias: alias
             },
         }
     )
     if (resultLoading)
         return <LoadingIndicator />
-    if (!resultData || !resultData.lofBlogTagById)
+    if (!resultData || !resultData.lofBlogTagByAlias)
         return 'Cannot find item';
 
-    const tagData = resultData.lofBlogTagById
+    const tagData = resultData.lofBlogTagByAlias
     console.log("DATA TAG", tagData.name)
 
     return (
@@ -54,7 +54,7 @@ const Tag = props => {
             <h1>{tagData.name}</h1>
             <div className={classes.blogRoot}>
                 <div className={classes.blogListing}>
-                    <BlogListing classes={classes}  filterValue={tagData.name} />
+                    <BlogListing filterType="get_post_by_tagName" classes={classes}  filterValue={tagData.alias} />
                 </div>
                 <div className={classes.blogSidebar}>
                     <SearchBlog />
