@@ -9,7 +9,6 @@ import GalleryItem from '@landofcoder/yume-ui/src/components/Gallery/item';
 
 const mapGalleryItem = item => {
     const { small_image } = item;
-    // console.log("ITEM", item)
     return {
         ...item,
         small_image:
@@ -17,11 +16,11 @@ const mapGalleryItem = item => {
     };
 };
 
-const Slider = () => {
+const DealsProductSlider = () => {
     const { queries } = sliderQuery;
-    const { getTopProductQuery } = queries;
-    const { loading, error, data } = useQuery(getTopProductQuery);
-    // console.log("ABC",data);
+    const { getDealProductQuery } = queries;
+    const { data, error, loading } = useQuery(getDealProductQuery);
+    console.log(data);
     const params = {
         slidesPerView: 5,
         spaceBetween: 30,
@@ -44,7 +43,7 @@ const Slider = () => {
         }
     };
     if (loading) return null;
-    const galleryItems = data.products.items.map((item, index) => {
+    const galleryItems = data.lofProductListDeals.items.map((item, index) => {
         return (
             <div key={index}>
                 <GalleryItem key={index} item={mapGalleryItem(item)} />
@@ -57,4 +56,4 @@ const Slider = () => {
         </div>
     );
 };
-export default Slider;
+export default DealsProductSlider;
