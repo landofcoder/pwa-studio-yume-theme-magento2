@@ -1,3 +1,5 @@
+
+/*
 module.exports = targets => {
     // Wrap the useProductFullDetail talon with this extension
     const peregrineTargets = targets.of('@landofcoder/yume-ui');
@@ -14,8 +16,32 @@ module.exports = targets => {
     });
 
     talonsTarget.tap(talonWrapperConfig => {
-        console.log(talonWrapperConfig);
-        talonWrapperConfig.Homepage.useProductRelated.wrapWith('@landofcoder/lof-products-slider-module');
+
+        talonWrapperConfig.Homepage.useProductSlider.wrapWith('./wrapper.js');
     });
 
 };
+*/
+
+//------------------------------------
+//packages/extensions/yume-ui/lib/talons/Homepage/useProductSlider.js
+const moduleOverridePlugin = require('./moduleOverrideWebpackPlugin');
+const componentOverrideMapping = {
+    '@landofcoder/yume-ui/lib/talons/Homepage/useProductSlider.js': './wrapperProductSlider.js',
+    '@landofcoder/yume-ui/lib/talons/ProductDetail/useProductRelated.js': './wrapperRelatedProduct.js',
+};
+
+module.exports = targets => {
+    targets.of('@magento/pwa-buildpack').specialFeatures.tap(flags => {
+        /**
+         *  Wee need to actived esModules and cssModules to allow build pack to load our extension
+         * {@link https://magento.github.io/pwa-studio/pwa-buildpack/reference/configure-webpack/#special-flags}.
+         */
+        flags[targets.name] = {esModules: true, cssModules: true};
+    });
+
+    targets.of('@magento/pwa-buildpack').webpackCompiler.tap(compiler => {
+        // registers our own overwrite plugin for webpack
+        new moduleOverridePlugin(componentOverrideMapping).apply(compiler);
+    })
+}

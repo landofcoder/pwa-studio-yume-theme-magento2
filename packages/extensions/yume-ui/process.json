@@ -1,0 +1,11 @@
+{
+    "apps": [
+        {
+            "script": "yarn watch",
+            "name": "@landofcoder/yume-ui",
+            "max_memory_restart": "2G",
+            "cron_restart": "0 3 */1 * *",
+            "kill_timeout": 2000
+        }
+    ]
+}

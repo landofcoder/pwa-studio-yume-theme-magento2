@@ -64,13 +64,27 @@ const Footer = props => {
                         </p>
                         <ul className={classes.socialLinks}>
                             <li>
-                                <Instagram size={20} />
+                                <a target="_bank" href={'/'}>
+                                    <Instagram size={20} />
+                                </a>
                             </li>
                             <li>
-                                <Facebook size={20} />
+                                <a target="_bank" href={'/'}>
+                                    <Facebook
+                                        size={20}
+                                        target="_bank"
+                                        href={'/'}
+                                    />
+                                </a>
                             </li>
                             <li>
-                                <Twitter size={20} />
+                                <a target="_bank" href={'/'}>
+                                    <Twitter
+                                        size={20}
+                                        target="_bank"
+                                        href={'/'}
+                                    />
+                                </a>
                             </li>
                         </ul>
                     </div>

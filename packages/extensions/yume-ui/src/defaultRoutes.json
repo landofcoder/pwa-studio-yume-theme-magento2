@@ -1,5 +1,4 @@
-[
-    {
+[{
         "name": "AccountInformationPage",
         "pattern": "/account-information",
         "exact": true,
@@ -64,5 +63,65 @@
         "pattern": "/wishlist",
         "exact": true,
         "path": "../WishlistPage"
+    },
+    {
+        "name": "Home Page",
+        "pattern": "/",
+        "exact": true,
+        "path": "../HomePage"
+    }, {
+        "name": "Sign In",
+        "pattern": "/sign-in",
+        "exact": true,
+        "path": "../common/SignIn"
+    }, {
+        "name": "Register",
+        "pattern": "/register",
+        "exact": true,
+        "path": "../common/SignIn"
+    },
+    {
+        "name": "About us",
+        "pattern": "/about-us",
+        "exact": true,
+        "path": "../common/AboutUs"
+    },
+    {
+        "name": "Our story",
+        "pattern": "/our-story",
+        "exact": true,
+        "path": "../common/OurStory"
+    },
+    {
+        "name": "Give back",
+        "pattern": "/give-back",
+        "exact": true,
+        "path": "../common/GiveBack"
+    },
+
+    {
+        "name": "Contact Us",
+        "pattern": "/contact-us",
+        "exact": true,
+        "path": "../common/ContactUs"
+    },
+    {
+        "name": "How to order",
+        "pattern": "/how-to-order",
+        "exact": true,
+        "path": "../common/HowToOrder"
+    },
+    {
+        "name": "Refund-policy",
+        "pattern": "/refund-policy",
+        "exact": true,
+        "path": "../common/RefundPolicy"
+    },
+    {
+        "name": "Delivery-information",
+        "pattern": "/delivery-information",
+        "exact": true,
+        "path": "../common/DeliveryInformation"
     }
+
 ]
