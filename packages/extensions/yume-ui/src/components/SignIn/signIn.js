@@ -59,7 +59,7 @@ const SignIn = props => {
             <h2 className={classes.title}>
                 <FormattedMessage
                     id={'signIn.titleText'}
-                    defaultMessage={'Sign-in to Your Account'}
+                    defaultMessage={'Sign-in to Your AccountT'}
                 />
             </h2>
             <FormError errors={Array.from(errors.values())} />

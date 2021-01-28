@@ -1,9 +1,24 @@
 .wrapper {
     padding: 0 1rem;
+    osition: relative;
+    padding-top: 140px;
 }
 .wrapper p {
     line-height: 35px;
 }
 .wrapper h4 {
     font-size: 18px;
+}
+.footerCategory {
+    background-color: #f2f2f2;
+    padding-left: 20px;
+    padding-top: 35px;
+    padding-bottom: 60px;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    font-size: 30px;
+    text-align: center;
+    font-weight: 600;
 }

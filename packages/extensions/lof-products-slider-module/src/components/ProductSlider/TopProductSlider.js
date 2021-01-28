@@ -9,6 +9,7 @@ import GalleryItem from '@landofcoder/yume-ui/src/components/Gallery/item';
 
 const mapGalleryItem = item => {
     const { small_image } = item;
+    // console.log("ITEM", item)
     return {
         ...item,
         small_image:
@@ -19,8 +20,8 @@ const mapGalleryItem = item => {
 const TopProductSlider = () => {
     const { queries } = sliderQuery;
     const { getTopProductQuery } = queries;
-    const { data, error, loading } = useQuery(getTopProductQuery);
-    console.log(data);
+    const { loading, error, data } = useQuery(getTopProductQuery);
+    // console.log("ABC",data);
     const params = {
         slidesPerView: 5,
         spaceBetween: 30,

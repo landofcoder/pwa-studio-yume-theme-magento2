@@ -9,10 +9,10 @@ import TopicList from '../topicList';
 import SidebarPosts from '../sidebarPosts';
 import SimibarMonthlyListing from '../simibarMonthlyListing';
 import { useParams } from "react-router-dom";
-import LoadingIndicator from '@magento/venia-ui/lib/components/LoadingIndicator';
+import LoadingIndicator from '@landofcoder/yume-ui/src/components/LoadingIndicator';
 import { useQuery } from '@apollo/client';
 import { GET_BLOG_ARCHIVE_DETAILS } from '../../talons/Blog.gql';
-import { Title, Meta } from '@magento/venia-ui/lib/components/Head';
+import { Title, Meta } from '@landofcoder/yume-ui/src/components/Head';
 
 const Category = props => {
     const { monthUrl = "" } = useParams();

@@ -3,7 +3,7 @@ import classes from './style.css'
 import { GET_BLOG_ARCHIVE } from '../../talons/Blog.gql'
 import { useQuery } from '@apollo/client';
 import { Link } from '@magento/venia-drivers';
-import Icon from '@magento/venia-ui/lib/components/Icon';
+import Icon from '@landofcoder/yume-ui/src/components/Icon';
 import { Calendar as CalendarIc } from 'react-feather';
 
 const calendarIcon = <Icon src={CalendarIc} attrs={{ width: 13 }} />;

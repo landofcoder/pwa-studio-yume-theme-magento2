@@ -74,11 +74,12 @@
         "pattern": "/sign-in",
         "exact": true,
         "path": "../common/SignIn"
-    }, {
+    },
+    {
         "name": "Register",
         "pattern": "/register",
         "exact": true,
-        "path": "../common/SignIn"
+        "path": "../common/Register"
     },
     {
         "name": "About us",

@@ -31,7 +31,12 @@
   },
   "dependencies": {
     "@magento/pwa-buildpack": "~7.0.0",
-    "pm2": "^4.5.0"
+    "bootstrap": "~4.5.3",
+    "pm2": "^4.5.0",
+    "react-bootstrap": "~1.4.0",
+    "react-dropdown-tree-select": "~2.5.1",
+    "react-responsive-carousel": "~3.2.11",
+    "react-social-sharing": "~3.3.0"
   },
   "devDependencies": {
     "@adobe/apollo-link-mutation-queue": "~1.0.2",

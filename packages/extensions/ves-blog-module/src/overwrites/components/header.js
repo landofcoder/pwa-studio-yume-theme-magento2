@@ -1,23 +1,23 @@
 import React, { Suspense } from 'react';
 import { shape, string } from 'prop-types';
 
-import Logo from '@magento/venia-ui/lib/components/Logo';
+import Logo from '@landofcoder/yume-ui/src/components/Logo';
 import { Link, resourceUrl, Route } from '@magento/venia-drivers';
 
-import AccountTrigger from '@magento/venia-ui/lib/components/Header/accountTrigger';
-import CartTrigger from '@magento/venia-ui/lib/components/Header/cartTrigger';
-import NavTrigger from '@magento/venia-ui/lib/components/Header/navTrigger';
-import SearchTrigger from '@magento/venia-ui/lib/components/Header/searchTrigger';
-import OnlineIndicator from '@magento/venia-ui/lib/components/Header/onlineIndicator';
+import AccountTrigger from '@landofcoder/yume-ui/src/components/Header/accountTrigger';
+import CartTrigger from '@landofcoder/yume-ui/src/components/Header/cartTrigger';
+import NavTrigger from '@landofcoder/yume-ui/src/components/Header/navTrigger';
+import SearchTrigger from '@landofcoder/yume-ui/src/components/Header/searchTrigger';
+import OnlineIndicator from '@landofcoder/yume-ui/src/components/Header/onlineIndicator';
 import { useHeader } from '@magento/peregrine/lib/talons/Header/useHeader';
 
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
-import defaultClasses from '@magento/venia-ui/lib/components/Header/header.css';
+import { mergeClasses } from '@landofcoder/yume-ui/src/classify';
+import defaultClasses from '@landofcoder/yume-ui/src/components/Header/header.css';
 import PageLoadingIndicator from '@magento/venia-ui/lib/components/PageLoadingIndicator';
 
 import BlogIcon from './BlogIcon';
 
-const SearchBar = React.lazy(() => import('@magento/venia-ui/lib/components/SearchBar'));
+const SearchBar = React.lazy(() => import('@landofcoder/yume-ui/src/components/SearchBar'));
 
 const Header = props => {
     const {
