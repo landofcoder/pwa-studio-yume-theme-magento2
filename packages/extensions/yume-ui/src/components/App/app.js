@@ -14,6 +14,7 @@ import Navigation from '@magento/venia-ui/lib/components/Navigation';
 import Routes from '@landofcoder/yume-ui/src/components/Routes';
 import ToastContainer from '@magento/venia-ui/lib/components/ToastContainer';
 import Icon from '@magento/venia-ui/lib/components/Icon';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 import {
     AlertCircle as AlertCircleIcon,

@@ -1,5 +1,9 @@
 .input {
     composes: input from '../Field/field.css';
+    border: none;
+    border-bottom: 1px solid black;
+    border-radius: 0;
+    color: var(--venia-brand-color-1-700);
 }
 
 .input:disabled {
@@ -8,5 +12,7 @@
 
 .input_error {
     composes: input from '../Field/field.css';
-    border-color: rgb(var(--venia-global-color-red-400));
+    border: none;
+    border-bottom: 1px solid rgb(var(--venia-global-color-red-400));
+    border-radius: 0;
 }

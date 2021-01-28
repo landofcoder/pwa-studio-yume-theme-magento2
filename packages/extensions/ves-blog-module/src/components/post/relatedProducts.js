@@ -3,7 +3,7 @@ import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import LoadingIndicator from '@magento/venia-ui/lib/components/LoadingIndicator';
 import { GET_PRODUCTS_BY_SKUS } from '../../talons/Blog.gql';
 import { useQuery } from '@apollo/client';
-import GalleryItem from '@magento/venia-ui/lib/components/Gallery/item';
+import GalleryItem from '@landofcoder/yume-ui/src/components/Gallery/item';
 
 // map Magento 2.3.1 schema changes to Venia 2.0.0 proptype shape to maintain backwards compatibility
 const mapGalleryItem = item => {

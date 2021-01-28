@@ -8,7 +8,7 @@ import TagList from '../tagList';
 import TopicList from '../topicList';
 import SidebarPosts from '../sidebarPosts';
 import SimibarMonthlyListing from '../simibarMonthlyListing';
-import { Title, Meta } from '@magento/venia-ui/lib/components/Head';
+import { Title, Meta } from '@landofcoder/yume-ui/src/components/Head';
 import { Util } from '@magento/peregrine';
 const { BrowserPersistence } = Util;
 const storage = new BrowserPersistence();
@@ -40,16 +40,18 @@ const Home = props => {
             />
             <h1>{titleName}</h1>
             <div className={classes.blogRoot}>
+                <div className={classes.blogSidebar}>
+                    <SearchBlog/>
+                    {/* <SearchBlog />
+                    <SidebarPosts /> */}
+                    {/* <CateTree /> */}
+                    {/* <SimibarMonthlyListing />
+                    <TopicList />
+                    <TagList /> */}
+                    <TopicList />
+                </div>
                 <div className={classes.blogListing}>
                     <BlogListing classes={classes} />
-                </div>
-                <div className={classes.blogSidebar}>
-                    <SearchBlog />
-                    <SidebarPosts />
-                    <CateTree />
-                    <SimibarMonthlyListing />
-                    <TopicList />
-                    <TagList />
                 </div>
             </div>
         </div>

@@ -1,11 +1,13 @@
 import React, { useEffect } from 'react'
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/src/classify';
 import defaultClasses from './blogListing.css'
 import { useBlogListing } from '../../talons/useBlogListing'
-import LoadingIndicator from '@magento/venia-ui/lib/components/LoadingIndicator';
+import LoadingIndicator from '@landofcoder/yume-ui/src/components/LoadingIndicator';
 import BlogListingItem from '../blogListingItem'
-import Pagination from '@magento/venia-ui/lib/components/Pagination';
+import Pagination from '@landofcoder/yume-ui/src/components/Pagination';
 import { Util } from '@magento/peregrine';
+import { listBlogs } from '../../data/blogs';
+const data = listBlogs();
 const { BrowserPersistence } = Util;
 const storage = new BrowserPersistence();
 
@@ -13,7 +15,7 @@ const BlogListing = props => {
     const { filterType, filterValue } = props;
     const classes = mergeClasses(defaultClasses, props.classes);
     const talonProps = useBlogListing({ filterType, filterValue })
-    const {
+    let {
         blogData,
         blogLoading,
         blogError,
@@ -21,7 +23,11 @@ const BlogListing = props => {
         pageSize,
         setPageSize
     } = talonProps
-
+    console.log("TALON PROPS", talonProps)
+    /*
+    fake data
+    */
+    // blogData = data;
     const simiBlogConfiguration = storage.getItem('simiBlogConfiguration');
 
     let linkColor = '#1ABC9C';
@@ -38,17 +44,19 @@ const BlogListing = props => {
 
     if (blogLoading)
         return <LoadingIndicator />
-    if (blogError || !blogData || !blogData.mpBlogPosts)
+    if (blogError || !blogData || !blogData.lofBlogList)
         return ''
-    const { mpBlogPosts } = blogData;
-    if (!mpBlogPosts.items || !mpBlogPosts.total_count)
+    let { lofBlogList } = blogData;
+    if (!lofBlogList.items || !lofBlogList.total_count)
         return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>
-
+    // const mpBlogPosts = data;
     return (
         <div className={classes.blogListingCtn} >
             {
-                mpBlogPosts.items.map(item =>
+                lofBlogList.items.map((item, index) =>
+                <React.Fragment key={index}>
                     <BlogListingItem classes={classes} item={item} key={item.post_id} simiBlogConfiguration={simiBlogConfiguration} />
+                </React.Fragment>
                 )
             }
             <style dangerouslySetInnerHTML={{

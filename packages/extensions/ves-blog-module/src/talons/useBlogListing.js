@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { GET_BLOG_POSTS } from './Blog.gql'
+import { GET_BLOG_POSTS, GET_BLOG_TOPICS } from './Blog.gql'
 import { useQuery } from '@apollo/client';
 import { useToasts } from '@magento/peregrine';
-import Icon from '@magento/venia-ui/lib/components/Icon';
+import Icon from '@landofcoder/yume-ui/src/components/Icon';
 import { AlertCircle as AlertCircleIcon } from 'react-feather';
 import { usePagination } from '@magento/peregrine';
 
@@ -50,21 +50,18 @@ export const useBlogListing = props => {
         default:
             break;
     }
+    console.log("variables", variables)
     const {
         data: blogData,
         loading: blogLoading,
         error: blogError
-    } = useQuery(GET_BLOG_POSTS,
-        {
-            variables
-        }
-    )
+    } = useQuery(GET_BLOG_TOPICS,)
 
     const [, { addToast }] = useToasts();
 
     // Set the total number of pages whenever the data changes.
     useEffect(() => {
-        const totalPagesFromData = (blogData && blogData.mpBlogPosts && blogData.mpBlogPosts.pageInfo)
+        const totalPagesFromData = (blogData && blogData.lofBlogList && blogData.lofBlogList.pageInfo)
             ? blogData.mpBlogPosts.pageInfo.endPage
             : null;
         setTotalPages(totalPagesFromData);
@@ -96,6 +93,10 @@ export const useBlogListing = props => {
                 });
             }
         }
+    }
+    if (blogData) {
+        console.log("Running")
+        console.log(blogData)
     }
 
     return {

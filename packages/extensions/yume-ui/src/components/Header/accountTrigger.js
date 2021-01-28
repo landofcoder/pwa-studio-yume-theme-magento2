@@ -6,7 +6,7 @@ import { useAccountTrigger } from '@magento/peregrine/lib/talons/Header/useAccou
 import { mergeClasses } from '@magento/venia-ui/lib/classify';
 
 import AccountChip from '@magento/venia-ui/lib/components/AccountChip';
-import AccountMenu from '@magento/venia-ui/lib/components/AccountMenu';
+import AccountMenu from '../AccountMenu';
 
 import defaultClasses from './accountTrigger.css';
 
@@ -45,7 +45,6 @@ const AccountTrigger = props => {
                     <AccountChip
                         fallbackText={formatMessage({
                             id: 'accountTrigger.buttonFallback',
-                            defaultMessage: 'Sign In'
                         })}
                         shouldIndicateLoading={true}
                     />

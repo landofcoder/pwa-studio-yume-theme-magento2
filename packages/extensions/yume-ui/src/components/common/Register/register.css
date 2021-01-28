@@ -1,0 +1,6 @@
+.title {
+    text-align: center;
+    font-weight: var(--venia-global-fontWeight-semibold);
+    font-size: 2rem;
+    padding-top: 30px;
+}

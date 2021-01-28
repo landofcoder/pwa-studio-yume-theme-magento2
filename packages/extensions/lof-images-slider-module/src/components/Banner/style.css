@@ -1,13 +1,35 @@
-
-.bannerStyle {
-    position: relative;
-    width: calc(100vw);
-    left: calc((100% - 100vw) / 2 - 8px);
-    overflow: hidden;
+.bannerTitle {
+    font-size: 60px;
+    text-transform: uppercase;
+    color: #ffffff;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: 600;
+    letter-spacing: 0.5rem;
 }
-.imageStyle {
-    width: 100%;
-    min-height: 300px;
-    max-height: 70vh;
-    object-fit: cover;
+.bannerImage {
+    min-height: 192px;
+}
+
+@media screen and (max-width: 1200px) {
+    .bannerTitle {
+        font-size: 55px;
+    }
+}
+@media screen and (max-width: 992px) {
+    .bannerTitle {
+        font-size: 45px;
+    }
+}
+@media screen and (max-width: 768px) {
+    .bannerTitle {
+        font-size: 30px;
+    }
+}
+@media screen and (max-width: 576px) {
+    .bannerTitle {
+        font-size: 16px;
+    }
 }

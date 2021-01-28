@@ -1,5 +1,5 @@
 import React from 'react';
-import Icon from '@magento/venia-ui/lib/components/Icon';
+import Icon from '@landofcoder/yume-ui/src/components/Icon';
 import { PenTool as PenToolIcon } from 'react-feather';
 import { resourceUrl, useHistory } from '@magento/venia-drivers';
 import classes from './blogicon.css';
