@@ -1,4 +1,4 @@
-.listRoot {
+/* .listRoot {
     padding: 5px;
     border-top: solid 1px #eaeaea;
     margin-top: 15px;
@@ -17,4 +17,31 @@
 }
 .listItem:hover {
     opacity: 0.8;
+} */
+/* .archiveItem {
+    border-bottom: 1.5px solid #bbbbbbbd;
+} */
+.archiveItemContainer {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1.5px solid #bbbbbbbd;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+    max-width: 98%;
+}
+.archiveTitle {
+    font-size: 18px;
+    margin-top: 33px;
+}
+.archiveTitle:hover {
+    color: #006bb4;
+}
+.archiveContainer {
+    padding-bottom: 30px;
+}
+.listArchiveHeader {
+    font-size: 20px;
+    padding-top: 50px;
+    padding-bottom: 15px;
 }

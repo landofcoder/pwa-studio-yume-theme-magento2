@@ -178,6 +178,7 @@ const Post = props => {
                     <CateTree />
                     {/* <SimibarMonthlyListing /> */}
                     {/* <TopicList /> */}
+                    <SimibarMonthlyListing />
                     <RecentComments />
                     <TagList />
                 </div>

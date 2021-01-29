@@ -58,6 +58,7 @@ const Home = props => {
                     <TopicList />
                     <TagList /> */}
                     {/* <TopicList /> */}
+                    <SimibarMonthlyListing />
                     <RecentComments/>
                     <TagList />
                 </div>

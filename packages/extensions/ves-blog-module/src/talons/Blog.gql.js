@@ -358,18 +358,6 @@ export const GET_BLOG_POST_BY_URL_KEY = gql`
     ${ProductFragment}
 `;
 
-export const GET_BLOG_ARCHIVE = gql`
-    query mpBlogMonthlyArchive {
-        mpBlogMonthlyArchive {
-            items {
-                label
-                quantity
-            }
-            total_count
-        }
-    }
-`;
-
 export const GET_BLOG_ARCHIVE_DETAILS = gql`
     query mpBlogMonthlyArchive($monthly: Int!, $year: Int!) {
         mpBlogMonthlyArchive(monthly: $monthly, year: $year) {
@@ -731,4 +719,13 @@ export const GET_RECENT_COMMENTS = gql`
         }
     }
     ${COMMENT_FRAGMENT}
+`;
+
+export const GET_BLOG_ARCHIVE = gql`
+    query lofBlogArchive {
+        lofBlogArchive {
+            count
+            time
+        }
+    }
 `;
