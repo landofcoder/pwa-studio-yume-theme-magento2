@@ -13,6 +13,7 @@ import LoadingIndicator from '@landofcoder/yume-ui/src/components/LoadingIndicat
 import { useQuery } from '@apollo/client';
 import { GET_CATE_BY_URL_KEY, GET_CATEGORY_META_DATA } from '../../talons/Blog.gql';
 import { Title, Meta } from '@landofcoder/yume-ui/src/components/Head';
+import RecentComments from '../recentComments';
 // import { useQuery } from '@apollo/client';
 
 const Category = props => {
@@ -80,7 +81,8 @@ const Category = props => {
                     <SidebarPosts />
                     <CateTree />
                     <SimibarMonthlyListing />
-                    <TopicList />
+                    {/* <TopicList /> */}
+                    <RecentComments />
                     <TagList />
                 </div>
                 <div className={classes.blogListing}>

@@ -130,6 +130,20 @@ const BlogFragment = gql`
         }
     }
 `;
+const COMMENT_FRAGMENT = gql`
+    fragment CommentFragment on Comment {
+        comment_id
+        content
+        creation_time
+        has_read
+        is_active
+        post_id
+        post_identifier
+        post_title
+        user_email
+        user_name
+    }
+`;
 export const GET_BLOG_POSTS = gql`
     query mpBlogPosts(
         $action: String!
@@ -706,4 +720,15 @@ export const GET_BLOG_BY_TAG_NAME = gql`
         }
     }
     ${BlogFragment}
-`
+`;
+export const GET_RECENT_COMMENTS = gql`
+    query lofBlogCommentList {
+        lofBlogCommentList(sort: { creation_time: DESC }, pageSize: 5) {
+            items {
+                ...CommentFragment
+            }
+            total_count
+        }
+    }
+    ${COMMENT_FRAGMENT}
+`;

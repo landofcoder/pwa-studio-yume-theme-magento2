@@ -22,6 +22,7 @@ import { GET_POST_BY_IDENTIFIER } from '../../talons/Blog.gql';
 import { useQuery } from '@apollo/client';
 
 import { Util } from '@magento/peregrine';
+import RecentComments from '../recentComments';
 const { BrowserPersistence } = Util;
 const storage = new BrowserPersistence();
 
@@ -176,7 +177,8 @@ const Post = props => {
                     <SidebarPosts />
                     <CateTree />
                     {/* <SimibarMonthlyListing /> */}
-                    <TopicList />
+                    {/* <TopicList /> */}
+                    <RecentComments />
                     <TagList />
                 </div>
             </div>

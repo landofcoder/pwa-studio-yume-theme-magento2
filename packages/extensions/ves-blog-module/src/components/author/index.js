@@ -10,6 +10,7 @@ import SidebarPosts from '../sidebarPosts';
 import SimibarMonthlyListing from '../simibarMonthlyListing';
 import { Title, Meta } from '@landofcoder/yume-ui/src/components/Head';
 import { useLocation, useParams } from "react-router-dom";
+import RecentComments from '../recentComments';
 
 const Topic = props => {
     const location = useLocation();
@@ -45,7 +46,7 @@ const Topic = props => {
                         <SidebarPosts />
                         <CateTree />
                         <SimibarMonthlyListing />
-                        <TopicList />
+                        <RecentComments />
                         <TagList />
                     </div>
                 </div>

@@ -10,6 +10,7 @@ import SidebarPosts from '../sidebarPosts';
 import SimibarMonthlyListing from '../simibarMonthlyListing';
 import { Title, Meta } from '@landofcoder/yume-ui/src/components/Head';
 import { Util } from '@magento/peregrine';
+import RecentComments from '../recentComments';
 const { BrowserPersistence } = Util;
 const storage = new BrowserPersistence();
 
@@ -56,7 +57,8 @@ const Home = props => {
                     {/* <SimibarMonthlyListing />
                     <TopicList />
                     <TagList /> */}
-                    <TopicList />
+                    {/* <TopicList /> */}
+                    <RecentComments/>
                     <TagList />
                 </div>
                 <div className={classes.blogListing}>
