@@ -30,13 +30,14 @@
     text-transform: uppercase;
     max-width: 98%;
 }
+.archiveItemContainer:hover {
+    color: #006bb4;
+}
 .archiveTitle {
     font-size: 18px;
     margin-top: 33px;
 }
-.archiveTitle:hover {
-    color: #006bb4;
-}
+
 .archiveContainer {
     padding-bottom: 30px;
 }

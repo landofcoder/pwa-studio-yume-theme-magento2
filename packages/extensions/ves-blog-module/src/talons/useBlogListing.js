@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import {
-    GET_BLOG_POSTS, GET_BLOG_TOPICS,
+    GET_BLOG_TOPICS,
     GET_POST_BY_CATEGORY_ID,
     GET_LIST_BLOGS_BY_AUTHOR,
     GET_BLOG_BY_TAG_NAME,
+    GET_ARCHIVE_BLOGS_BY_DATE
 } from './Blog.gql'
 import { useQuery } from '@apollo/client';
 import { useToasts } from '@magento/peregrine';
@@ -51,12 +52,8 @@ export const useBlogListing = props => {
             queryNode = GET_BLOG_BY_TAG_NAME
             break;
         case 'get_post_by_date_time':
-            variables.filter = {
-                created_at: {
-                    like: `%${filterValue}%`
-                }
-            };
-            variables.action = 'get_post_list';
+            variables.like = `%${filterValue}%`;
+            queryNode = GET_ARCHIVE_BLOGS_BY_DATE
             break;
         default:
             break;
@@ -145,7 +142,7 @@ export const useBlogListing = props => {
         return <LoadingIndicator/>
     }
     if (blogData) {
-        console.log("Running")
+        console.log("variables", variables)
         console.log("DTA", blogData)
     }
 

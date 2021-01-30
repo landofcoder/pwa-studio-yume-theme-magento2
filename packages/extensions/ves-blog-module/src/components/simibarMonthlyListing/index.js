@@ -81,13 +81,16 @@ const SimibarMonthlyListing = props => {
         <div className={classes.archiveContainer}>
             <div className={classes.listArchiveHeader}>{`Monthly Archive`}</div>
             <ul className={classes.archiveContainer}>
-                {data.lofBlogArchive.map((item, index) => (
-                    <li key={index} >
-                        <Link className={classes.archiveItemContainer} to="/blog.html">
+                {data.lofBlogArchive.map((item, index) => {
+                    const arr = item.time.split('-')
+                    return (
+                        <li key={index} >
+                        <Link className={classes.archiveItemContainer} to={`/blog/date/${arr[0]}/${arr[1]}`}>
                             {timeArchiveFormat(item.time)} ( {item.count} )
                         </Link>
                     </li>
-                ))}
+                    )
+                })}
             </ul>
         </div>
     )

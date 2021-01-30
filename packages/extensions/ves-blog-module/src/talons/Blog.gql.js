@@ -729,3 +729,19 @@ export const GET_BLOG_ARCHIVE = gql`
         }
     }
 `;
+
+export const GET_ARCHIVE_BLOGS_BY_DATE = gql`
+    query lofBlogList($like: String!) {
+        lofBlogList(filter: {
+            creation_time: {
+                like: $like
+            }
+        }) {
+            items {
+                ...BlogFragment
+            }
+            total_count
+        }
+    }
+    ${BlogFragment}
+`

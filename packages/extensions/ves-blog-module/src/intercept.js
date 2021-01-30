@@ -63,6 +63,11 @@ module.exports = targets => {
       pattern: '/blog/post/:postUrl?',
       path: require.resolve('./components/post/index.js')
     });
+    routes.push({
+      name: 'BlogsByDate',
+      pattern: '/blog/date/:year?/:month?',
+      path: require.resolve('./components/blogByDate/index.js')
+    })
     return routes;
   });
 
