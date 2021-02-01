@@ -138,4 +138,3 @@ Please make sure to update tests as appropriate.
 
 ## PWA studio
 [PWA studio](https://github.com/magento/pwa-studio/blob/develop/LICENSE.txt)
-

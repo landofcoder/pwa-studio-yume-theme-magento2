@@ -26,7 +26,7 @@
     "start:debug": "node --inspect-brk ./node_modules/.bin/webpack-dev-server --progress --color --env.mode development",
     "test": "yarn run -s prettier:check && yarn run -s lint && jest",
     "validate-queries": "yarn run download-schema && graphql validate-magento-pwa-queries --project yume-ui",
-    "watch": "webpack-dev-server --progress --color --env.mode development --disable-host-check",
+    "watch": "webpack-dev-server --progress --color --env.mode development --host 0.0.0.0 --disable-host-check",
     "server": "pm2 start process.json"
   },
   "dependencies": {
@@ -67,7 +67,7 @@
     "babel-eslint": "~10.0.1",
     "babel-jest": "~24.1.0",
     "babel-loader": "~8.0.5",
-    "babel-plugin-dynamic-import-node": "~2.2.0",
+    "babel-plugin-dynamic-import-node": "~2.3.3",
     "babel-plugin-graphql-tag": "~2.0.0",
     "babel-plugin-module-resolver": "~3.2.0",
     "braintree-web-drop-in": "~1.16.0",
