@@ -32,8 +32,6 @@ export const useBlogListing = props => {
     // console.log("page control", pageControl)
     // console.log("Props 2", props)
     const variables = {};
-    variables.pageSize = pageSize;
-    variables.currentPage = currentPage
     let queryNode = GET_BLOG_TOPICS;
     switch (filterType) {
         case 'get_post_by_categoryId':
@@ -53,11 +51,17 @@ export const useBlogListing = props => {
             break;
         case 'get_post_by_date_time':
             variables.like = `%${filterValue}%`;
-            queryNode = GET_ARCHIVE_BLOGS_BY_DATE
+            queryNode = GET_ARCHIVE_BLOGS_BY_DATE;
+            variables.pageSize = pageSize;
+            variables.currentPage = currentPage
             break;
         default:
+            variables.pageSize = pageSize;
+            variables.currentPage = currentPage;
             break;
     }
+    console.log("variables", variables)
+
     const {
         data: blogData,
         loading: blogLoading,
@@ -69,6 +73,7 @@ export const useBlogListing = props => {
     // Set the total number of pages whenever the data changes.
 
     if (blogError) {
+        console.log("Error running")
         let derivedErrorMessage;
         const errorTarget = blogError;
         if (errorTarget.graphQLErrors) {
@@ -92,13 +97,6 @@ export const useBlogListing = props => {
             }
         }
     }
-    if (blogLoading) {
-        return <LoadingIndicator/>
-    }
-    if (blogData) {
-        console.log("variables", variables)
-        console.log("DTA", blogData)
-    }
     useEffect(() => {
         if (blogData && blogData.lofBlogList && blogData.lofBlogList.items && blogData.lofBlogList.total_count) {
             const pages = (blogData && blogData.lofBlogList && blogData.lofBlogList.items && blogData.lofBlogList.total_count)
@@ -107,15 +105,23 @@ export const useBlogListing = props => {
             compare == true ? setTotalPages(Math.round(pages) + 1) : setTotalPages(Math.round(pages))
         }
         return () => {
-            setTotalPages(1);
+            setTotalPages(null);
         };
-    }, [blogData, setTotalPages, pageSize]);
-    return {
-        blogData,
-        blogLoading,
-        blogError,
-        pageControl,
-        pageSize,
-        setPageSize
+    }, [blogData, totalPages, setTotalPages]);
+    if (blogLoading) {
+        console.log("Loading running")
+        return <LoadingIndicator/>
+    }
+    if (blogData) {
+        console.log("variables", variables)
+        console.log("DTA", blogData)
+        return {
+            blogData,
+            blogLoading,
+            blogError,
+            pageControl,
+            pageSize,
+            setPageSize
+        }
     }
 }

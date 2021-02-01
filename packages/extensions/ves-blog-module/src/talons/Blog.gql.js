@@ -486,14 +486,40 @@ export const GET_BLOG_CATEGORIES_LIST = gql`
 export const GET_POST_BY_CATEGORY_ID = gql`
     query lofBlogCategoryById($categoryId: Int!) {
         lofBlogCategoryById(category_id: $categoryId) {
-            ...BlogCategoryFragment
+            category_id
+            name
+            identifier
+            description
+            stores
+            is_active
+            meta_keywords
+            meta_description
+            parent_id
+            creation_time
+            update_time
+            image
             posts {
-                ...BlogFragment
+                title
+                identifier
+                short_content
+                image
+                page_title
+                creation_time
+                author {
+                    author_id
+                    page_title
+                    nick_name
+                    meta_keywords
+                    meta_description
+                    user_id
+                    email
+                    is_view
+                    social_networks
+                    user_name
+                }
             }
         }
     }
-    ${BLOG_CATEGORY_FRAGMENT}
-    ${BlogFragment}
 `;
 export const GET_CATEGORY_META_DATA = gql`
     query lofBlogCategoryById($categoryId: Int!) {
@@ -503,6 +529,26 @@ export const GET_CATEGORY_META_DATA = gql`
             page_title
             meta_keywords
             meta_description
+            posts {
+                title
+                identifier
+                short_content
+                image
+                page_title
+                creation_time
+                author {
+                    author_id
+                    page_title
+                    nick_name
+                    meta_keywords
+                    meta_description
+                    user_id
+                    email
+                    is_view
+                    social_networks
+                    user_name
+                }
+            }
         }
     }
 `;

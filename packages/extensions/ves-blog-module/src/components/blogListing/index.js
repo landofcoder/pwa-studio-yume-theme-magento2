@@ -61,9 +61,9 @@ const BlogListing = props => {
             if (!lofBlogList.posts) {
                 return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>
             }
-            if (blogLoading) {
-                return <LoadingIndicator/>
-            }
+            // if (blogLoading) {
+            //     return <LoadingIndicator/>
+            // }
             blogsWrapper = lofBlogList.posts.map((item, index) => 
                 <React.Fragment key={index}>
                     <BlogListingItem classes={classes} item={item} key={item.post_id} simiBlogConfiguration={simiBlogConfiguration} />
@@ -105,37 +105,68 @@ const BlogListing = props => {
                 </React.Fragment>
             )
         }
+        return (
+            <div className={classes.blogListingCtn} >
+                {blogsWrapper}
+                <style dangerouslySetInnerHTML={{
+                    __html: `
+                    .${classes.blogpostItem} h2 { color: ${linkColor} }
+                    .${classes.readMore} { color: ${linkColor} }
+                `}} />
+                <div className={classes.pagination}>
+                    <Pagination pageControl={pageControl} />
+                </div>
+                <div className={classes.pageSize}>
+                    Show
+                    <span className={classes.pageSizeInput}>
+                        <select
+                            onChange={e => {
+                                setPageSize(e.target.value); pageControl.setPage(1)
+                            }
+                            }
+                            value={pageSize}
+                        >
+                            <option value="5" >5</option>
+                            <option value="10" >10</option>
+                            <option value="20" >20</option>
+                        </select>
+                    </span>
+                    per page
+                </div>
+            </div>
+        )
     }
+    return ''
     // const mpBlogPosts = data;
-    return (
-        <div className={classes.blogListingCtn} >
-            {blogsWrapper}
-            <style dangerouslySetInnerHTML={{
-                __html: `
-                .${classes.blogpostItem} h2 { color: ${linkColor} }
-                .${classes.readMore} { color: ${linkColor} }
-            `}} />
-            <div className={classes.pagination}>
-                <Pagination pageControl={pageControl} />
-            </div>
-            <div className={classes.pageSize}>
-                {`Show `}
-                <span className={classes.pageSizeInput}>
-                    <select
-                        onChange={e => {
-                            setPageSize(e.target.value); pageControl.setPage(1)
-                        }
-                        }
-                        value={pageSize}
-                    >
-                        <option value="5" >5</option>
-                        <option value="10" >10</option>
-                        <option value="20" >20</option>
-                    </select>
-                </span>
-                {` per page`}
-            </div>
-        </div>
-    )
+    // return (
+    //     <div className={classes.blogListingCtn} >
+    //         {blogsWrapper}
+    //         <style dangerouslySetInnerHTML={{
+    //             __html: `
+    //             .${classes.blogpostItem} h2 { color: ${linkColor} }
+    //             .${classes.readMore} { color: ${linkColor} }
+    //         `}} />
+    //         <div className={classes.pagination}>
+    //             <Pagination pageControl={pageControl} />
+    //         </div>
+    //         <div className={classes.pageSize}>
+    //             {`Show `}
+    //             <span className={classes.pageSizeInput}>
+    //                 <select
+    //                     onChange={e => {
+    //                         setPageSize(e.target.value); pageControl.setPage(1)
+    //                     }
+    //                     }
+    //                     value={pageSize}
+    //                 >
+    //                     <option value="5" >5</option>
+    //                     <option value="10" >10</option>
+    //                     <option value="20" >20</option>
+    //                 </select>
+    //             </span>
+    //             {` per page`}
+    //         </div>
+    //     </div>
+    // )
 }
 export default BlogListing
