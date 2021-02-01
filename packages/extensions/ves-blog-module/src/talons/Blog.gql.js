@@ -236,8 +236,8 @@ export const GET_BLOG_TAGS = gql`
 `;
 
 export const GET_BLOG_TOPICS = gql`
-    query lofBlogList {
-        lofBlogList {
+    query lofBlogList($pageSize: Int, $currentPage: Int) {
+        lofBlogList(pageSize: $pageSize, currentPage: $currentPage) {
             items {
                 ...BlogFragment
             }
@@ -731,12 +731,12 @@ export const GET_BLOG_ARCHIVE = gql`
 `;
 
 export const GET_ARCHIVE_BLOGS_BY_DATE = gql`
-    query lofBlogList($like: String!) {
-        lofBlogList(filter: {
-            creation_time: {
-                like: $like
-            }
-        }) {
+    query lofBlogList($like: String!, $pageSize: Int, $currentPage: Int) {
+        lofBlogList(
+            filter: { creation_time: { like: $like } },
+            pageSize: $pageSize,
+            currentPage: $currentPage,
+        ) {
             items {
                 ...BlogFragment
             }
@@ -744,4 +744,4 @@ export const GET_ARCHIVE_BLOGS_BY_DATE = gql`
         }
     }
     ${BlogFragment}
-`
+`;

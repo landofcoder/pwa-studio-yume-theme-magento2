@@ -85,7 +85,7 @@ const SimibarMonthlyListing = props => {
                     const arr = item.time.split('-')
                     return (
                         <li key={index} >
-                        <Link className={classes.archiveItemContainer} to={`/blog/date/${arr[0]}/${arr[1]}`}>
+                        <Link className={classes.archiveItemContainer} to={`/blog/date/${arr[0]}/${arr[1]}?page=${1}`}>
                             {timeArchiveFormat(item.time)} ( {item.count} )
                         </Link>
                     </li>
