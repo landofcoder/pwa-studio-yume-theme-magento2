@@ -2,17 +2,21 @@ import React from 'react';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { Carousel } from 'react-responsive-carousel';
 import { useQuery } from '@apollo/client';
-import { GET_BANNERS_SLIDER } from './BannerSlider.gql';
+import { GET_BANNERS_SLIDER } from '../../talons/BannerSlider.gql';
 import LoadingIndicator from '@landofcoder/yume-ui/src/components/LoadingIndicator';
 import RichContent from '@landofcoder/yume-ui/src/components/RichContent';
 import styles from './style.css';
+import { useStoreConfig } from '../../talons/useStoreConfig';
 
 const Banner = () => {
+    
     const { loading, error, data } = useQuery(GET_BANNERS_SLIDER, {
         variables: {
-            sliderId: 1
+            sliderId: 1,
+            storeId: 1
         }
     })
+    const { configData, configError, configLoading } = useStoreConfig()
     if (loading) return (
         <LoadingIndicator />
     )
