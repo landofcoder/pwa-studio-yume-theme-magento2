@@ -42,18 +42,26 @@ const DealsProductSlider = () => {
             }
         }
     };
-    if (loading) return null;
-    const galleryItems = data.lofProductListDeals.items.map((item, index) => {
+    if (loading || data === undefined){
+        return (<div/>)
+    } else {
+        const galleryItems = data.lofProductListDeals.items.map((item, index) => {
+            return (
+                <div key={index}>
+                    <GalleryItem key={index} item={mapGalleryItem(item)}/>
+                </div>
+            );
+        });
         return (
-            <div key={index}>
-                <GalleryItem key={index} item={mapGalleryItem(item)} />
+            <div>
+                <div className={styles.title}>
+                    <h2>Deals products</h2>
+                </div>
+                <div className="product-slider-container">
+                    <Swiper {...params}>{galleryItems}</Swiper>
+                </div>
             </div>
         );
-    });
-    return (
-        <div className="product-slider-container">
-            <Swiper {...params}>{galleryItems}</Swiper>
-        </div>
-    );
+    }
 };
 export default DealsProductSlider;

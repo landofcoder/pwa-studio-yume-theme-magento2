@@ -52,8 +52,13 @@ const TopProductSlider = () => {
         );
     });
     return (
-        <div className="product-slider-container">
-            <Swiper {...params}>{galleryItems}</Swiper>
+        <div>
+            <div className={styles.title}>
+                <h2>Top products</h2>
+            </div>
+            <div className="product-slider-container">
+                <Swiper {...params}>{galleryItems}</Swiper>
+            </div>
         </div>
     );
 };
