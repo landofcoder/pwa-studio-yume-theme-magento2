@@ -6,7 +6,7 @@ const wrapUseProductRelated = original => {
         return {
             ...dataWrapper,
             data: null,
-            // components: <App />
+            components: <App />
         };
     };
 };
