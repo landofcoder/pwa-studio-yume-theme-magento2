@@ -4,7 +4,7 @@
     justify-items: end;
     margin: 0 auto;
     max-width: var(--venia-global-maxWidth);
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0rem;
     position: relative;
 }
 
