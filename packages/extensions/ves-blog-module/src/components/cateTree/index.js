@@ -34,9 +34,12 @@ const CateTree = props => {
     //         ]
     //     }
     // ];
-    const handle = useCallback((event) => {
+    // const handle = useCallback((event) => {
+    //     event.value != 0 ? history.push(`/blog/category/${event.value}?page=${1}`): history.push("/blog.html")
+    // }, [])
+    const handle = (event) => {
         event.value != 0 ? history.push(`/blog/category/${event.value}?page=${1}`): history.push("/blog.html")
-    }, [])
+    }
     const defaultOption = dataCateTree[0]
     return (
         <div className={classes.catetreeRoot}>
