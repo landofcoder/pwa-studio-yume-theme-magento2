@@ -1,24 +1,3 @@
-/* .productSliderContainer {
-  background-color: yellow; */
-/* } */
-
-:global(.swiper-container) {
-    overflow: hidden;
-    width: 100%;
-}
-:global(.swiper-slide) {
-    flex-shrink: 0;
-    transition-property: transform;
-}
-:global(.swiper-wrapper) {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    display: flex;
-    transition-property: transform;
-    box-sizing: content-box;
-}
 .productSliderModule {
     margin: 0 auto;
 }
@@ -34,7 +13,7 @@
     position: absolute;
     content: '';
     background: url(../../../assets/images/icon-bg-title.png) no-repeat center
-    bottom;
+        bottom;
     width: 108px;
     height: 16px;
     bottom: -20px;

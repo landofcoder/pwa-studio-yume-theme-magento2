@@ -9,7 +9,7 @@ import globalCSS from '@landofcoder/yume-ui/src/index.css';
 import { HeadProvider, Title } from '@magento/venia-ui/lib/components/Head';
 import Main from '@landofcoder/yume-ui/src/components/Main';
 import Mask from '@magento/venia-ui/lib/components/Mask';
-import Navigation from '@magento/venia-ui/lib/components/Navigation';
+import Navigation from '@landofcoder/yume-ui/src/components/Navigation';
 // import Routes from '@magento/venia-ui/lib/components/Routes';
 import Routes from '@landofcoder/yume-ui/src/components/Routes';
 import ToastContainer from '@magento/venia-ui/lib/components/ToastContainer';

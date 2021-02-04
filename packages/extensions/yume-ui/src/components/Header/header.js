@@ -16,10 +16,14 @@ import defaultClasses from './header.css';
 import PageLoadingIndicator from '@magento/venia-ui/lib/components/PageLoadingIndicator';
 import StoreSwitcher from './storeSwitcher';
 import CurrencySwitcher from './currencySwitcher';
+import useStoreConfig from '../../../lib/talons/Homepage/useStoreConfig';
+import { connect } from 'react-redux';
+import { getStoreConfig } from '../../reducer/storeConfig/asyncAction';
 
 const SearchBar = React.lazy(() => import('@magento/venia-ui/lib/components/SearchBar'));
 
 const Header = props => {
+    const { getStoreConfig } = props;
     const {
         handleSearchTriggerClick,
         hasBeenOffline,
@@ -29,7 +33,15 @@ const Header = props => {
         searchRef,
         searchTriggerRef
     } = useHeader();
-
+    
+    const {
+        storeConfigLoading,
+        storeConfigError,
+        storeConfigData
+    } = useStoreConfig()
+    if (storeConfigData && storeConfigData.storeConfig && storeConfigData.storeConfig.lof_bannerslider) {
+        getStoreConfig(storeConfigData.storeConfig.lof_bannerslider)
+    }
     const classes = mergeClasses(defaultClasses, props.classes);
     const rootClass = isSearchOpen ? classes.open : classes.closed;
     const searchBarFallback = (
@@ -108,5 +120,9 @@ Header.propTypes = {
         switchersContainer: string
     })
 };
-
-export default Header;
+const mapPropsToDispatch = (dispatch) => {
+    return {
+        getStoreConfig: (payload) => dispatch(getStoreConfig(payload))
+    }
+}
+export default connect(null, mapPropsToDispatch)(Header);
