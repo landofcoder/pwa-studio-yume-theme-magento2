@@ -9,23 +9,23 @@ const storage = new BrowserPersistence();
 
 const PostItem = props => {
     const {
-        name,
+        title,
         image,
-        publish_date,
-        url_key
+        creation_time,
+        identifier
     } = props.item;
     return (
         <div className={classes.sidebarPostItem}>
             {
                 image ? <div className={classes.sidebarPostItemImage} >
-                    <img src={image} alt={name} />
+                    <img src={image} alt={title} />
                 </div> : ''
             }
             <div className={classes.sidebarPostItemInfo}>
-                <Link className={classes.sidebarPostItemName} to={`/blog/post/${url_key}.html`}>
-                    {name}
+                <Link className={classes.sidebarPostItemName} to={`/blog/post/${identifier}.html`}>
+                    {title}
                 </Link>
-                <div className={classes.sidebarPostItemDate}>{publish_date}</div>
+                <div className={classes.sidebarPostItemDate}>{creation_time}</div>
             </div>
         </div>
     )
@@ -42,21 +42,23 @@ const SidebarPosts = props => {
     } = useSidebarPosts();
 
     const simiBlogConfiguration = storage.getItem('simiBlogConfiguration');
+    console.log("DATA Storage", simiBlogConfiguration)
     let linkColor = '#1ABC9C';
     if (simiBlogConfiguration && simiBlogConfiguration.general && simiBlogConfiguration.general.font_color) {
         linkColor = simiBlogConfiguration.general.font_color;
     }
 
     const popPosts = useMemo(() => {
-        if (popData && popData.mpBlogPosts && popData.mpBlogPosts.items) {
-            return popData.mpBlogPosts.items.map(item => <PostItem item={item} key={item.url_key} />)
+        console.log("Pop data", popData)
+        if (popData && popData.lofBlogList && popData.lofBlogList.items) {
+            return popData.lofBlogList.items.map((item, index) => <PostItem item={item} key={index} />)
         }
         return []
-    }, [latestData])
+    }, [popData])
 
     const latestPosts = useMemo(() => {
-        if (latestData && latestData.mpBlogPosts && latestData.mpBlogPosts.items) {
-            return latestData.mpBlogPosts.items.map(item => <PostItem item={item} key={item.url_key} />)
+        if (latestData && latestData.lofBlogList && latestData.lofBlogList.items) {
+            return latestData.lofBlogList.items.map((item, index) => <PostItem item={item} key={index} />)
         }
         return []
     }, [latestData])

@@ -22,7 +22,7 @@ const TopicList = () => {
                     {topicItems.map((topicItem, key) => {
                         return (
                             <Link className={classes.topicItem} to={`/blog/topic/${topicItem.identifier}.html`} key={key}>
-                                {folderIcon} {topicItem.name}
+                                {folderIcon} {topicItem.title}
                             </Link>
                         )
                     })}

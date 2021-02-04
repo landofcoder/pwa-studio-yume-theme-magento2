@@ -35,12 +35,12 @@ module.exports = targets => {
     });
     routes.push({
       name: 'BlogCategory',
-      pattern: '/blog/category/:categoryUrl?',
+      pattern: '/blog/category/:categoryId?',
       path: require.resolve('./components/category/index.js')
     });
     routes.push({
       name: 'BlogTag',
-      pattern: '/blog/tag/:tagUrl?',
+      pattern: '/blog/tag/:alias?',
       path: require.resolve('./components/tag/index.js')
     });
     routes.push({
@@ -55,7 +55,7 @@ module.exports = targets => {
     });
     routes.push({
       name: 'BlogAuthor',
-      pattern: '/blog/author/:authorUrl?',
+      pattern: '/blog/author/:authorId?',
       path: require.resolve('./components/author/index.js')
     });
     routes.push({
@@ -63,6 +63,11 @@ module.exports = targets => {
       pattern: '/blog/post/:postUrl?',
       path: require.resolve('./components/post/index.js')
     });
+    routes.push({
+      name: 'BlogsByDate',
+      pattern: '/blog/date/:year?/:month?',
+      path: require.resolve('./components/blogByDate/index.js')
+    })
     return routes;
   });
 

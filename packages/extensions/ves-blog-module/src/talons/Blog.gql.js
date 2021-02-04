@@ -9,7 +9,7 @@ const PageInfoFragment = gql`
         startPage
         endPage
     }
-`
+`;
 
 const CategoryFragment = gql`
     fragment CategoryFragment on Category {
@@ -32,7 +32,7 @@ const CategoryFragment = gql`
         updated_at
         import_source
     }
-`
+`;
 
 const TagFragment = gql`
     fragment TagFragment on Tag {
@@ -50,7 +50,7 @@ const TagFragment = gql`
         updated_at
         import_source
     }
-`
+`;
 
 const TopicFragment = gql`
     fragment TopicFragment on Topic {
@@ -68,7 +68,7 @@ const TopicFragment = gql`
         updated_at
         import_source
     }
-`
+`;
 const ProductFragment = gql`
     fragment ProductFragment on Product {
         entity_id
@@ -80,7 +80,7 @@ const ProductFragment = gql`
         created_at
         updated_at
     }
-`
+`;
 
 const PostFragment = gql`
     fragment PostFragment on Post {
@@ -107,53 +107,67 @@ const PostFragment = gql`
         layout
         view_traffic
     }
-`
+`;
 const BlogFragment = gql`
     fragment BlogFragment on Blog {
         title
-      identifier
-      short_content
-      image
-      page_title
-      creation_time
-      author {
-        author_id
+        identifier
+        short_content
+        image
         page_title
-        nick_name
-        meta_keywords
-        meta_description
-        user_id
-        email
-        is_view
-        social_networks
-        user_name
-      }
+        creation_time
+        author {
+            author_id
+            page_title
+            nick_name
+            meta_keywords
+            meta_description
+            user_id
+            email
+            is_view
+            social_networks
+            user_name
+        }
     }
-`
+`;
+const COMMENT_FRAGMENT = gql`
+    fragment CommentFragment on Comment {
+        comment_id
+        content
+        creation_time
+        has_read
+        is_active
+        post_id
+        post_identifier
+        post_title
+        user_email
+        user_name
+    }
+`;
 export const GET_BLOG_POSTS = gql`
-    query mpBlogPosts (
-        $action : String!,
-        $filter : PostsFilterInput,
-        $authorName : String,
-        $tagName : String,
-        $topicId : Int,
-        $categoryId : Int,
-        $categoryKey : String,
-        $postId : Int,
-        $pageSize : Int,
-        $currentPage : Int
+    query mpBlogPosts(
+        $action: String!
+        $filter: PostsFilterInput
+        $authorName: String
+        $tagName: String
+        $topicId: Int
+        $categoryId: Int
+        $categoryKey: String
+        $postId: Int
+        $pageSize: Int
+        $currentPage: Int
     ) {
-        mpBlogPosts (
-            action : $action
+        mpBlogPosts(
+            action: $action
             filter: $filter
-            authorName : $authorName
-            tagName : $tagName
-            topicId : $topicId
-            categoryId : $categoryId
-            categoryKey : $categoryKey
-            postId : $postId
-            pageSize : $pageSize
-            currentPage : $currentPage
+            authorName: $authorName
+            tagName: $tagName
+            topicId: $topicId
+            categoryId: $categoryId
+            categoryKey: $categoryKey
+            postId: $postId
+            pageSize: $pageSize
+            currentPage: $currentPage
         ) {
             items {
                 ...PostFragment
@@ -176,16 +190,10 @@ export const GET_BLOG_POSTS = gql`
 `;
 
 export const GET_SEARCH_BLOG_POST = gql`
-    query mpBlogPosts (
-        $query : String!
-    ) {
-        mpBlogPosts (
-            action : "get_post_list",
-            filter : {
-                name : {
-                    like: $query
-                }
-            }
+    query mpBlogPosts($query: String!) {
+        mpBlogPosts(
+            action: "get_post_list"
+            filter: { name: { like: $query } }
         ) {
             items {
                 post_id
@@ -198,24 +206,21 @@ export const GET_SEARCH_BLOG_POST = gql`
             }
         }
     }
-`
+`;
 
 export const GET_BLOG_CATEGORIES = gql`
-    query mpBlogCategories{
-        mpBlogCategories (
-            action : "get_category_list"
-            pageSize: 999
-        ) {
+    query mpBlogCategories {
+        mpBlogCategories(action: "get_category_list", pageSize: 999) {
             items {
                 ...CategoryFragment
             }
         }
     }
     ${CategoryFragment}
-`
+`;
 
 export const GET_BLOG_TAGS = gql`
-    query mpBlogTags{
+    query mpBlogTags {
         mpBlogTags {
             items {
                 ...TagFragment
@@ -228,11 +233,11 @@ export const GET_BLOG_TAGS = gql`
         }
     }
     ${TagFragment}
-`
+`;
 
 export const GET_BLOG_TOPICS = gql`
-    query lofBlogList{
-        lofBlogList {
+    query lofBlogList($pageSize: Int, $currentPage: Int) {
+        lofBlogList(pageSize: $pageSize, currentPage: $currentPage) {
             items {
                 ...BlogFragment
             }
@@ -240,15 +245,12 @@ export const GET_BLOG_TOPICS = gql`
         }
     }
     ${BlogFragment}
-`
+`;
 
 export const GET_SIDEBAR_BLOG_POSTS = gql`
-    query mpBlogPosts (
-        $sortBy : String,
-        $pageSize : Int,
-    ) {
-        mpBlogPosts (
-            action : "get_post_list"
+    query mpBlogPosts($sortBy: String, $pageSize: Int) {
+        mpBlogPosts(
+            action: "get_post_list"
             sortBy: $sortBy
             pageSize: $pageSize
         ) {
@@ -263,19 +265,13 @@ export const GET_SIDEBAR_BLOG_POSTS = gql`
             }
         }
     }
-`
+`;
 
 export const GET_CATE_BY_URL_KEY = gql`
-    query mpBlogCategories(
-        $url_key : String!
-    ){
-        mpBlogCategories (
-            action : "get_category_list"
-            filter: {
-                url_key : {
-                    eq : $url_key
-                }
-            }
+    query mpBlogCategories($url_key: String!) {
+        mpBlogCategories(
+            action: "get_category_list"
+            filter: { url_key: { eq: $url_key } }
         ) {
             items {
                 ...CategoryFragment
@@ -283,57 +279,35 @@ export const GET_CATE_BY_URL_KEY = gql`
         }
     }
     ${CategoryFragment}
-`
+`;
 
 export const GET_TOPIC_BY_URL_KEY = gql`
-    query mpBlogTopics(
-        $url_key : String!
-    ){
-        mpBlogTopics (
-            filter: {
-                url_key : {
-                    eq : $url_key
-                }
-            }
-        ) {
+    query mpBlogTopics($url_key: String!) {
+        mpBlogTopics(filter: { url_key: { eq: $url_key } }) {
             items {
                 ...TopicFragment
             }
         }
     }
     ${TopicFragment}
-`
+`;
 
 export const GET_TAG_BY_URL_KEY = gql`
-    query mpBlogTags(
-        $url_key : String!
-    ){
-        mpBlogTags (
-            filter: {
-                url_key : {
-                    eq : $url_key
-                }
-            }
-        ) {
+    query mpBlogTags($url_key: String!) {
+        mpBlogTags(filter: { url_key: { eq: $url_key } }) {
             items {
                 ...TagFragment
             }
         }
     }
     ${TagFragment}
-`
+`;
 
 export const GET_BLOG_POST_BY_URL_KEY = gql`
-    query mpBlogPosts (
-        $url_key : String!,
-    ) {
-        mpBlogPosts (
-            action : "get_post_list"
-            filter: {
-                url_key : {
-                    eq : $url_key
-                }
-            }
+    query mpBlogPosts($url_key: String!) {
+        mpBlogPosts(
+            action: "get_post_list"
+            filter: { url_key: { eq: $url_key } }
         ) {
             items {
                 ...PostFragment
@@ -384,27 +358,9 @@ export const GET_BLOG_POST_BY_URL_KEY = gql`
     ${ProductFragment}
 `;
 
-export const GET_BLOG_ARCHIVE = gql`
-    query mpBlogMonthlyArchive{
-        mpBlogMonthlyArchive {
-            items {
-                label
-                quantity
-            }
-            total_count
-        }
-    }
-`
-
 export const GET_BLOG_ARCHIVE_DETAILS = gql`
-    query mpBlogMonthlyArchive(
-        $monthly: Int!,
-        $year: Int!
-    ) {
-        mpBlogMonthlyArchive(
-            monthly: $monthly,
-            year: $year
-        ) {
+    query mpBlogMonthlyArchive($monthly: Int!, $year: Int!) {
+        mpBlogMonthlyArchive(monthly: $monthly, year: $year) {
             items {
                 label
                 quantity
@@ -416,7 +372,7 @@ export const GET_BLOG_ARCHIVE_DETAILS = gql`
         }
     }
     ${PostFragment}
-`
+`;
 
 export const GET_PRODUCTS_BY_SKUS = gql`
     query getProductsBySku($skus: [String], $pageSize: Int!) {
@@ -442,50 +398,396 @@ export const GET_PRODUCTS_BY_SKUS = gql`
             total_count
         }
     }
-`
+`;
 
 export const GET_SEARCH_BLOGS = gql`
     query lofBlogList(
-        $search: String, $filter: BlogFilterInput,
-        $pageSize: Int, $currentPage: Int
-        ) {
-            lofBlogList(
-                search: $search, filter: $filter,
-                pageSize: $pageSize, currentPage: $currentPage
-            ) {
-                items {
-                    title,
-                    identifier,
-                    short_content,
-                    creation_time,
-                    image
-                }
-                total_count
-            }
-        }
-`;
-export const GET_SIDEBAR_BLOGS = gql`
-    query getSidebarBlogs (
-        $search: String,
-        $filter: BlogFilterInput,
-        $pageSize: Int,
+        $search: String
+        $filter: BlogFilterInput
+        $pageSize: Int
         $currentPage: Int
     ) {
         lofBlogList(
-            search: $search,
-            filter: $filter,
-            pageSize: $pageSize,
+            search: $search
+            filter: $filter
+            pageSize: $pageSize
             currentPage: $currentPage
         ) {
             items {
-                post_id,
-                title,
-                identifier,
-                short_content,
-                image,
+                title
+                identifier
+                short_content
+                creation_time
+                image
+            }
+            total_count
+        }
+    }
+`;
+export const GET_SIDEBAR_BLOGS = gql`
+    query getSidebarBlogs(
+        $search: String
+        $filter: BlogFilterInput
+        $pageSize: Int
+        $currentPage: Int
+    ) {
+        lofBlogList(
+            search: $search
+            filter: $filter
+            pageSize: $pageSize
+            currentPage: $currentPage
+        ) {
+            items {
+                post_id
+                title
+                identifier
+                short_content
+                image
                 creation_time
             }
             total_count
         }
     }
+`;
+export const BLOG_CATEGORY_FRAGMENT = gql`
+    fragment BlogCategoryFragment on Category {
+        category_id
+        name
+        identifier
+        description
+        stores
+        is_active
+        meta_keywords
+        meta_description
+        parent_id
+        creation_time
+        update_time
+        image
+    }
+`;
+export const GET_BLOG_CATEGORIES_LIST = gql`
+    query lofBlogCategoryList(
+        $search: String
+        $pageSize: Int
+        $currentPage: Int
+    ) {
+        lofBlogCategoryList(
+            search: $search
+            pageSize: $pageSize
+            currentPage: $currentPage
+        ) {
+            items {
+                ...BlogCategoryFragment
+            }
+        }
+    }
+    ${BLOG_CATEGORY_FRAGMENT}
+`;
+export const GET_POST_BY_CATEGORY_ID = gql`
+    query lofBlogCategoryById($categoryId: Int!) {
+        lofBlogCategoryById(category_id: $categoryId) {
+            category_id
+            name
+            identifier
+            description
+            stores
+            is_active
+            meta_keywords
+            meta_description
+            parent_id
+            creation_time
+            update_time
+            image
+            posts {
+                title
+                identifier
+                short_content
+                image
+                page_title
+                creation_time
+                author {
+                    author_id
+                    page_title
+                    nick_name
+                    meta_keywords
+                    meta_description
+                    user_id
+                    email
+                    is_view
+                    social_networks
+                    user_name
+                }
+            }
+        }
+    }
+`;
+export const GET_CATEGORY_META_DATA = gql`
+    query lofBlogCategoryById($categoryId: Int!) {
+        lofBlogCategoryById(category_id: $categoryId) {
+            name
+            identifier
+            page_title
+            meta_keywords
+            meta_description
+            posts {
+                title
+                identifier
+                short_content
+                image
+                page_title
+                creation_time
+                author {
+                    author_id
+                    page_title
+                    nick_name
+                    meta_keywords
+                    meta_description
+                    user_id
+                    email
+                    is_view
+                    social_networks
+                    user_name
+                }
+            }
+        }
+    }
+`;
+// export const GET_POPULAR_BLOGS = gql`
+//     query lofBlogList($pageSize: Int) {
+//         lofBlogList(pageSize: $pageSize) {
+//             items {
+//                 ...BlogFragment
+//             }
+//             total_count
+//         }
+//     }
+//     ${BlogFragment}
+// `;
+export const GET_POPULAR_BLOGS = gql`
+    query lofBlogList {
+        lofBlogList(sort: { hits: DESC }, pageSize: 5) {
+            items {
+                ...BlogFragment
+            }
+            total_count
+        }
+    }
+    ${BlogFragment}
+`;
+// export const GET_LATEST_BLOGS = gql`
+//     query lofBlogList($pageSize: Int, $currentPage: Int) {
+//         lofBlogList(pageSize: $pageSize, currentPage: $currentPage) {
+//             items {
+//                 ...BlogFragment
+//             }
+//             total_count
+//         }
+//     }
+//     ${BlogFragment}
+// `;
+export const GET_LATEST_BLOGS = gql`
+    query lofBlogList {
+        lofBlogList(sort: { creation_time: DESC }, pageSize: 5) {
+            items {
+                ...BlogFragment
+            }
+            total_count
+        }
+    }
+    ${BlogFragment}
+`;
+// export const GET_POST_DETAIL = gql`
+//     lofBlogById($post_id: Int!) {
+//         lofBlogById(post_id: $post_id) {
+
+//         }
+//     }
+// `;
+export const GET_POST_BY_IDENTIFIER = gql`
+    query lofBlogList($identifier: String!) {
+        lofBlogList(filter: { identifier: { eq: $identifier } }) {
+            items {
+                ...BlogFragment
+                content
+                meta_description
+                meta_keywords
+                category_id
+                creation_time
+                hits
+                author {
+                    nick_name
+                    user_id
+                    avatar
+                    author_id
+                }
+                related_posts {
+                    items {
+                        title
+                        identifier
+                        short_content
+                        image
+                        page_title
+                        creation_time
+                        author {
+                            author_id
+                            page_title
+                            nick_name
+                            meta_keywords
+                            meta_description
+                            user_id
+                            email
+                            is_view
+                            social_networks
+                            user_name
+                        }
+                    }
+                }
+                related_products {
+                    items {
+                        ... on ProductInterface {
+                            color
+                            id
+                            sku
+                            name
+                            price {
+                                regularPrice {
+                                    amount {
+                                        value
+                                        currency
+                                    }
+                                }
+                            }
+                            url_key
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ${BlogFragment}
+`;
+
+export const GET_TAGS_LIST = gql`
+    query lofBlogTagList {
+        lofBlogTagList {
+            items {
+                alias
+                meta_robots
+                name
+                post {
+                    ...BlogFragment
+                }
+                tag_id
+            }
+        }
+    }
+    ${BlogFragment}
+`;
+
+export const GET_TAG_BY_ID = gql`
+    query lofBlogTagById($tag_id: Int!) {
+        lofBlogTagById(tag_id: $tag_id) {
+            alias
+            meta_robots
+            name
+            post {
+                ...BlogFragment
+            }
+            tag_id
+        }
+    }
+    ${BlogFragment}
+`;
+
+export const GET_RELATED_PRODUCT = gql`
+    query lofBlogList($identifier: String!) {
+        lofBlogList(filter: { identifier: { eq: $identifier } }) {
+            items {
+                related_products {
+                    items {
+                        ... on ProductInterface {
+                            color
+                            id
+                            sku
+                            name
+                            price {
+                                regularPrice {
+                                    amount {
+                                        value
+                                        currency
+                                    }
+                                }
+                            }
+                            url_key
+                        }
+                    }
+                }
+            }
+        }
+    }
+`;
+export const GET_LIST_BLOGS_BY_AUTHOR = gql`
+    query lofBlogAuthorById($authorId: Int!) {
+        lofBlogAuthorById(author_id: $authorId) {
+            posts {
+                items {
+                    ...BlogFragment
+                }
+            }
+        }
+    }
+    ${BlogFragment}
+`;
+
+export const GET_BLOG_BY_TAG_NAME = gql`
+    query lofBlogTagByAlias($alias: String!) {
+        lofBlogTagByAlias(alias: $alias) {
+            alias
+            meta_robots
+            name
+            posts {
+                items {
+                    ...BlogFragment
+                }
+                total_count
+            }
+        }
+    }
+    ${BlogFragment}
+`;
+export const GET_RECENT_COMMENTS = gql`
+    query lofBlogCommentList {
+        lofBlogCommentList(sort: { creation_time: DESC }, pageSize: 5) {
+            items {
+                ...CommentFragment
+            }
+            total_count
+        }
+    }
+    ${COMMENT_FRAGMENT}
+`;
+
+export const GET_BLOG_ARCHIVE = gql`
+    query lofBlogArchive {
+        lofBlogArchive {
+            count
+            time
+        }
+    }
+`;
+
+export const GET_ARCHIVE_BLOGS_BY_DATE = gql`
+    query lofBlogList($like: String!, $pageSize: Int, $currentPage: Int) {
+        lofBlogList(
+            filter: { creation_time: { like: $like } },
+            pageSize: $pageSize,
+            currentPage: $currentPage,
+        ) {
+            items {
+                ...BlogFragment
+            }
+            total_count
+        }
+    }
+    ${BlogFragment}
 `;
