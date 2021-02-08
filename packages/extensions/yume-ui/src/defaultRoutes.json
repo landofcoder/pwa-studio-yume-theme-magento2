@@ -123,6 +123,12 @@
         "pattern": "/delivery-information",
         "exact": true,
         "path": "../common/DeliveryInformation"
+    },
+    {
+        "name": "Page Builder",
+        "pattern": "/page-builder",
+        "exact": true,
+        "path": "../PageBuilder"
     }
 
 ]
