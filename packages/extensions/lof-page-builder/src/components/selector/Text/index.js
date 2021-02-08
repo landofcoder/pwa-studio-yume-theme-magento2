@@ -1,80 +1,45 @@
-import React, { useEffect, useState }  from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNode, useEditor } from '@craftjs/core';
 import { TextSettings } from './TextSetting';
 import ContentEditable from 'react-contenteditable';
 
-// export const Text = ({
-//   fontSize,
-//   textAlign,
-//   fontWeight,
-//   color,
-//   shadow,
-//   text,
-//   margin,
-// }) => {
-//   const {
-//     connectors: { connect },
-//     setProp,
-//   } = useNode();
-//   const { enabled } = useEditor((state) => ({
-//     enabled: state.options.enabled,
-//   }));
-//   return (
-//     <ContentEditable
-//       innerRef={connect}
-//       html={text} // innerHTML of the editable div
-//       disabled={!enabled}
-//       onChange={(e) => {
-//         setProp((prop) => (prop.text = e.target.value), 500);
-//       }} // use true to disable editing
-//       tagName="h2" // Use a custom HTML tag (uses a div by default)
-//       style={{
-//         width: '100%',
-//         margin: `${margin[0]}px ${margin[1]}px ${margin[2]}px ${margin[3]}px`,
-//         color: `rgba(${Object.values(color)})`,
-//         fontSize: `${fontSize}px`,
-//         textShadow: `0px 0px 2px rgba(0,0,0,${(shadow || 0) / 100})`,
-//         fontWeight,
-//         textAlign,
-//       }}
-//     />
-//   );
-// };
-
-export const Text = ({ text, fontSize, textAlign }) => {
-    const {
-      actions: { setProp },
-      connectors: { connect, drag },
-      selected
-    } = useNode((state) => ({
-      selected: state.events.selected,
-      dragged: state.events.dragged
-    }));
-    const [editable, setEditable] = useState(false);
-    const handleChange = (e) =>
-      setProp((props) => {
-        props.text = e.target.value.replace(/<\/?[^>]+(>|$)/g, "");
-      }, 500);
-
-    useEffect(() => {
-      if (selected) {
-        return;
-      }
-      setEditable(false);
-    }, [selected]);
-
-    return (
-      <ContentEditable
-        html={text}
-        disabled={!editable}
-        tagName="p"
-        style={{ fontSize: `${fontSize}px`, textAlign }}
-        innerRef={(ref) => connect(drag(ref))}
-        onChange={handleChange}
-        onClick={() => selected && setEditable(true)}
-      />
-    );
-  };
+export const Text = ({
+  fontSize,
+  textAlign,
+  fontWeight,
+  color,
+  shadow,
+  text,
+  margin,
+}) => {
+  const {
+    connectors: { connect },
+    setProp,
+  } = useNode();
+  const { enabled } = useEditor((state) => ({
+    enabled: state.options.enabled,
+  }));
+  return (
+    <ContentEditable
+      innerRef={connect}
+      html={text} // innerHTML of the editable div
+      disabled={!enabled}
+      onChange={(e) => {
+        setProp((prop) => (prop.text = e.target.value), 500);
+      }} // use true to disable editing
+      tagName="h2" // Use a custom HTML tag (uses a div by default)
+      style={{
+        width: '100%',
+        margin: `${margin[0]}px ${margin[1]}px ${margin[2]}px ${margin[3]}px`,
+        color: `rgba(${Object.values(color)})`,
+        fontSize: `${fontSize}px`,
+        textShadow: `0px 0px 2px rgba(0,0,0,${(shadow || 0) / 100})`,
+        fontWeight,
+        textAlign,
+      }}
+    />
+  );
+};
 
 
 Text.craft = {

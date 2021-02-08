@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import ReactDOM from 'react-dom';
 import { ROOT_NODE } from '@craftjs/utils';
 import Icon from '@magento/venia-ui/lib/components/Icon';
-import { ArrowUp, Move, Delete } from 'react-feather';
+import { ArrowUp, Move, Trash } from 'react-feather';
+import classes from './view.css';
 
 const IndicatorDiv = styled.div`
   height: 30px;
@@ -58,8 +59,8 @@ export const RenderNode = ({ render }) => {
 
   useEffect(() => {
     if (dom) {
-      if (isActive || isHover) dom.classList.add('component-selected');
-      else dom.classList.remove('component-selected');
+      if (isActive || isHover) dom.classList.add(classes.componentSelected);
+      else dom.classList.remove(classes.componentSelected);
     }
   }, [dom, isActive, isHover]);
 
@@ -105,38 +106,38 @@ export const RenderNode = ({ render }) => {
         ? ReactDOM.createPortal(
           <IndicatorDiv
             ref={currentRef}
-            className="px-2 py-2 text-white bg-primary fixed flex items-center"
+            className={classes.tooltip}
             style={{
               left: getPos(dom).left,
               top: getPos(dom).top,
               zIndex: 9999,
             }}
           >
-            <h2 className="flex-1 mr-4">{name}</h2>
+            <h2 className={classes.tooltipHeader}>{name}</h2>
             {moveable ? (
-              <Btn className="mr-2 cursor-move" ref={drag}>
+              <Btn className={classes.tooltipIcon} ref={drag}>
                 <Move />
               </Btn>
             ) : null}
             {id !== ROOT_NODE && (
               <Btn
-                className="mr-2 cursor-pointer"
+                className={classes.tooltipIcon}
                 onClick={() => {
                   actions.selectNode(parent);
                 }}
               >
-                <Icon src={ArrowUp} />
+                <ArrowUp />
               </Btn>
             )}
             {deletable ? (
               <Btn
-                className="cursor-pointer"
+                className={classes.tooltipIcon}
                 onMouseDown={(e) => {
                   e.stopPropagation();
                   actions.delete(id);
                 }}
               >
-                <Icon src={Delete} />
+                <Trash/>
               </Btn>
             ) : null}
           </IndicatorDiv>,

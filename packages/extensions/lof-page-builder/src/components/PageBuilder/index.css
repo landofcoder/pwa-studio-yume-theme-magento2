@@ -19,7 +19,6 @@
     margin: 5px;
     border: 1px solid #eee;
     padding: 5px;
-    height: 100vh;
 }
 
 .styleLable{
@@ -43,4 +42,6 @@
     text-transform: uppercase;
     font-weight: 600;
     width: 100%;
+    text-align: center;
+    margin: 5px;
 }
