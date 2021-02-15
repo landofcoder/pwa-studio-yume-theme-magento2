@@ -1,0 +1,33 @@
+.searchBrandBoxCol {
+    float: left;
+    width: 30%;
+    padding: 10px;
+}
+.searchForm {
+    position: relative;
+}
+.searchFieldCtn {
+    padding: 5px;
+}
+.searchField {
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    padding: 5px;
+    display: flex;
+}
+.searchField input{
+    padding: 5px;
+    border: none;
+    margin-inline-start: 5px;
+    width: 100%;
+}
+.brandTitle {
+    font-size: 36px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+@media screen and (max-width: 768px) {
+    .searchBrandBoxCol {
+        width: 100%;
+    }
+}

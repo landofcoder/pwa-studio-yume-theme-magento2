@@ -26,6 +26,14 @@ export const LIST_BRANDS = gql`
     ${BRAND_FRAGMENT}
 `;
 
-// export const GET_SEARCH_BRAND = gql`
-
-// `;
+export const GET_SEARCH_BRAND = gql`
+    query lofBrandList($name: String!) {
+        lofBrandList(filter: { name: { like: $name } }) {
+            items {
+                ...BrandFragment
+            }
+            total_count
+        }
+    }
+    ${BRAND_FRAGMENT}
+`;

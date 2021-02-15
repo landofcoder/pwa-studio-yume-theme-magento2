@@ -8,6 +8,7 @@ import { Link } from '@magento/venia-drivers';
 import { Form } from 'informed';
 import Icon from '@landofcoder/yume-ui/src/components/Icon';
 import { Search as SearchIc } from 'react-feather';
+import SearchBrand from '../searchBrand/index';
 
 const searchIcon = <Icon src={SearchIc} attrs={{ width: 16 }} />;
 
@@ -32,20 +33,7 @@ const Page = props => {
                 ]}
             ></BreadCrumb>
             <div className={classes.brandsContainer}>
-                <div className={classes.searchBrandBoxCol}>
-                    <h1 className={classes.brandTitle}>Search Brand</h1>
-                    <Form autoComplete="off" className={classes.searchForm}>
-                        <div className={classes.searchFieldCtn}>
-                            <div className={classes.searchField}>
-                                {searchIcon}
-                                <input
-                                    type="text"
-                                    placeholder={`Search brand here...`}
-                                />
-                            </div>
-                        </div>
-                    </Form>
-                </div>
+                <SearchBrand />
                 <div className={classes.brandsList}>
                     <div className={classes.brandListRow}>
                         {listBrandData.lofBrandList.items.map(

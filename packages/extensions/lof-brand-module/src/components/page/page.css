@@ -1,53 +1,13 @@
-/* 
-.brandsContainer::after,
-.parentContainer::after {
-    content: '';
-    display: table;
-    clear: both;
-}
-.brandsContainer,
-.parentContainer {
-    text-align: center;
-}
-.brandsContainer {
-    width: 80%;
-}
-.brandItem,
-.parentColumn {
-    float: left;
-    width: 25%;
-    padding: 10px;
-}
-
-.searchBrandColumn {
-    float: left;
-    width: 20%;
-    padding: 10px;
-}
-
-@media screen and (max-width: 600px) {
-    .brandItem, .searchBrandColumn, .brandsContainer {
-        width: 100%;
-        padding: 20px;
-    }
-}
-
-@media screen and (max-width: 900px) {
-    .brandItem {
-        width: 50%;
-        padding: 15px;
-    }
-} */
 .brandsContainer::after {
     content: '';
     display: table;
     clear: both;
 }
-.searchBrandBoxCol {
+/* .searchBrandBoxCol {
     float: left;
     width: 30%;
     padding: 10px;
-}
+} */
 .brandsList {
     float: left;
     width: 70%;
@@ -70,7 +30,7 @@
 .brandThumbnail {
     max-width: 80%;
 }
-.searchForm {
+/* .searchForm {
     position: relative;
 }
 .searchFieldCtn {
@@ -92,10 +52,10 @@
     font-size: 36px;
     margin-top: 20px;
     margin-bottom: 20px;
-}
+} */
 
 @media screen and (max-width: 768px) {
-    .brandsList, .searchBrandBoxCol, .brandsContainer {
+    .brandsList, .brandsContainer {
         width: 100%;
     }
 }
