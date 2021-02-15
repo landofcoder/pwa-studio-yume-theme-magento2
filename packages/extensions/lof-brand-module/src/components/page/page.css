@@ -1,0 +1,108 @@
+/* 
+.brandsContainer::after,
+.parentContainer::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.brandsContainer,
+.parentContainer {
+    text-align: center;
+}
+.brandsContainer {
+    width: 80%;
+}
+.brandItem,
+.parentColumn {
+    float: left;
+    width: 25%;
+    padding: 10px;
+}
+
+.searchBrandColumn {
+    float: left;
+    width: 20%;
+    padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .brandItem, .searchBrandColumn, .brandsContainer {
+        width: 100%;
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .brandItem {
+        width: 50%;
+        padding: 15px;
+    }
+} */
+.brandsContainer::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.searchBrandBoxCol {
+    float: left;
+    width: 30%;
+    padding: 10px;
+}
+.brandsList {
+    float: left;
+    width: 70%;
+    padding: 10px;
+}
+
+.brandListRow::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+.brandListRow {
+    text-align: center;
+}
+.brandItem {
+    float: left;
+    width: 33.33%;
+    padding: 10px;
+}
+.brandThumbnail {
+    max-width: 80%;
+}
+.searchForm {
+    position: relative;
+}
+.searchFieldCtn {
+    padding: 5px;
+}
+.searchField {
+    border: 1px solid #eaeaea;
+    border-radius: 4px;
+    padding: 5px;
+    display: flex;
+}
+.searchField input{
+    padding: 5px;
+    border: none;
+    margin-inline-start: 5px;
+    width: 100%;
+}
+.brandTitle {
+    font-size: 36px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .brandsList, .searchBrandBoxCol, .brandsContainer {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .brandItem {
+        width: 50%;
+        padding: 15px;
+    }
+}

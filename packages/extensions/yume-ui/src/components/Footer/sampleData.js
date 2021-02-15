@@ -2,7 +2,8 @@ const accountLinks = new Map()
     .set('Account Information', '/account-information')
     .set('Sign In', '/sign-in')
     .set('Register', '/register')
-    .set('Order Status', '/order-history');
+    .set('Order Status', '/order-history')
+    .set('Brands', '/brands.html');
 
 const aboutLinks = new Map()
     .set('About Us', '/about-us')
