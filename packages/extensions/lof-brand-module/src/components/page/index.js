@@ -5,7 +5,6 @@ import { Title } from '@landofcoder/yume-ui/src/components/Head';
 import BreadCrumb from '../breadcrumb/index';
 import classes from './page.css';
 import { Link } from '@magento/venia-drivers';
-import { Form } from 'informed';
 import Icon from '@landofcoder/yume-ui/src/components/Icon';
 import { Search as SearchIc } from 'react-feather';
 import SearchBrand from '../searchBrand/index';
