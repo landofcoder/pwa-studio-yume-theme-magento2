@@ -29,8 +29,6 @@ export const useBlogListing = props => {
         setPage: setCurrentPage,
         totalPages: totalPages
     };
-    // console.log("page control", pageControl)
-    // console.log("Props 2", props)
     const variables = {};
     let queryNode = GET_BLOG_TOPICS;
     switch (filterType) {
@@ -60,7 +58,6 @@ export const useBlogListing = props => {
             variables.currentPage = currentPage;
             break;
     }
-    console.log("variables", variables)
 
     const {
         data: blogData,
@@ -73,7 +70,6 @@ export const useBlogListing = props => {
     // Set the total number of pages whenever the data changes.
 
     if (blogError) {
-        console.log("Error running")
         let derivedErrorMessage;
         const errorTarget = blogError;
         if (errorTarget.graphQLErrors) {
@@ -109,12 +105,9 @@ export const useBlogListing = props => {
         };
     }, [blogData, totalPages, setTotalPages]);
     if (blogLoading) {
-        console.log("Loading running")
         return <LoadingIndicator/>
     }
     if (blogData) {
-        console.log("variables", variables)
-        console.log("DTA", blogData)
         return {
             blogData,
             blogLoading,

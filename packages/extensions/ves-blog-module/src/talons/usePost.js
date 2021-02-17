@@ -22,7 +22,6 @@ import { useQuery } from '@apollo/client';
 // }
 export const usePost = props => {
     const { postUrl } = props;
-    console.log("URL", postUrl)
     const {
         data: resultData,
         loading: resultLoading
@@ -34,9 +33,7 @@ export const usePost = props => {
         }
     )
     if (resultData) {
-        console.log("asbdsbdbshfjsdfj", resultData)
     }
-    console.log("resultData", resultData)
     return {
         resultData,
         resultLoading

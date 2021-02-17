@@ -4,12 +4,10 @@ import styles from './style.css';
 import { useQuery } from '@apollo/client';
 
 import sliderQuery from './productSlider.gql';
-// import Product from "@magento/venia-ui/lib/components/Gallery";
 import GalleryItem from '@landofcoder/yume-ui/src/components/Gallery/item';
 
 const mapGalleryItem = item => {
     const { small_image } = item;
-    // console.log("ITEM", item)
     return {
         ...item,
         small_image:
@@ -21,7 +19,6 @@ const Slider = () => {
     const { queries } = sliderQuery;
     const { getTopProductQuery } = queries;
     const { data, error, loading } = useQuery(getTopProductQuery);
-    // console.log("ABC",data);
     const params = {
         slidesPerView: 5,
         spaceBetween: 30,

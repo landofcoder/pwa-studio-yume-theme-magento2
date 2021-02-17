@@ -14,7 +14,6 @@ const storage = new BrowserPersistence();
 const BlogListing = props => {
     const { filterType, filterValue } = props;
     const classes = mergeClasses(defaultClasses, props.classes);
-    console.log("Props 1", props)
     const talonProps = useBlogListing({ filterType, filterValue })
     let {
         blogData,
@@ -24,7 +23,6 @@ const BlogListing = props => {
         pageSize,
         setPageSize
     } = talonProps
-    console.log("TALON PROPS", talonProps)
     /*
     fake data
     */
@@ -56,7 +54,6 @@ const BlogListing = props => {
     let blogsWrapper = null;
     if (blogData) {
         if (filterType == "get_post_by_categoryId") {
-            console.log("Category's blogs ", blogData)
             lofBlogList = blogData.lofBlogCategoryById
             if (!lofBlogList.posts) {
                 return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>
@@ -71,7 +68,6 @@ const BlogListing = props => {
             )
         }
         else if (filterType == "get_post_by_authorId") {
-            console.log("Author's blogs ", blogData)
             lofBlogList = blogData.lofBlogAuthorById
             if (!blogData.lofBlogAuthorById.posts || !blogData.lofBlogAuthorById.posts.items) {
                 return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>
@@ -83,7 +79,6 @@ const BlogListing = props => {
             ))
         }
         else if (filterType == "get_post_by_tagName") {
-            console.log("Tag's blogs ", blogData)
             lofBlogList = blogData.lofBlogTagByAlias
             if (!blogData.lofBlogTagByAlias.posts || !blogData.lofBlogTagByAlias.posts.items) {
                 return <div className={classes.blogEmpty} >{'There are no posts at this moment'}</div>

@@ -1,16 +1,9 @@
 import React from 'react';
 import { Link } from '@magento/venia-drivers';
-// import BlogPostInfo from '../blogPostInfo'
 import RichText from '@landofcoder/yume-ui/src/components/RichText'
 
 const BlogListingItem = props => {
     const { classes, item, simiBlogConfiguration } = props;
-    // const {
-    //     name,
-    //     url_key,
-    //     short_description,
-    //     image
-    // } = item;
     const {
         title,
         identifier,
@@ -23,7 +16,6 @@ const BlogListingItem = props => {
         "jpeg",
         "gif"
     ]
-    // console.log("ITEM", item)
     let linkColor = '#1ABC9C';
     if (simiBlogConfiguration && simiBlogConfiguration.general && simiBlogConfiguration.general.font_color) {
         linkColor = simiBlogConfiguration.general.font_color;
