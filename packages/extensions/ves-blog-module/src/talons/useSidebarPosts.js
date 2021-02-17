@@ -1,6 +1,10 @@
 import { useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { GET_SIDEBAR_BLOG_POSTS } from './Blog.gql';
+import {
+    GET_SIDEBAR_BLOG_POSTS,
+    GET_POPULAR_BLOGS,
+    GET_LATEST_BLOGS,
+} from './Blog.gql';
 import { Util } from '@magento/peregrine';
 const { BrowserPersistence } = Util;
 const storage = new BrowserPersistence();
@@ -19,21 +23,22 @@ export const useSidebarPosts = props => {
     const {
         data: popData,
         loading: popLoading
-    } = useQuery(GET_SIDEBAR_BLOG_POSTS, {
+    } = useQuery(GET_POPULAR_BLOGS, {
         variables: {
-            sortBy: 'Popular',
-            pageSize: number_mostview_posts
-        }
+            pageSize: 5
+        },
+        fetchPolicy: "cache-first"
     });
 
     const {
         data: latestData,
         loading: latestLoading
-    } = useQuery(GET_SIDEBAR_BLOG_POSTS, {
+    } = useQuery(GET_LATEST_BLOGS, {
         variables: {
-            sortBy: 'Latest',
-            pageSize: number_recent_posts
-        }
+            pageSize: 5,
+            currentPage: 2
+        },
+        fetchPolicy: "cache-first"
     })
 
     return {

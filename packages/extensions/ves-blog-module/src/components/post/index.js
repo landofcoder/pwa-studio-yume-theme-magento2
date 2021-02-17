@@ -18,13 +18,41 @@ import RelatedPosts from './relatedPosts';
 import SharingBlock from '../sharingBlock';
 import RelatedProducts from './relatedProducts'
 import { has } from "lodash/object";
+import { GET_POST_BY_IDENTIFIER } from '../../talons/Blog.gql';
+import { useQuery } from '@apollo/client';
 
 import { Util } from '@magento/peregrine';
+import RecentComments from '../recentComments';
 const { BrowserPersistence } = Util;
 const storage = new BrowserPersistence();
 
 const Post = props => {
+    // const param = useParams()
     const { postUrl = "" } = useParams();
+    console.log("PARAM", postUrl)
+    const standardizedUrl = postUrl.replace(".html", "")
+    console.log("PARAM", standardizedUrl)
+    const {
+        data,
+        loading,
+        error
+    } = useQuery(GET_POST_BY_IDENTIFIER, {
+        variables: {
+            identifier: standardizedUrl
+        }
+    })
+    // if (loading) {
+    //     return <LoadingIndicator/>
+    // }
+    // if (error) {
+    //     return <h1>Error</h1>
+    // }
+    if (data) {
+        console.log("DATA", data)
+    }
+    if (error) {
+        console.log("ERROR", error)
+    }
     const talonProps = usePost({ postUrl });
     const {
         resultData,
@@ -75,7 +103,7 @@ const Post = props => {
     if (resultLoading)
         return <LoadingIndicator />
 
-    if (!resultData || !resultData.mpBlogPosts || !resultData.mpBlogPosts.items || !resultData.mpBlogPosts.items[0])
+    if (!resultData || !resultData.lofBlogList || !resultData.lofBlogList.items || !resultData.lofBlogList.items[0])
         return 'Cannot find item';
 
     const simiBlogConfiguration = storage.getItem('simiBlogConfiguration');
@@ -84,15 +112,15 @@ const Post = props => {
         linkColor = simiBlogConfiguration.general.font_color;
     }
 
-    const postData = resultData.mpBlogPosts.items[0];
+    const postData = resultData.lofBlogList.items[0];
     const urlToComment = window.location.href;
 
     return (
         <div className={classes.root}>
-            <Title>{postData.meta_title ? postData.meta_title : postData.name}</Title>
+            <Title>{postData.title ? postData.title : postData.page_title}</Title>
             <Meta name="description" content={postData.meta_description} />
             <Meta name="keywords" content={postData.meta_keywords} />
-            <Meta name="robots" content={postData.meta_robots} />
+            {/* <Meta name="robots" content={postData.meta_robots} /> */}
             <BreadCrumb items={
                 [
                     {
@@ -100,12 +128,12 @@ const Post = props => {
                         path: '/blog.html'
                     },
                     {
-                        label: postData.name,
+                        label: postData.title,
                     }
                 ]
             }
             />
-            <h1>{postData.name}</h1>
+            <h1>{postData.title}</h1>
             <style dangerouslySetInnerHTML={{
                 __html: `
                     .${classes.blogPostRichContent} a { color: ${linkColor} }
@@ -116,23 +144,23 @@ const Post = props => {
                     {!!postData.image &&
                         <img src={postData.image} alt="post image" className={classes.blogpostImage} />
                     }
-                    <RichContent classes={{ root: classes.blogPostRichContent }} html={postData.post_content} />
+                    <RichContent classes={{ root: classes.blogPostRichContent }} html={postData.content} />
                     <div className={classes.blogDetailsPostInfo}>
                         <BlogPostInfo item={postData} classes={classes} />
                     </div>
                     <SharingBlock classes={classes} />
-                    {!!(postData && postData.posts && postData.posts.items && postData.posts.items.length) &&
+                    {!!(postData && postData.related_posts && postData.related_posts.items) &&
                         <div className={`${classes.relatedPosts} ${classes.detailsSection}`}>
                             <div className={classes.sectionHeader}>
                                 {`Related Posts`}
                             </div>
                             <div className={classes.sectionContent}>
-                                <RelatedPosts classes={classes} items={postData.posts.items} />
+                                <RelatedPosts classes={classes} items={postData.related_posts.items} />
                             </div>
                         </div>
                     }
-                    {!!(postData && postData.products && postData.products.items && postData.products.items.length) &&
-                        <RelatedProducts items={postData.products.items} classes={classes} />
+                    {!!(postData && postData.related_products && postData.related_products.items && postData.related_products.items.length) &&
+                        <RelatedProducts items={postData.related_products.items} classes={classes} />
                     }
                     <div ref={fbRef}>
                         <div
@@ -148,8 +176,10 @@ const Post = props => {
                     <SearchBlog />
                     <SidebarPosts />
                     <CateTree />
+                    {/* <SimibarMonthlyListing /> */}
+                    {/* <TopicList /> */}
                     <SimibarMonthlyListing />
-                    <TopicList />
+                    <RecentComments />
                     <TagList />
                 </div>
             </div>

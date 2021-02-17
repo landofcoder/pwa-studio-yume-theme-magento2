@@ -17,7 +17,13 @@ const BlogListingItem = props => {
         short_content,
         image
     } = item;
-    console.log("ITEM", item)
+    const imageExtensions = [
+        "jpg",
+        "png",
+        "jpeg",
+        "gif"
+    ]
+    // console.log("ITEM", item)
     let linkColor = '#1ABC9C';
     if (simiBlogConfiguration && simiBlogConfiguration.general && simiBlogConfiguration.general.font_color) {
         linkColor = simiBlogConfiguration.general.font_color;
@@ -29,8 +35,22 @@ const BlogListingItem = props => {
     return (
         <div className={`${classes.blogpostItem} ${displayStyle === 1 ? classes.blogpostItemList : classes.blogpostItemGrid}`}>
             {image ? <div className={classes.blogpostItemCol1} >
-                <img src={image} alt={title} />
-            </div> : ''}
+                <img onError={(event) => {
+                    console.log(image)
+                    if (image) {
+                        const extension = image.split('.').pop()
+                        if (imageExtensions.indexOf(extension)> -1) {
+                            event.target.src = `https://magento2.landofcoder.com/media/${image}`
+                        }
+                        else {
+                            event.target.src = "https://magento2.landofcoder.com/media/ves/blog/6127_MagentoMastersBlogHeader_r1v1.png"
+                        }
+                    }
+                    else {
+                        event.target.src = "https://magento2.landofcoder.com/media/ves/blog/6127_MagentoMastersBlogHeader_r1v1.png"
+                    }
+                }} src={image} alt={title} />
+            </div> : console.log("SRC", image)}
             <div className={classes.blogpostItemCol2} >
                 <h2>
                     <Link to={`/blog/post/${identifier}.html`} style={{ color: linkColor }}>

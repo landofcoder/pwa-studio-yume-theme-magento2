@@ -14,10 +14,10 @@ const RelatedPosts = props => {
     let currentRow = [];
     items.map((item, index) => {
         currentRow.push(
-            <div className={`${classes.relatedPostItem} ${isPhone ? classes.isPhone : ''}`} key={item.url_key}>
-                <div style={{ backgroundImage: `url("${item.image}")` }} className={classes.blogrelatedPostImage} />
-                <Link to={`/blog/post/${item.url_key}.html`} >
-                    <div className={classes.relatedPostName}>{item.name}</div>
+            <div className={`${classes.relatedPostItem} ${isPhone ? classes.isPhone : ''}`} key={index}>
+                <div style={{ backgroundImage: `url("https://magento2.landofcoder.com/media/${item.image}")` }} className={classes.blogrelatedPostImage} />
+                <Link to={`/blog/post/${item.identifier}.html`} >
+                    <div className={classes.relatedPostName}>{item.title}</div>
                 </Link>
                 <div className={classes.relatedPostBlogInfo}>
                     <BlogPostInfo item={item} classes={classes} />
@@ -26,7 +26,7 @@ const RelatedPosts = props => {
         )
         if ((currentRow.length === itemPerRow) || (index === (items.length - 1))) {
             itemToRender.push(
-                <div className={classes.relatedPostRow} key={item.url_key} >
+                <div className={classes.relatedPostRow} key={item.identifier} >
                     {currentRow}
                 </div>
             );

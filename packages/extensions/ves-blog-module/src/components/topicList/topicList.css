@@ -1,7 +1,7 @@
 .topicListRoot {
     padding: 5px;
     border-top: solid 1px #eaeaea;
-    margin-top: 15px;
+    margin-top: 40px;
 }
 .topicListHeader {
     margin-top: 15px;
@@ -13,7 +13,7 @@
 }
 .topicItem {
     display: block;
-    margin-bottom: 15px;
+    margin-bottom: 40px;
 }
 .topicItem:hover {
     opacity: 0.8;

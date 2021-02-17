@@ -13,6 +13,7 @@ import LoadingIndicator from '@landofcoder/yume-ui/src/components/LoadingIndicat
 import { useQuery } from '@apollo/client';
 import { GET_BLOG_ARCHIVE_DETAILS } from '../../talons/Blog.gql';
 import { Title, Meta } from '@landofcoder/yume-ui/src/components/Head';
+import RecentComments from '../recentComments';
 
 const Category = props => {
     const { monthUrl = "" } = useParams();
@@ -62,7 +63,8 @@ const Category = props => {
                     <SidebarPosts />
                     <CateTree />
                     <SimibarMonthlyListing />
-                    <TopicList />
+                    {/* <TopicList /> */}
+                    <RecentComments />
                     <TagList />
                 </div>
             </div>

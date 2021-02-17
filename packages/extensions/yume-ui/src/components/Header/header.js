@@ -11,16 +11,20 @@ import SearchTrigger from './searchTrigger';
 import OnlineIndicator from './onlineIndicator';
 import { useHeader } from '@magento/peregrine/lib/talons/Header/useHeader';
 
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/src/classify';
 import defaultClasses from './header.css';
-import PageLoadingIndicator from '@magento/venia-ui/lib/components/PageLoadingIndicator';
+import PageLoadingIndicator from '@landofcoder/yume-ui/src/components/PageLoadingIndicator';
 import StoreSwitcher from './storeSwitcher';
 import CurrencySwitcher from './currencySwitcher';
 import useStoreConfig from '../../../lib/talons/Homepage/useStoreConfig';
 import { connect } from 'react-redux';
 import { getStoreConfig } from '../../reducer/storeConfig/asyncAction';
+import MenuHorizontal from './menuHorizontal';
+import SearchBar from '../SearchBar';
 
-const SearchBar = React.lazy(() => import('@magento/venia-ui/lib/components/SearchBar'));
+// const SearchBar = React.lazy(() =>
+//     import('@landofcoder/yume-ui/src/components/SearchBar')
+// );
 
 const Header = props => {
     const { getStoreConfig } = props;
@@ -51,36 +55,26 @@ const Header = props => {
             </div>
         </div>
     );
-    const searchBar = isSearchOpen ? (
+    const searchBar = (
         <Suspense fallback={searchBarFallback}>
             <Route>
-                <SearchBar isOpen={isSearchOpen} ref={searchRef} />
+                <SearchBar isOpen={true} ref={searchRef} />
             </Route>
-        </Suspense>
-    ) : null;
+        </Suspense>);
     const pageLoadingIndicator = isPageLoading ? (
         <PageLoadingIndicator />
     ) : null;
-    useEffect(() => {
-        let lastScrollTop = 0;
-        let header = document.getElementById("headerContainer")
-        window.addEventListener("scroll", () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-            if (lastScrollTop > scrollTop) {
-                header.style.top = "0"
-            }
-            else {
-                header.style.top = "-65px"
-            }
-            lastScrollTop = scrollTop
-        })
-        return () => {
-            window.removeEventListener('scroll', () => {})
-        }
-    }, [])
+
     return (
         <React.Fragment>
             <header className={rootClass} id="headerContainer">
+                <div className={classes.switchersContainer}>
+                    <div className={classes.switchers}>
+                        <StoreSwitcher />
+                        <CurrencySwitcher />
+                    </div>
+                </div>
+
                 <div className={classes.toolbar}>
                     <div className={classes.primaryActions}>
                         <NavTrigger />
@@ -90,19 +84,27 @@ const Header = props => {
                         hasBeenOffline={hasBeenOffline}
                         isOnline={isOnline}
                     />
-                    <Link to={resourceUrl('/')}>
-                        <Logo classes={{ logo: classes.logo }} />
+                    <Link to={resourceUrl('/')} className={classes.logo}>
+                        <Logo width={170} height={65} />
                     </Link>
+
+                    <div className={classes.searchBar}>
+                        <SearchBar isOpen={false} />
+                    </div>
+
                     <div className={classes.secondaryActions}>
-                        <SearchTrigger
+                        {/* <SearchTrigger
                             onClick={handleSearchTriggerClick}
                             ref={searchTriggerRef}
-                        />
+                        /> */}
                         <AccountTrigger />
                         <CartTrigger />
                     </div>
                 </div>
-                {searchBar}
+
+                <div className={classes.menuHorizontal}>
+                    <MenuHorizontal />
+                </div>
             </header>
         </React.Fragment>
     );

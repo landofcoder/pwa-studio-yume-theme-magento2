@@ -54,7 +54,7 @@ const AccountChip = props => {
     return (
         <span className={classes.root}>
             <Icon src={AccountIcon} />
-            <span className={classes.text}>{chipText}</span>
+            {/* <span className={classes.text}>{chipText}</span> */}
         </span>
     );
 };

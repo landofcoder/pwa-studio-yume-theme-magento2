@@ -3,9 +3,9 @@ import { useIntl } from 'react-intl';
 import { shape, string } from 'prop-types';
 
 import { useAccountTrigger } from '@magento/peregrine/lib/talons/Header/useAccountTrigger';
-import { mergeClasses } from '@magento/venia-ui/lib/classify';
+import { mergeClasses } from '@landofcoder/yume-ui/src/classify';
 
-import AccountChip from '@magento/venia-ui/lib/components/AccountChip';
+import AccountChip from '@landofcoder/yume-ui/src/components/AccountChip';
 import AccountMenu from '../AccountMenu';
 
 import defaultClasses from './accountTrigger.css';
@@ -45,6 +45,7 @@ const AccountTrigger = props => {
                     <AccountChip
                         fallbackText={formatMessage({
                             id: 'accountTrigger.buttonFallback',
+                            defaultMessage: ''
                         })}
                         shouldIndicateLoading={true}
                     />

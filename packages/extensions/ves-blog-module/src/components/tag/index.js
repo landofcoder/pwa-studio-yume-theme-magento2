@@ -11,35 +11,34 @@ import SimibarMonthlyListing from '../simibarMonthlyListing';
 import { useParams } from "react-router-dom";
 import LoadingIndicator from '@landofcoder/yume-ui/src/components/LoadingIndicator';
 import { useQuery } from '@apollo/client';
-import { GET_TAG_BY_URL_KEY } from '../../talons/Blog.gql';
+import { GET_TAG_BY_URL_KEY, GET_BLOG_BY_TAG_NAME } from '../../talons/Blog.gql';
 import { Title, Meta } from '@landofcoder/yume-ui/src/components/Head';
+import RecentComments from '../recentComments';
 
 const Tag = props => {
-    const { tagUrl = "" } = useParams();
+    const { alias = "" } = useParams();
 
     const {
         data: resultData,
         loading: resultLoading
-    } = useQuery(GET_TAG_BY_URL_KEY,
+    } = useQuery(GET_BLOG_BY_TAG_NAME,
         {
             variables: {
-                url_key: tagUrl.replace('.html', '')
+                alias: alias
             },
-            skip: !tagUrl
         }
     )
     if (resultLoading)
         return <LoadingIndicator />
-    if (!resultData || !resultData.mpBlogTags || !resultData.mpBlogTags.items || !resultData.mpBlogTags.items[0])
+    if (!resultData || !resultData.lofBlogTagByAlias)
         return 'Cannot find item';
 
-    const tagData = resultData.mpBlogTags.items[0];
+    const tagData = resultData.lofBlogTagByAlias
+    console.log("DATA TAG", tagData.name)
 
     return (
         <div className={classes.mainCtn}>
-            <Title>{tagData.meta_title ? tagData.meta_title : tagData.name}</Title>
-            <Meta name="description" content={tagData.meta_description} />
-            <Meta name="keywords" content={tagData.meta_keywords} />
+            <Title>{tagData.name ? tagData.name : tagData.name}</Title>
             <Meta name="robots" content={tagData.meta_robots} />
             <BreadCrumb items={
                 [
@@ -56,14 +55,15 @@ const Tag = props => {
             <h1>{tagData.name}</h1>
             <div className={classes.blogRoot}>
                 <div className={classes.blogListing}>
-                    <BlogListing classes={classes} filterType="get_post_by_tagName" filterValue={tagData.name} />
+                    <BlogListing filterType="get_post_by_tagName" classes={classes}  filterValue={tagData.alias} />
                 </div>
                 <div className={classes.blogSidebar}>
                     <SearchBlog />
                     <SidebarPosts />
                     <CateTree />
                     <SimibarMonthlyListing />
-                    <TopicList />
+                    {/* <TopicList /> */}
+                    <RecentComments />
                     <TagList />
                 </div>
             </div>

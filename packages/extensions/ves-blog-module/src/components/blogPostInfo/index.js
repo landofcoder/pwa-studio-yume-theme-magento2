@@ -1,9 +1,11 @@
+
 import React from 'react';
 import { Link } from '@magento/venia-drivers';
-import Icon from '@landofcoder/yume-ui/src/components/Icon';
+import Icon from '@magento/venia-ui/lib/components/Icon';
 import { Calendar as CalendarIc, User as AuthorIc, Eye as EyeIc } from 'react-feather';
 
 import { Util } from '@magento/peregrine';
+// import { Link } from '@landofcoder/yume-ui/src/components/Head';
 const { BrowserPersistence } = Util;
 const storage = new BrowserPersistence();
 
@@ -13,17 +15,23 @@ const eyeIcon = <Icon src={EyeIc} attrs={{ width: 11 }} />;
 
 const BlogPostInfo = props => {
     const { classes, item } = props;
+    // const {
+    //     publish_date,
+    //     categories,
+    //     author_name,
+    //     author_id,
+    //     author_url_key,
+    //     view_traffic
+    // } = item;
+
     const {
-        publish_date,
-        categories,
-        author_name,
-        author_id,
-        author_url_key,
-        view_traffic
-    } = item;
+        creation_time,
+        category_id,
+        hits,
+        author
+    } = item
 
     const simiBlogConfiguration = storage.getItem('simiBlogConfiguration');
-    console.log("Storage", simiBlogConfiguration)
     let displayAuthor = false;
     if (simiBlogConfiguration && simiBlogConfiguration.general && simiBlogConfiguration.general.display_author) {
         displayAuthor = true;
@@ -35,45 +43,61 @@ const BlogPostInfo = props => {
                 {calenderIcon}
             </span>
             <span className={classes.calendarData}>
-                {publish_date}
+                {creation_time}
             </span>
             {
-                (categories && categories.items && categories.items.length) ?
-                    <React.Fragment>
-                        | <span className={classes.categoryData}>
-                            {`Post In`} {
-                                categories.items.map(
-                                    (categoryItem, index) =>
-                                        <React.Fragment key={index}>
-                                            <Link to={`/blog/category/${categoryItem.url_key}.html`}>
-                                                {categoryItem.name}
-                                            </Link>
-                                            {(index < (categories.items.length - 1)) ? ',' : ''}
-                                        </React.Fragment>
-                                )
-                            }
-                        </span>
-                    </React.Fragment>
-                    :
-                    ''
+                category_id && category_id && category_id.length ?
+                (<React.Fragment>
+                    | <span className={classes.categoryData}>
+                        {`Post In`} {
+                            category_id.map(
+                                (categoryItem, index) =>
+                                    <React.Fragment key={index}>
+                                        <Link to={`/blog/category/${categoryItem}`}>
+                                            {categoryItem}
+                                        </Link>
+                                        {(index < (category_id.length - 1)) ? ',' : ''}
+                                    </React.Fragment>
+                            )
+                        }
+                    </span>
+                </React.Fragment>)
+                :
+                null
             }
             {
-                displayAuthor &&
-                <React.Fragment> |
-                    <span className={classes.authorIcon}>
-                        {authorIcon}
-                    </span>
-                    <span className={classes.authorName}>
-                        <Link to={`/blog/author/${author_url_key}.html?author_name=${author_name}&author_id=${author_id}`}>
-                            {author_name}
-                        </Link>
-                    </span>
-                </React.Fragment>
-            } |
+                
+                // <React.Fragment> |
+                //     <span>
+                //         {authorIcon}
+                //     </span>
+                //     <span>
+                //     {/* {author?.nick_name} */}
+                //         {/* <a href="/">
+                //             {author?.nick_name}
+                //         </a> */}
+                //         <Link to={`/blog/author/${author?.user_name}.html?author_name=${author?.user_name}&author_id=${author?.author_id}`}>
+                //             {author?.nick_name}
+                //         </Link>
+                //     </span>
+                // </React.Fragment>
+            }
+             | <span className={classes.authorName}>
+                {author && author.author_id && author.user_name && author.nick_name?
+                    <Link to={`/blog/author/${author.user_name}.html?author_name=${author.user_name}&author_id=${author.author_id}`}>
+                            {author.nick_name}
+                    </Link>:
+                    null
+                }
+                {/* <Link to={`/blog/author/${author?.user_name}.html?author_name=${author?.user_name}&author_id=${author?.author_id}`} /> */}
+            </span> | 
+            {/* <div className={classes.authorName}>
+                <Link to={`/blog/author/${author?.user_name}.html?author_name=${author?.user_name}&author_id=${author?.author_id}`} />
+            </div> */}
             <span className={classes.eyeIcon}>
                 {eyeIcon}
             </span>
-            <span className={classes.viewCount}>{view_traffic}</span>
+            <span className={classes.viewCount}>{hits}</span>
         </div>
     )
 }

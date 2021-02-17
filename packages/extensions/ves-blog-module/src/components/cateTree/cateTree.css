@@ -6,6 +6,7 @@
 .catetreeHeader {
     margin-top: 15px;
     font-size: 20px;
+    margin-bottom: 20px;
 }
 .dropdownSelect {
     margin-top: 15px;
@@ -31,4 +32,16 @@
     font-style: unset;
     display: inline-block;
     width: 15px;
+}
+.customOptionCategory {
+    display: flex !important;
+}
+.placeholderCategory {
+    display: flex;
+}
+.controlCategory {
+    border-left: none !important;
+    border-right: none !important;
+    border-top: none !important;
+    border-radius: 0 !important;
 }
