@@ -33,6 +33,11 @@ module.exports = targets => {
         pattern: '/brands.html',
         path: require.resolve('./components/page/index.js')
       });
+      routes.push({
+        name: 'Brand Info',
+        pattern: '/brand/:brandUrl?',
+        path: require.resolve('./components/brandInfo/index.js')
+      })
       return routes;
     });
   
