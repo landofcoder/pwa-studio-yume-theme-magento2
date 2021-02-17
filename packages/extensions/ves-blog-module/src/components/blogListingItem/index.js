@@ -28,7 +28,6 @@ const BlogListingItem = props => {
         <div className={`${classes.blogpostItem} ${displayStyle === 1 ? classes.blogpostItemList : classes.blogpostItemGrid}`}>
             {image ? <div className={classes.blogpostItemCol1} >
                 <img onError={(event) => {
-                    console.log(image)
                     if (image) {
                         const extension = image.split('.').pop()
                         if (imageExtensions.indexOf(extension)> -1) {
