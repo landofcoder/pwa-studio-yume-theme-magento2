@@ -29,9 +29,7 @@ const storage = new BrowserPersistence();
 const Post = props => {
     // const param = useParams()
     const { postUrl = "" } = useParams();
-    console.log("PARAM", postUrl)
     const standardizedUrl = postUrl.replace(".html", "")
-    console.log("PARAM", standardizedUrl)
     const {
         data,
         loading,
@@ -48,10 +46,9 @@ const Post = props => {
     //     return <h1>Error</h1>
     // }
     if (data) {
-        console.log("DATA", data)
     }
     if (error) {
-        console.log("ERROR", error)
+        return 'An error occurred while processing request'
     }
     const talonProps = usePost({ postUrl });
     const {

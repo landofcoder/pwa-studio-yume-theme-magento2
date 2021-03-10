@@ -42,14 +42,12 @@ const SidebarPosts = props => {
     } = useSidebarPosts();
 
     const simiBlogConfiguration = storage.getItem('simiBlogConfiguration');
-    console.log("DATA Storage", simiBlogConfiguration)
     let linkColor = '#1ABC9C';
     if (simiBlogConfiguration && simiBlogConfiguration.general && simiBlogConfiguration.general.font_color) {
         linkColor = simiBlogConfiguration.general.font_color;
     }
 
     const popPosts = useMemo(() => {
-        console.log("Pop data", popData)
         if (popData && popData.lofBlogList && popData.lofBlogList.items) {
             return popData.lofBlogList.items.map((item, index) => <PostItem item={item} key={index} />)
         }

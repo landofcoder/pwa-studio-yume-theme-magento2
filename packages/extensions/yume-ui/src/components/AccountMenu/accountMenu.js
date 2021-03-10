@@ -25,7 +25,6 @@ const AccountMenu = React.forwardRef((props, ref) => {
         handleCreateAccount,
         updateUsername
     } = talonProps;
-    console.log("talonProps 2", talonProps)
     const classes = mergeClasses(defaultClasses, props.classes);
     const rootClass = accountMenuIsOpen ? classes.root_open : classes.root;
     const contentsClass = accountMenuIsOpen
