@@ -14,11 +14,9 @@ import { useQuery } from '@apollo/client';
 import { GET_CATE_BY_URL_KEY, GET_CATEGORY_META_DATA } from '../../talons/Blog.gql';
 import { Title, Meta } from '@landofcoder/yume-ui/src/components/Head';
 import RecentComments from '../recentComments';
-// import { useQuery } from '@apollo/client';
 
 const Category = props => {
     const { categoryId = "" } = useParams();
-    // console.log("CATE-props", categoryId)
     const {
         data: cateData,
         loading: cateLoading,
@@ -35,33 +33,10 @@ const Category = props => {
         return null;
     }
     if (cateData) {
-        console.log("CATE DATA", cateData)
     }
-    // const {
-    //     data: resultData,
-    //     loading: resultLoading
-    // } = useQuery(GET_CATE_BY_URL_KEY,
-    //     {
-    //         variables: {
-    //             url_key: categoryUrl.replace('.html', '')
-    //         },
-    //         skip: !categoryUrl
-    //     }
-    // )
-    // if (resultLoading)
-    //     return <LoadingIndicator />
-    // if (!resultData || !resultData.mpBlogCategories || !resultData.mpBlogCategories.items || !resultData.mpBlogCategories.items[0])
-    //     return 'Cannot find item';
-
-    // const cateData = resultData.mpBlogCategories.items[0];
 
     return (
         <div className={classes.mainCtn}>
-            {/* <Title>{cateData.lofBlogCategoryById.page_title ? cateData.lofBlogCategoryById.page_title : cateData.lofBlogCategoryById.name}</Title>
-            <Meta name="description" content={cateData.lofBlogCategoryById?.meta_description} />
-            <Meta name="keywords" content={cateData.lofBlogCategoryById?.meta_keywords} />
-            <Meta name="robots" content={cateData.lofBlogCategoryById?.meta_description} /> */}
-            {/* <Meta content={`${cateData?.lofBlogCategoryById?.page_title}`}/> */}
             <BreadCrumb items={
                 [
                     {

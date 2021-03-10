@@ -674,10 +674,12 @@ export const GET_TAGS_LIST = gql`
                 alias
                 meta_robots
                 name
-                post {
-                    ...BlogFragment
+                posts {
+                    items {
+                        ...BlogFragment
+                    }
+                    total_count
                 }
-                tag_id
             }
         }
     }

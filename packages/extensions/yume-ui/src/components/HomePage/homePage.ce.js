@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { useBlog } from '@landofcoder/yume-ui/lib/talons/Homepage/useBlog';
 import { useImageSlider } from '@landofcoder/yume-ui/lib/talons/Homepage/useImageSlider';
-import { useProductRelated } from '@landofcoder/yume-ui/lib/talons/Homepage/useProductRelated';
+import { useProductSlider } from '@landofcoder/yume-ui/lib/talons/Homepage/useProductSlider';
 import globalCSS from './homePage.css';
 
 // Research for custom one of the custom talons function
@@ -9,13 +9,13 @@ import globalCSS from './homePage.css';
 const HomePage = () => {
     const imageSlider = useImageSlider();
     const blog = useBlog();
-    const productRelated = useProductRelated();
+    const productSlider = useProductSlider();
 
     return (
         <Fragment>
             {imageSlider.components}
             {blog.components}
-            {productRelated.components}
+            {productSlider.components}
         </Fragment>
     );
 };

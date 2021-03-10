@@ -34,7 +34,6 @@ const Tag = props => {
         return 'Cannot find item';
 
     const tagData = resultData.lofBlogTagByAlias
-    console.log("DATA TAG", tagData.name)
 
     return (
         <div className={classes.mainCtn}>

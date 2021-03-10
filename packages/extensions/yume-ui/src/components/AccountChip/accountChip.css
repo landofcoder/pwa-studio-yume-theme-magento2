@@ -1,6 +1,6 @@
 .root {
     align-items: center;
-    column-gap: 0.5rem;
+    /* column-gap: 0.5rem; */
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: auto 1fr;

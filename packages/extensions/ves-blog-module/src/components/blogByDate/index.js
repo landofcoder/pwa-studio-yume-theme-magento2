@@ -31,7 +31,6 @@ const BlogByDate = (props) => {
     const { year, month } = useParams()
     const title = months[parseInt(month)].concat(", ", year)
     const filterValue = year.concat("-", month)
-    console.log("filterValue", filterValue)
     if (filterValue) {
         return (
             <div className={classes.mainCtn}>

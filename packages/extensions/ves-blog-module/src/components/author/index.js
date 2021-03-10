@@ -17,8 +17,6 @@ const Topic = props => {
     const urlSearch = new URLSearchParams(location.search)
     const authorName = urlSearch.get("author_name");
     const authorId = urlSearch.get("author_id")
-    // const { authorId = "" } = useParams()
-    console.log("Author id", authorId)
     
     if (authorName && authorId) {
         return (

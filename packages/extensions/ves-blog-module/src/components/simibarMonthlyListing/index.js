@@ -42,41 +42,6 @@ const SimibarMonthlyListing = props => {
     if (error) {
         return 'Can not find items'
     }
-    // if (data) {
-    //     console.log("Data", data)
-    //     const time = data.lofBlogArchive[0].time
-    //     const timeArray = time.split('-')
-    //     const month = parseInt(timeArray.pop())
-    //     console.log("after pop", timeArray)
-    //     const timeFormatted = months[month].concat(" ", timeArray[0])
-    //     console.log("Time formatted", timeFormatted)
-    // }
-
-    // if (archiveListData && archiveListData.mpBlogMonthlyArchive && archiveListData.mpBlogMonthlyArchive.items) {
-    //     const archiveItems = archiveListData.mpBlogMonthlyArchive.items;
-    //     return (
-    //         <div className={classes.listRoot}>
-    //             <div className={classes.listHeader}>{`Monthly Archive`}</div>
-    //             <div className={classes.listItems}>
-    //                 {archiveItems.map((archiveItem, index) => {
-    //                     try {
-    //                         let archiveData = new Date(archiveItem.label);
-    //                         if (archiveData && archiveData.getFullYear() && archiveData.getMonth()) {
-    //                             return (
-    //                                 <Link className={classes.listItem} to={`/blog/month/${(archiveData.getFullYear())}-${(archiveData.getMonth() + 1)}.html`} key={archiveItem.label}>
-    //                                     {calendarIcon} {archiveItem.label} ({archiveItem.quantity})
-    //                                 </Link>
-    //                             )
-    //                         }
-    //                     } catch (err) {
-
-    //                     }
-    //                 })}
-    //             </div>
-    //         </div>
-    //     )
-    // }
-    // return ''
     return (
         <div className={classes.archiveContainer}>
             <div className={classes.listArchiveHeader}>{`Monthly Archive`}</div>

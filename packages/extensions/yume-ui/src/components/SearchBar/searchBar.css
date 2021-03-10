@@ -23,8 +23,8 @@
     align-items: center;
     display: inline-flex;
     justify-content: center;
-    max-width: 24rem;
-    padding-bottom: 1rem;
+    /* max-width: 24rem; */
+    /* padding-bottom: 1rem; */
     position: relative;
     width: 100%;
 }
@@ -38,4 +38,10 @@
     display: grid;
     position: relative;
     z-index: 1;
+}
+
+.input {
+    composes: input from '../TextInput/textInput.css';
+    border: 2px solid rgb(var(--venia-global-color-gray-600));
+    border-radius: 6px;
 }

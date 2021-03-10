@@ -1,0 +1,102 @@
+/* breakpoint in pixels for responsive */
+/* dropdown Menu core scss */
+.ulClass {
+  /* text-transform: uppercase; */
+  display: inline-block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  z-index: 100;
+}
+.ulClass .liClass {
+  position: relative;
+  display: inline-block;
+}
+.ulClass .liClass:hover > .ulClass {
+  display: inherit;
+}
+.ulClass .liClass:hover > .ulClass .liClass {
+  display: list-item;
+  border: 1px solid #ebebeb;
+}
+.ulClass .liClass a {
+  display: block;
+}
+.ulClass .liClass .ulClass {
+  display: none;
+  position: absolute;
+ /* optional: submenu is same width than parent entry width */
+  min-width: 15rem;
+ /* optional: submenu background color */
+  background-color: #fff;
+}
+.ulClass .liClass .ulClass .ulClass {
+  left: 100%;
+  top: 0;
+}
+/* Responsiveness core scss */
+@media (max-width: 641px) {
+  .ulClass {
+    display: inherit;
+ }
+  .ulClass:first-child:before {
+    background-color: #fff;
+    content: 'MENU';
+    display: block;
+    padding: 1rem;
+    /* color: #fff; */
+    text-align: right;
+ }
+  .ulClass:active .liClass, .ulClass:focus .liClass, .ulClass:hover .liClass {
+    display: list-item;
+ }
+  .ulClass .liClass {
+    display: none;
+    background-color: #fff;
+ }
+  .ulClass .liClass .ulClass {
+    position: relative;
+    min-width: auto;
+    display: inherit;
+    border-top: 2px solid #999;
+ }
+  .ulClass .liClass .ulClass .liClass {
+    display: block;
+ }
+  .ulClass .liClass .ulClass .liClass a {
+    position: relative;
+ }
+  .ulClass .liClass .ulClass .liClass a:before {
+    content: '';
+    padding-left: 1.5%;
+ }
+  .ulClass .liClass .ulClass .liClass .ulClass {
+    left: 0;
+ }
+}
+/* ------------- optional styling below ------------ */
+/* Following declarations are OPTIONAL */
+.menu {
+  background-color: #fff;
+  margin: 15px 0px 13px 0px;
+}
+.menu .ulClass .liClass:hover {
+  background-color: #e2e1e1;
+}
+
+.cssLink {
+  /* color: #000; */
+  text-decoration: none;
+  padding: 15px;
+}
+.cssLink:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.liClass > a:after {
+  content: '';
+  float: right;
+  margin-left: 5px;
+}
+.liClass > a:only-child:after {
+  content: '';
+}

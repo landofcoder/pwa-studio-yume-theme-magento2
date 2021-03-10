@@ -12,7 +12,6 @@ const storage = new BrowserPersistence();
 const RecentComments = () => {
     const { data: tagListData } = useQuery(GET_TAGS_LIST);
     const { recentData, recentError, recentLoading } = useRecentComment();
-    // console.log('recent comment', recentComment);
     const simiBlogConfiguration = storage.getItem('simiBlogConfiguration');
     let linkColor = '#1ABC9C';
     if (

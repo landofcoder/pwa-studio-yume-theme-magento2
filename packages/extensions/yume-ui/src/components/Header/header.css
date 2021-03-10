@@ -27,21 +27,40 @@
 
 .toolbar {
     position: relative;
-    z-index: 3;
+    z-index: 13;
     align-content: center;
     align-items: center;
     display: grid;
     grid-template-areas: 'primary title secondary';
-    grid-template-columns: 1fr auto 1fr;
+    grid-template-columns: 1fr 2fr 1fr;
     grid-template-rows: 3rem;
     justify-items: center;
     max-width: var(--venia-global-maxWidth);
-    min-height: 3.5rem;
-    padding: 0 0.5rem;
+    min-height: 5.5rem;
+    /* padding: 0 0.5rem; */
     width: 100%;
 }
 
+.menuHorizontal {
+    display: none;
+}
+
 @media (min-width: 641px) {
+
+    .menuHorizontal {
+        display: block;
+        justify-content: flex-end;
+        max-width: var(--venia-global-maxWidth);
+        width: 100%;
+        position: relative;
+        z-index: 11;
+        margin: 0 auto;
+    }
+
+    .primaryActions {
+        display: none !important;
+    }
+
     .switchers {
         display: grid;
         grid-auto-flow: column;
@@ -63,15 +82,20 @@
     .toolbar {
         max-width: var(--venia-global-maxWidth);
         grid-template-areas: 'primary title secondary';
-        grid-template-columns: 1fr auto 1fr;
-        min-height: 4rem;
-        padding: 0 1rem;
+        grid-template-columns: 1fr 2fr 1fr;
+        min-height: 5.5rem;
+        /*padding: 0 1rem;*/
     }
+
+    .secondaryActions {
+        column-gap: 1rem;
+    }
+
 }
 
 .logo {
-    display: grid;
-    grid-area: title;
+    justify-self: flex-start;
+    justify-content: flex-start;
 }
 
 .primaryActions {
@@ -90,12 +114,6 @@
     justify-items: end;
     align-items: center;
     justify-self: end;
-}
-
-@media (min-width: 641px) {
-    .secondaryActions {
-        column-gap: 1rem;
-    }
 }
 
 .searchFallback {
@@ -151,12 +169,26 @@
 }
 
 @keyframes pulse {
+
     0%,
     80%,
     100% {
         box-shadow: 0 var(--dot-size) 0 -1.3em;
     }
+
     40% {
         box-shadow: 0 var(--dot-size) 0 0;
+    }
+}
+
+.searchBar{
+    width: 100%;
+}
+
+@media (max-width: 641px) {
+    .searchBar{
+        grid-column: 1 / span 3;
+        width: 100%;
+        margin-top: 15px;
     }
 }
