@@ -1,5 +1,5 @@
-// const componentOverrideMapping = require('./componentOverrideMapping');
-// const moduleOverridePlugin = require('./moduleOverrideWebpackPlugin');
+const componentOverrideMapping = require('./componentOverrideMapping');
+const moduleOverridePlugin = require('./moduleOverrideWebpackPlugin');
 
 /**
  * Custom intercept file for the extension
@@ -13,10 +13,10 @@
  */
 module.exports = targets => {
     // Wrap the talon with this extension
-  
+
   //   const peregrineTargets = targets.of('@landofcoder/yume-ui');
   //   const talonsTarget = peregrineTargets.talons;
-  
+
     // Set the buildpack features required by this extension
     const builtins = targets.of('@magento/pwa-buildpack');
     builtins.specialFeatures.tap(featuresByModule => {
@@ -25,8 +25,8 @@ module.exports = targets => {
         esModules: true
       };
     });
-  
-  
+
+
     targets.of('@landofcoder/yume-ui').routes.tap(routes => {
       routes.push({
         name: 'Page',
@@ -40,15 +40,14 @@ module.exports = targets => {
       })
       return routes;
     });
-  
+
   //   talonsTarget.tap(talonWrapperConfig => {
   //     talonWrapperConfig.Homepage.useImageSlider.wrapWith(
   //       '@landofcoder/ves-blog-module'
   //     );
   //   });
-  
-  //   targets.of('@magento/pwa-buildpack').webpackCompiler.tap(compiler => {
-  //     new moduleOverridePlugin(componentOverrideMapping).apply(compiler);
-  //   });
+
+    targets.of('@magento/pwa-buildpack').webpackCompiler.tap(compiler => {
+      new moduleOverridePlugin(componentOverrideMapping).apply(compiler);
+    });
   };
-  

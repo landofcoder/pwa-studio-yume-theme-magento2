@@ -5,20 +5,20 @@ import { useQuery } from '@apollo/client';
 
 const capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1)
-}
+};
 
 export const useBrandInfo = props => {
     const { brandUrl } = props;
-    let rawUrl = brandUrl;
+    const rawUrl = brandUrl;
     let result = '';
-    if (brandUrl == '' || brandUrl == null || brandUrl == undefined || !brandUrl) {
+    if (brandUrl === '' || brandUrl == null || !brandUrl) {
         result = rawUrl;
     }
     else {
         const rawUrl = brandUrl.replace('.html', '');
         const words = rawUrl.split('-');
         for (let i = 0; i < words.length; i++) {
-            const capitalizeResult = capitalize(words[i])
+            const capitalizeResult = capitalize(words[i]);
             if (i !== words.length - 1) {
                 result = result.concat(capitalizeResult).concat(" ")
             }
@@ -37,14 +37,14 @@ export const useBrandInfo = props => {
             name: result
         },
         fetchPolicy: "cache-first"
-    })
+    });
     return {
         brandData,
         brandError,
         brandLoading,
     }
-}
+};
 
 useListBrand.prototype = {
     brandUrl: PropTypes.string.isRequired
-}
+};

@@ -39,7 +39,7 @@ const ItemPlaceholder = ({ classes }) => (
 
 const GalleryItem = props => {
     const { item } = props;
-
+    console.log("item", item)
     const classes = mergeClasses(defaultClasses, props.classes);
 
     if (!item) {
