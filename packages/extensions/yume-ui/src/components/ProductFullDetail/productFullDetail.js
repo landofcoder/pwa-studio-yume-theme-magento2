@@ -152,6 +152,7 @@ const ProductFullDetail = props => {
                         />
                     </p>
                 </section>
+                {brandList.components}
                 <section className={classes.imageCarousel}>
                     <Carousel images={mediaGalleryEntries} />
                 </section>
@@ -207,7 +208,6 @@ const ProductFullDetail = props => {
                 </section>
             </Form>
             {productRelated.components}
-            {brandList.components}
         </Fragment>
     );
 };

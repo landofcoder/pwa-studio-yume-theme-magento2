@@ -104,7 +104,7 @@ export const LIST_BRANDS = gql`
     ${BRAND_FRAGMENT}
 `;
 
-const LIST_BRANDS_BY_PRODUCT_ID = gql`
+export const LIST_BRANDS_BY_PRODUCT_ID = gql`
     query lofBrandByProduct($product_id: Int) {
         lofBrandByProduct(product_id: $product_id) {
             items {

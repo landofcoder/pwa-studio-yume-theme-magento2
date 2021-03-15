@@ -8,7 +8,6 @@ const App = (props) => {
     return (
         <div className={styles.productSliderModule}>
             <div className={styles.wrapperSlider}>
-
                 <RelatedProductSlider urlKey={props} />
 
                 <UpSellProductSlider urlKey={props} />

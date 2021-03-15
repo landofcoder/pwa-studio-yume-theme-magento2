@@ -1,13 +1,13 @@
 import React from 'react';
 import styles from './index.css';
-import useBrandList from "../../hooks/useListBrandByProduct";
+import BrandListByProduct from "../brandListByProduct";
 
 const App = (props) => {
-    console.log("props", props)
+    console.log("props1", props)
     return (
-        <div className={styles.brandListModule}>
-            <useBrandList/>
-        </div>
+        <section className={styles.brandListModule}>
+            <BrandListByProduct props={props} />
+        </section>
     );
 };
 export default App;
