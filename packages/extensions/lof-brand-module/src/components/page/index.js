@@ -1,13 +1,13 @@
 import React from 'react';
 import { useListBrand } from '../../hooks/useListBrand';
-import LoadingIndicator from '@landofcoder/yume-ui/src/components/LoadingIndicator';
-import { Title } from '@landofcoder/yume-ui/src/components/Head';
+import LoadingIndicator from "@magento/venia-ui/lib/components/LoadingIndicator";
+import { Title} from "@magento/venia-ui/lib/components/Head";
 import BreadCrumb from '../breadcrumb/index';
 import classes from './page.css';
 import { Link } from '@magento/venia-drivers';
-import Icon from '@landofcoder/yume-ui/src/components/Icon';
+import Icon from "@magento/venia-ui/lib/components/Icon";
 import { Search as SearchIc } from 'react-feather';
-import SearchBrand from '../searchBrand/index';
+import SearchBrandBar from "../searchBrand";
 
 const searchIcon = <Icon src={SearchIc} attrs={{ width: 16 }} />;
 
@@ -32,7 +32,9 @@ const Page = props => {
                 ]}
             ></BreadCrumb>
             <div className={classes.brandsContainer}>
-                <SearchBrand />
+                <div className={classes.brandsSearch}>
+                    <SearchBrandBar />
+                </div>
                 <div className={classes.brandsList}>
                     <div className={classes.brandListRow}>
                         {listBrandData.lofBrandList.items.map(

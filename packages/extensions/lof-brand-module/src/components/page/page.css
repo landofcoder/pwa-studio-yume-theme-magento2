@@ -8,6 +8,9 @@
     width: 30%;
     padding: 10px;
 } */
+.brandsSearch {
+    float: left;
+}
 .brandsList {
     float: left;
     width: 70%;

@@ -1,51 +1,40 @@
-.searchBrandBoxCol {
-    float: left;
-    width: 30%;
-    padding: 10px;
-}
-.searchForm {
-    position: relative;
-}
-.searchFieldCtn {
-    padding: 5px;
-}
-.searchField {
-    border: 1px solid #eaeaea;
-    border-radius: 4px;
-    padding: 5px;
-    display: flex;
-}
-.searchField input{
-    padding: 5px;
-    border: none;
-    margin-inline-start: 5px;
+.root {
+    align-items: center;
+    justify-items: center;
+    max-width: var(--venia-global-maxWidth);
+    padding: 0 1rem;
     width: 100%;
 }
-.brandTitle {
-    font-size: 36px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+
+.root_open {
+    composes: root;
+    display: grid;
 }
-.searchResultItem {
-    padding: 15px;
-    border-bottom: 1px solid #f2f2f2;
-    transition: .3s all;
-    margin-top: 15px;
+
+.form {
+    align-items: center;
+    display: grid;
+    justify-items: stretch;
+    width: 100%;
 }
-.searchResultItem:hover {
-    box-shadow: 5px 10px 18px #f2f2f2;
-    transform: scale(1.01);
-    transition: .3s all;
+
+.container {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    max-width: 24rem;
+    padding-bottom: 1rem;
+    position: relative;
+    width: 100%;
 }
-.brandName {
-    font-size: 20px;
-    text-align: center;
+
+.search {
+    display: grid;
+    position: relative;
 }
-/* .searchThumbnail {
-    
-} */
-@media screen and (max-width: 768px) {
-    .searchBrandBoxCol {
-        width: 100%;
-    }
+
+.autocomplete {
+    display: grid;
+    position: relative;
+    z-index: 1;
 }

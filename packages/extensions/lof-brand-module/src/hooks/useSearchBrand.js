@@ -21,6 +21,8 @@ export const useSearchBrand = props => {
             name: formattedName
         },
     })
+    console.log("brandError2", brandError)
+    console.log("brandData2", brandData)
 
     return {
         brandData,

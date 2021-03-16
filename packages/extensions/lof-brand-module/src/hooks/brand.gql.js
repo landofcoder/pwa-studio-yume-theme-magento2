@@ -117,8 +117,8 @@ export const LIST_BRANDS_BY_PRODUCT_ID = gql`
 `;
 
 export const GET_SEARCH_BRAND = gql`
-    query lofBrandList($name: String!) {
-        lofBrandList(filter: { name: { like: $name } }) {
+    query lofBrandList($brandName: String) {
+        lofBrandList(search: $brandName) {
             items {
                 ...BrandFragment
             }
